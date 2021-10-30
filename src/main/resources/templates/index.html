@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="fragments/head :: head_fragment('Etusivu')">
 </head>
+
 <body>
-    <h1>Santa Service</h1>
-    <h2>Front page</h2>
-    <header th:insert="fragments/links :: testinav"></header>
+    <header th:replace="fragments/header :: header-fragment">
+    </header>
+    <main>
+        <h1>Etusivun raflaava otsikko</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis doloremque dicta laborum enim ab sunt nulla ullam recusandae corporis dolore tenetur ipsa consequuntur possimus labore repudiandae, nemo numquam quam aliquam?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis eaque nam tenetur incidunt dolorum cupiditate beatae nostrum iusto, error voluptas non quibusdam culpa magni, quam itaque doloremque, perspiciatis eveniet cum?</p>
+    </main>
+    <footer th:replace="fragments/footer :: footer-fragment">
+    </footer>
+
 </body>
+
 </html>

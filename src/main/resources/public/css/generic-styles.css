@@ -1,0 +1,73 @@
+/* Esimerkki yleisistä säännöistä, mitä noudatetaan sivustolla */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 2rem;
+}
+
+h1 {
+    font-size: 4.2rem;
+    color: bisque;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+p {
+    font-size: 1.8rem;
+    color: bisque;
+}
+
+a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: bisque;
+}
+
+header {}
+
+nav {
+    background-color: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav li {
+    margin: 1rem;
+}
+
+.main-image {
+    background-image: url("../images/header-photo.png");
+    
+    /* width: 100%;
+    height: auto; */
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    /* background-color: rgb(11, 11, 75); */
+    padding: 2rem;
+    min-height: 20rem;
+    background: linear-gradient(#453986, #050a42);
+}
+
+footer {
+    background-color: brown;
+    min-height: 5rem;
+    padding: 2rem;
+    text-align: center;
+}

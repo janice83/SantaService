@@ -3,7 +3,10 @@
     <head th:replace="fragments/head :: head_fragment('Pukeille')">
     </head>
 <body>
-    <h1>Joulupukkisivu</h1>
-    <header th:insert="fragments/links :: testinav"></header>
+    <header th:replace="fragments/header :: header-fragment">
+    </header>
+    <main></main>
+    <footer th:replace="fragments/footer :: footer-fragment">
+    </footer>
 </body>
 </html>
