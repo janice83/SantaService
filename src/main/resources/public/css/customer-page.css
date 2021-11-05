@@ -1,12 +1,8 @@
-.customer-page-section {
-    line-height: 3rem;
-}
+.customer-page-section {}
 
 h1, p {
     margin-bottom: 2rem;
 }
-
-
 
 .customer-form {
     color: bisque;
