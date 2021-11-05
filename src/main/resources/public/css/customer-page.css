@@ -6,9 +6,7 @@ h1, p {
     margin-bottom: 2rem;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+
 
 .customer-form {
     color: bisque;

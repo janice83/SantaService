@@ -29,6 +29,10 @@ a {
     color: bisque;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 header {}
 
 nav {
