@@ -1,0 +1,20 @@
+section {
+    line-height: 3rem;
+}
+
+h1, p {
+    margin-bottom: 2rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.customer-form {
+    color: bisque;
+    font-size: 1.8rem;
+}
+
+.customer-form-btn {
+    background-color: green;
+}
