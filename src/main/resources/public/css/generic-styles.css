@@ -65,7 +65,7 @@ nav li {
     min-height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 76% 50%;
 }
 
 main {
@@ -81,3 +81,16 @@ footer {
     padding: 2rem;
     text-align: center;
 }
+
+@media only screen and (max-width: 769px) {
+    .main-image {
+        background-position: 75% 23%;
+    }
+  }
+
+@media only screen and (min-width: 770px) {
+    .main-image {
+        background-position: 75% 23%;
+    }
+  }
+
