@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
+
+
+body {
+    text-align: center;
+
+}
+
+.otsikko {
+    font-family: 'Ceviche One', cursive;
+    font-size: 9rem;
+    margin-bottom: 2rem;
+}
+
+.content {
+    margin: 0 2rem 2rem 2rem;
+}
