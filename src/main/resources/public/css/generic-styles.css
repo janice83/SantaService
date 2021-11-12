@@ -82,15 +82,30 @@ footer {
     text-align: center;
 }
 
+
+/* Tablettinäkymä */
 @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
     }
+    nav {
+        margin-top: -5rem;
+    }
   }
 
+/* Desktop näkymä */
 @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
+
+  }
+
+/* Mobiilinäkymä */
+@media only screen and (max-width: 426px) {
+    nav {
+        margin-top: -12rem;
+    }
+    
   }
 
