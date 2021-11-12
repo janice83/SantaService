@@ -34,3 +34,6 @@ build/
 
 ### Readme ###
 **.md
+
+### Database from development ###
+*.db
