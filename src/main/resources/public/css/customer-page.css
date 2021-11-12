@@ -12,3 +12,21 @@ h1, p {
 .customer-form-btn {
     background-color: green;
 }
+
+.customer-h1 {
+
+}
+
+.card {
+    background-color: brown;
+    padding: 1rem;
+    width: 15rem;
+    margin: 1.5rem;
+    border: solid white 1rem;
+    border-radius: 1rem;
+    box-shadow: 4px 8px 0 rgba(100, 90, 90, 0.2), 0 6px 20px 0 rgba(100, 90, 90, 0.2);
+}
+figure img {
+    max-width: 80px;
+    max-height: 100px;
+}
