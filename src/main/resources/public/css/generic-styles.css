@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    margin: 2rem;
+    
 }
 
 h1 {
@@ -15,6 +15,11 @@ h1 {
 
 h2 {
     font-size: 3.2rem;
+    color: bisque;
+}
+
+h3 {
+    font-size: 2.4rem;
     color: bisque;
 }
 
@@ -38,6 +43,14 @@ a:hover {
 }
 
 header {}
+
+figure h1 {
+    font-size: 5rem;
+    color: whitesmoke;
+    position: absolute;
+    top: 29%;
+    left: 2rem;
+  }
 
 nav {
     background-color: brown;
@@ -82,15 +95,69 @@ footer {
     text-align: center;
 }
 
+.some {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.some >* {
+    padding: 0.5rem;
+    font-size: 4rem;
+    color: white;
+}
+
+/* Tablettinäkymä */
 @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
     }
+    nav {
+        margin-top: -5rem;
+    }
+
+    figure h1 {
+        position: absolute;
+        top: 30%;
+        left: 3%;
+    }
   }
 
+/* Desktop näkymä */
 @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
+
+    figure h1 {
+        position: absolute;
+        top: 38%;
+        left: 2%;
+    }
+
+  }
+/* Iso laptop-näkymä */
+  @media only screen and (min-width: 1440px) {
+    figure h1 {
+        position: absolute;
+        top: 25%;
+        left: 2%;
+        font-size: 6rem;
+    }
+
+  }
+
+/* Mobiilinäkymä */
+@media only screen and (max-width: 426px) {
+    nav {
+        margin-top: -12rem;
+    }
+
+    figure h1 {
+        font-size: 2.5rem;
+        top: 23%;
+        left: 4%;
+    }
+    
   }
 
