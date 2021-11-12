@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
 
-figure h1 {
-  font-size: 5rem;
-  color: whitesmoke;
-  position: absolute;
-  top: 35%;
-  left: 10%;
-}
 
 .index-main {
     text-align: center;
@@ -41,6 +34,6 @@ figure h1 {
     .content {
         margin: 0 2rem 2rem 2rem;
     }
-    
+
   }
 
