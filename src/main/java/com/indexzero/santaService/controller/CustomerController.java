@@ -22,12 +22,12 @@ public class CustomerController {
     public String getCustomerPage() {
         return "customer";
     }
-
+    /*  */
     @ResponseBody
     @RequestMapping(
-        value = "customers",
-         method = RequestMethod.GET, 
-         produces = "application/json")
+        value = "santas",
+        method = RequestMethod.GET, 
+        produces = "application/json")
     public List<SantaAccount> getSantas() {
         return santaService.getNewSantas();
     }

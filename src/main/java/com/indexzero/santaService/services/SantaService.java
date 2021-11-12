@@ -15,10 +15,16 @@ public class SantaService {
     @Autowired
     private SantaAccountRepository santaAccountRepository;
 
+    public void save(SantaAccount santaAccount) {
+        santaAccountRepository.save(santaAccount);
+
+    }
+
     /* Get all santas: */
     public List<SantaAccount> getAllSantas() {
         return santaAccountRepository.findAll();
     }
+
     /* Include only what needed */
     public List<SantaAccount> getNewSantas() {
         return santaAccountRepository.findAll().stream().map(account -> {
