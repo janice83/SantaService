@@ -13,9 +13,7 @@ h1, p {
     background-color: green;
 }
 
-.customer-h1 {
-
-}
+.customer-h1 {}
 
 .card {
     background-color: brown;
@@ -26,8 +24,26 @@ h1, p {
     border-radius: 1rem;
     box-shadow: 4px 8px 0 rgba(100, 90, 90, 0.2), 0 6px 20px 0 rgba(100, 90, 90, 0.2);
 }
+
 figure img {
     max-width: 80px;
     max-height: 100px;
 }
 
+/* Kopioin kortin säännöt id-saannöksi */
+
+#card {
+    background-color: brown;
+    padding: 1rem;
+    width: 15rem;
+    margin: 1.5rem;
+    border: solid white 1rem;
+    border-radius: 1rem;
+    box-shadow: 4px 8px 0 rgba(100, 90, 90, 0.2), 0 6px 20px 0 rgba(100, 90, 90, 0.2);
+}
+
+#card-figure {
+    background-image: url("https://source.unsplash.com/80x60/?santa-claus");
+    min-width: 8rem;
+    min-height: 8rem;
+}
