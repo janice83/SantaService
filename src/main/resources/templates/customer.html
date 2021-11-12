@@ -22,8 +22,7 @@
             <p>Rekisteröidy asiakkaaksi <span><a href="#">täällä</a></span></p>
         </section>
         <section class="customer-page-section">
-
-            <div th:replace="fragments/forms :: customer-register-fragment"></div>
+            <div th:replace="fragments/forms :: login-fragment('Kirjaudu asiakastilille')"></div>
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">

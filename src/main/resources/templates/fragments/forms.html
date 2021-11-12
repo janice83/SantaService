@@ -1,9 +1,10 @@
-<form action="" method="post" class="customer-form" th:fragment="customer-register-fragment">
+<!-- Form for login: -->
+<form action="" method="post" class="customer-form" th:fragment="login-fragment(heading)">
     <table>
         <thead>
             <th>
                 <tr>
-                    <h2>Kirjaudu asiakastilille</h2>
+                    <h2 th:text="${heading}"></h2>
                 </tr>
             </th>
         </thead>
