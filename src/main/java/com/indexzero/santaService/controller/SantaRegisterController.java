@@ -1,7 +1,6 @@
 package com.indexzero.santaService.controller;
 
 import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.repositories.SantaAccountRepository;
 import com.indexzero.santaService.services.SantaService;
 
 import org.springframework.beans.factory.annotation.Autowired;

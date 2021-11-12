@@ -6,15 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import javax.transaction.Transactional;
 
 import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.repositories.SantaAccountRepository;
-import com.indexzero.santaService.services.SantaService;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ActiveProfiles("test")
