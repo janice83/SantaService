@@ -39,6 +39,14 @@ a:hover {
 
 header {}
 
+figure h1 {
+    font-size: 5rem;
+    color: whitesmoke;
+    position: absolute;
+    top: 35%;
+    left: 10%;
+  }
+
 nav {
     background-color: brown;
     display: flex;
@@ -91,6 +99,12 @@ footer {
     nav {
         margin-top: -5rem;
     }
+
+    figure h1 {
+        position: absolute;
+        top: 33%;
+        left: 6%;
+    }
   }
 
 /* Desktop näkymä */
@@ -105,6 +119,13 @@ footer {
 @media only screen and (max-width: 426px) {
     nav {
         margin-top: -12rem;
+    }
+
+    figure h1 {
+        font-size: 2.5rem;
+        position: absolute;
+        top: 26%;
+        left: 9%;
     }
     
   }
