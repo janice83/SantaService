@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    margin: 2rem;
+    
 }
 
 h1 {
@@ -111,11 +111,11 @@ footer {
         margin-top: -5rem;
     }
 
-    figure h1 {
+    /* figure h1 {
         position: absolute;
         top: 33%;
         left: 6%;
-    }
+    } */
   }
 
 /* Desktop näkymä */
@@ -124,21 +124,21 @@ footer {
         background-position: 75% 23%;
     }
 
-    figure h1 {
+    /* figure h1 {
         position: absolute;
         top: 41%;
         left: 4%;
-    }
+    } */
 
   }
 /* Iso laptop-näkymä */
   @media only screen and (min-width: 1440px) {
-    figure h1 {
+    /* figure h1 {
         position: absolute;
         top: 30%;
         left: 3%;
         font-size: 6rem;
-    }
+    } */
 
   }
 
@@ -150,7 +150,6 @@ footer {
 
     figure h1 {
         font-size: 2.5rem;
-        position: absolute;
         top: 26%;
         left: 9%;
     }
