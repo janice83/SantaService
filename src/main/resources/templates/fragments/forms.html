@@ -1,0 +1,28 @@
+<form action="" method="post" class="customer-form" th:fragment="customer-register-fragment">
+    <table>
+        <thead>
+            <th>
+                <tr>
+                    <h2>Kirjaudu asiakastilille</h2>
+                </tr>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="name">Nimi: </label></td>
+                <td><input type="text" name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Salasana: </label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <input type="button" value="Send" class="customer-form-btn">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</form>
