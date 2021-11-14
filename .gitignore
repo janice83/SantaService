@@ -1,5 +1,7 @@
-*.md
-
+### Readme ###
+README.md
+### hel ###
+HELP.md
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
