@@ -1,9 +1,14 @@
 package com.indexzero.santaService.repositories;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.indexzero.santaService.model.SantaAccount;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SantaAccountRepository extends JpaRepository<SantaAccount, Long> {
+
+    Optional<SantaAccount> findByFirstNameEquals(String firstName); 
 
 }
