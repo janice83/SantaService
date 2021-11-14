@@ -33,7 +33,8 @@ build/
 .vscode/
 
 ### Readme ###
-*.md
+README.md
+README.txt
 
 ### Database from development ###
 *.db
