@@ -1,7 +1,7 @@
 package com.indexzero.santaService.controller;
 
 import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.services.SantaService;
+import com.indexzero.santaService.services.SantaAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SantaRegisterController {
 
     @Autowired
-    private SantaService santaService;
+    private SantaAccountService santaService;
 
     @ModelAttribute
     public SantaAccount getSantaAccount() {
@@ -26,10 +26,16 @@ public class SantaRegisterController {
     public String home() {
         return "santa-registration";
     }
+
     @PostMapping("")
     public String addSantaProfile(@ModelAttribute SantaAccount santaAccount) {
-        santaService.save(santaAccount);
+        try {
+            santaService.save(santaAccount);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
         return "redirect:/santa-register";
     }
-    
+
 }

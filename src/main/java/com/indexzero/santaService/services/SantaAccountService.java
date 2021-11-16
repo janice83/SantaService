@@ -1,6 +1,7 @@
 package com.indexzero.santaService.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.indexzero.santaService.model.SantaAccount;
@@ -8,14 +9,24 @@ import com.indexzero.santaService.repositories.SantaAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import lombok.AllArgsConstructor;
 
 @Service
-public class SantaService {
+@AllArgsConstructor
+public class SantaAccountService {
 
     @Autowired
     private SantaAccountRepository santaAccountRepository;
 
+    /* Save account */
+    @Transactional
     public void save(SantaAccount santaAccount) {
+        Optional<SantaAccount> getByMail = santaAccountRepository.findByEmailEquals(santaAccount.getEmail());
+        if (getByMail.isPresent()) {
+            throw new IllegalArgumentException("Email taken!");
+        }
         santaAccountRepository.save(santaAccount);
 
     }

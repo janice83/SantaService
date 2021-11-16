@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+/* NOTE! repo should not be tested for existing api, only custom methods.
+So this is just for an example. Remove these when adding own methods */
+
 @ActiveProfiles("testi")
 @DataJpaTest
 public class CustomerAccountRepositoryTest {
