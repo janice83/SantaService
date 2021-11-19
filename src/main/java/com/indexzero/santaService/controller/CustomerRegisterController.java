@@ -1,7 +1,6 @@
 package com.indexzero.santaService.controller;
 
 import com.indexzero.santaService.model.CustomerAccount;
-import com.indexzero.santaService.repositories.CustomerAccountRepository;
 import com.indexzero.santaService.services.CustomerAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerRegisterController {
 
     @Autowired
-    private CustomerAccountService customerAccountService;;
+    private CustomerAccountService customerAccountService;
 
     @ModelAttribute
     private CustomerAccount getCustomer() {
