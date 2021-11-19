@@ -7,6 +7,7 @@ import com.indexzero.santaService.model.SantaAccount;
 import com.indexzero.santaService.repositories.SantaAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,9 +20,14 @@ public class SantaAccountService {
     @Autowired
     private SantaAccountRepository santaAccountRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /* Save account */
     @Transactional
     public void save(SantaAccount santaAccount) {
+        santaAccount.setPassword(passwordEncoder.encode(santaAccount.getPassword()));
+        santaAccount.setUsername(santaAccount.getFirstName());
         santaAccount.setUserRole("ROLE_SANTA");
         santaAccountRepository.save(santaAccount);
 

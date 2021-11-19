@@ -8,6 +8,6 @@ public class SantaController {
 
     @GetMapping("/santa")
     public String getSantaPage() {
-        return "santa-claus";
+        return "redirect:/login";
     }
 }

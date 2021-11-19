@@ -1,5 +1,5 @@
-<!-- Form for login: -->
-<form action="#" method="post" class="customer-form" th:fragment="login-fragment(heading)">
+<!-- Form for login to Santa-profile: -->
+<form th:action="@{/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -10,8 +10,8 @@
         </thead>
         <tbody>
             <tr>
-                <td><label for="name">Nimi: </label></td>
-                <td><input type="text" name="name" id="name"></td>
+                <td><label for="username">Tunnus: </label></td>
+                <td><input type="text" name="username" id=""></td>
             </tr>
             <tr>
                 <td><label for="password">Salasana: </label></td>
@@ -21,7 +21,36 @@
         <tfoot>
             <tr>
                 <td>
-                    <input type="button" value="Send" class="customer-form-btn">
+                    <input type="submit" value="Send" class="customer-form-btn">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</form>
+<!-- Form login for customers: -->
+<form action="#" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
+    <table>
+        <thead>
+            <th>
+                <tr>
+                    <h2 th:text="${heading}"></h2>
+                </tr>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><label for="name">Sähköposti: </label></td>
+                <td><input type="email" name="email" id=""></td>
+            </tr>
+            <tr>
+                <td><label for="password">Salasana: </label></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <input type="submit" value="Send" class="customer-form-btn">
                 </td>
             </tr>
         </tfoot>

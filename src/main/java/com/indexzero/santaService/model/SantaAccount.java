@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class SantaAccount extends AbstractPersistable<Long> {
     private String firstName;
     private String lastName;
+    private String username;
     private String email;
     private String password;
     private String presentation;
