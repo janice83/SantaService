@@ -1,4 +1,4 @@
-package com.indexzero.santaService;
+package com.indexzero.santaservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

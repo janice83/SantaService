@@ -1,11 +1,11 @@
-package com.indexzero.santaService.services;
+package com.indexzero.santaservice.services;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.repositories.SantaAccountRepository;
+import com.indexzero.santaservice.model.SantaAccount;
+import com.indexzero.santaservice.repositories.SantaAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

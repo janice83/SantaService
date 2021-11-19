@@ -1,4 +1,4 @@
-package com.indexzero.santaService.services;
+package com.indexzero.santaservice.services;
 
 import org.springframework.stereotype.Service;
 

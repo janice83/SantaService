@@ -1,7 +1,9 @@
 package com.indexzero.santaService.repositories;
 
 import static org.assertj.core.api.Assertions.*;
-import com.indexzero.santaService.model.SantaAccount;
+
+import com.indexzero.santaservice.model.SantaAccount;
+import com.indexzero.santaservice.repositories.SantaAccountRepository;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

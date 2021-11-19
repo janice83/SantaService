@@ -1,6 +1,6 @@
-package com.indexzero.santaService.repositories;
+package com.indexzero.santaservice.repositories;
 
-import com.indexzero.santaService.model.CustomerAccount;
+import com.indexzero.santaservice.model.CustomerAccount;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

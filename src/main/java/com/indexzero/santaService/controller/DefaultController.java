@@ -1,4 +1,4 @@
-package com.indexzero.santaService.controller;
+package com.indexzero.santaservice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

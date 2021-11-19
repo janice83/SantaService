@@ -1,7 +1,7 @@
-package com.indexzero.santaService.controller;
+package com.indexzero.santaservice.controller;
 
-import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.services.SantaAccountService;
+import com.indexzero.santaservice.model.SantaAccount;
+import com.indexzero.santaservice.services.SantaAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
