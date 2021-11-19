@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link rel="stylesheet" th:href="@{css/generic-styles.css}">
+    <link rel="stylesheet" th:href="@{css/santa-profile.css}">
 </head>
 <body>
-    <h1>Santa profile page</h1>
+    <h1>Tervetuloa joukkoon!</h1>
+    <p>Tämä on oma sivusi, missä voit päivittää profiiliasi ja päättää mitä perheet näkevät kun he selailevat Joulupukkeja. Voit lisätä profiiliisi esittelytekstin, kuvan ja kellonajat jolloin otat vastaan Joulupukki-keikkoja.</p>
+    <section>
+        <form class="profile-info" action="">
+            <ul class="update-profile">
+                <li><label class="info" for="info">Kirjoita jotain itsestäsi:</label></li>
+                <li><textarea name="info" cols="30" rows="10"></textarea></li>
+                <li><label class="profile-img">Lataa profiilikuva:</label>
+                <input id="profile-image" type="file" name="profile_photo" placeholder="Photo" required="" capture></li>
+                <li><label>Oletko käytettävissä?</label></li>
+                <li><input type="radio" id="available">
+                <label for="available">Olen käytettävissä</label></li>
+                <li><input type="radio" id="not-available">
+                <label for="not-available">En ole käytettävissä</label></li>
+            </ul>
+            <input type="submit" value="Tallenna tiedot">
+            <input type="submit" value="Peruuta">
+        </form>
+        
+    </section>
+    <script>
+        var hours = []
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+        for (var i = 0; i < checkboxes.length; i++) {
+        hours.push(checkboxes[i].value)
+        }
+    </script>
 </body>
 </html>
