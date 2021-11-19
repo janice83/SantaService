@@ -1,38 +1,28 @@
 package com.indexzero.santaService.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SantaProfileController {
 
     @GetMapping("/login")
     public String getSantaProfilePage() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.isAuthenticated()) {
-            System.out.println();
-            System.out.println("Autentikointi toimii");
-            System.out.println(auth.getDetails());
-            System.out.println();
-            return "redirect:/santa-profile";
-        }
-        System.out.println();
-        System.out.println("Autentikointi EI toimi");
-        System.out.println();
-        return "redirect:/login";
+        return "santa-claus";
     }
 
-    @GetMapping("/santa-profile")
+    /* Show actual profile page with contextual content per user: */
+    @Secured("ROLE_SANTA")
+    @GetMapping("/profile")
     public String santaProfileView(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        
+        System.out.println();
+        System.out.println("Uudelleen ohjaus /testi");
+        System.out.println();
         if (auth.isAuthenticated()) {
             System.out.println();
             System.out.println("Santa profiilissa");
@@ -41,28 +31,8 @@ public class SantaProfileController {
             System.out.println(auth.getPrincipal());
             System.out.println();
         }
-        model.addAttribute("authuser", auth.getCredentials());
+        // model.addAttribute("authuser", auth.getName());
         return "santa-profile";
-    }
-
-    @PostMapping("/login")
-    public String redirectAfterLogin() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.isAuthenticated()) {
-            System.out.println();
-            System.out.println("Autentikointi toimii");
-            System.out.println();
-            return "redirect:/santa-profile";
-        }
-        System.out.println();
-        System.out.println("Autentikointi EI toimi");
-        System.out.println();
-        return "redirect:/login";
-    }
-
-    @GetMapping("/logout")
-    public String logout() {
-        return "redirect:/login";
     }
 
 }

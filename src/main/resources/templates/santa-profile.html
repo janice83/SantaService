@@ -5,20 +5,18 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 	<title>Document</title>
 	<link rel="stylesheet" th:href="@{css/reset.css}">
 	<link rel="stylesheet" th:href="@{css/generic-styles.css}">
 	<link rel="stylesheet" th:href="@{css/santa-profile.css}">
 </head>
 
-<body>
-	<nav>
-		<h1>Navigointi</h1>
-	</nav>
+<body sec:authorize="hasAuthority('ROLE_SANTA')">
+	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
 	<main>
 		<h1>Tervetuloa joukkoon!</h1>
+		<!-- Tähän voisi käyttää jotain muutakin, kuten modelia: -->
+		<h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
 		<p>Tämä on oma sivusi, missä voit päivittää profiiliasi ja päättää mitä perheet näkevät kun he selailevat
 			Joulupukkeja. Voit lisätä profiiliisi esittelytekstin, kuvan ja kellonajat jolloin otat vastaan
 			Joulupukki-keikkoja.</p>

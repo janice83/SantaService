@@ -1,11 +1,12 @@
-body {
-    background-color: var(--nav-footer-color);
-}
 
-h1 {
+/* body {
+    background-color: var(--nav-footer-color);
+} */
+
+/* h1 {
     color: black;
     margin: 2rem 0 2rem 2rem;
-}
+} */
 
 p {
     margin-left: 2rem;

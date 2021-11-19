@@ -41,10 +41,11 @@ public class SecSecurityConfiguration extends WebSecurityConfigurerAdapter {
             .anyRequest().fullyAuthenticated()
             .and()
             .formLogin()
+                .defaultSuccessUrl("/profile", true)
                 .loginPage("/login").permitAll()
             .and()
             .logout()
-                .logoutSuccessUrl("/index")
+                .logoutSuccessUrl("/login")
                 .clearAuthentication(true)
                 .logoutUrl("/logout").permitAll();
     }

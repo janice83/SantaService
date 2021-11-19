@@ -27,8 +27,9 @@
         </tfoot>
     </table>
 </form>
-<!-- Form login for customers: -->
-<form action="#" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
+<!-- Form login for Customer-profile: -->
+
+<form th:action="@{/customer-log}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -40,7 +41,7 @@
         <tbody>
             <tr>
                 <td><label for="name">Sähköposti: </label></td>
-                <td><input type="email" name="email" id=""></td>
+                <td><input type="text" name="username" id=""></td>
             </tr>
             <tr>
                 <td><label for="password">Salasana: </label></td>
@@ -56,8 +57,9 @@
         </tfoot>
     </table>
 </form>
+ -->
 
-<!-- Form for  customer registration-->
+ <!-- Form for  customer registration-->
 <form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${customerAccount}" class="customer-form">
     <table>
         <thead>
