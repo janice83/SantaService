@@ -4,7 +4,7 @@ package com.indexzero.santaService.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.indexzero.santaservice.controller.DefaultController;
+import com.indexzero.santaService.controller.DefaultController;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

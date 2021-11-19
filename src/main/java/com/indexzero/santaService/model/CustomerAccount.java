@@ -1,4 +1,4 @@
-package com.indexzero.santaservice.model;
+package com.indexzero.santaService.model;
 
 import javax.persistence.Entity;
 

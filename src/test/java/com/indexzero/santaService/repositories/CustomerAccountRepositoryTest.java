@@ -2,8 +2,8 @@ package com.indexzero.santaService.repositories;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.indexzero.santaservice.model.CustomerAccount;
-import com.indexzero.santaservice.repositories.CustomerAccountRepository;
+import com.indexzero.santaService.model.CustomerAccount;
+import com.indexzero.santaService.repositories.CustomerAccountRepository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
