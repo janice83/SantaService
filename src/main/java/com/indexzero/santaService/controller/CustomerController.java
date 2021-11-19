@@ -22,7 +22,7 @@ public class CustomerController {
     public String getCustomerPage() {
         return "customer";
     }
-    /*  */
+    
     @ResponseBody
     @RequestMapping(
         value = "santas",
