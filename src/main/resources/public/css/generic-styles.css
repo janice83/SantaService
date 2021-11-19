@@ -1,31 +1,33 @@
 /* Esimerkki yleisistä säännöistä, mitä noudatetaan sivustolla */
+/* css variable, yleiset värit - muuttaminen vaikuttaa kaikkiin, missä käytössä */
+:root {
+    --main-font-color: bisque;
+    --nav-footer-color: brown;
+}
 
 html {
     font-size: 62.5%;
 }
 
-body {
-    
+body, a {
+    color: var(--main-font-color);
 }
+
 
 h1 {
     font-size: 4.2rem;
-    color: bisque;
 }
 
 h2 {
     font-size: 3.2rem;
-    color: bisque;
 }
 
 h3 {
     font-size: 2.4rem;
-    color: bisque;
 }
 
-p {
+p, a {
     font-size: 1.8rem;
-    color: bisque;
 }
 
 section {
@@ -33,9 +35,7 @@ section {
 }
 
 a {
-    font-size: 1.8rem;
     text-decoration: none;
-    color: bisque;
 }
 
 a:hover {
@@ -50,10 +50,10 @@ figure h1 {
     position: absolute;
     top: 29%;
     left: 2rem;
-  }
+}
 
 nav {
-    background-color: brown;
+    background-color: var(--nav-footer-color);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -72,7 +72,6 @@ nav li {
 
 .main-image {
     background-image: url("../images/header-photo.png");
-    
     /* width: 100%;
     height: auto; */
     min-height: 30rem;
@@ -89,7 +88,7 @@ main {
 }
 
 footer {
-    background-color: brown;
+    background-color: var(--nav-footer-color);
     min-height: 5rem;
     padding: 2rem;
     text-align: center;
@@ -101,13 +100,14 @@ footer {
     justify-content: center;
 }
 
-.some >* {
+.some > * {
     padding: 0.5rem;
     font-size: 4rem;
     color: white;
 }
 
 /* Tablettinäkymä */
+
 @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
@@ -115,49 +115,46 @@ footer {
     nav {
         margin-top: -5rem;
     }
-
     figure h1 {
         position: absolute;
         top: 30%;
         left: 3%;
     }
-  }
+}
 
 /* Desktop näkymä */
+
 @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
-
     figure h1 {
         position: absolute;
         top: 38%;
         left: 2%;
     }
+}
 
-  }
 /* Iso laptop-näkymä */
-  @media only screen and (min-width: 1440px) {
+
+@media only screen and (min-width: 1440px) {
     figure h1 {
         position: absolute;
         top: 25%;
         left: 2%;
         font-size: 6rem;
     }
-
-  }
+}
 
 /* Mobiilinäkymä */
+
 @media only screen and (max-width: 426px) {
     nav {
         margin-top: -12rem;
     }
-
     figure h1 {
         font-size: 2.5rem;
         top: 23%;
         left: 4%;
     }
-    
-  }
-
+}

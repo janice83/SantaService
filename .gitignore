@@ -1,4 +1,9 @@
-HELP.md
+### Readme ###
+#README.md
+### hel ###
+#HELP.md
+*.md
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -33,4 +38,7 @@ build/
 .vscode/
 
 ### Readme ###
-**.md
+README.txt
+
+### Database from development ###
+*.db

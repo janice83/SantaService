@@ -21,7 +21,7 @@
             <p></p>
             <div th:replace="fragments/forms :: login-fragment('Kirjaudu asiakastilille')"></div>
         </section>
-        <!-- Tähän on asetettu inlinena tyyliksi 100%(poistettu), antaa css tiedoston hoitaa tyylittely -->
+        <!-- Tähän oli asetettu inlinena tyyliksi 100%(poistettu), antaa css tiedoston hoitaa tyylittely -->
         <section class="cards">
             <div class="card">
                 <figure>
@@ -32,16 +32,15 @@
                   <p>Architect & Engineer</p>
                 </div>
             </div>
-        </section><!-- Tätä ei oltu suljettu, joten tein sen :) -->
-        <!-- Tähän haetaan kannasta -->
+        </section>
+        <!-- Tähän haetaan kannasta, js hoitaa elementin muodostamisen -->
         <section id="santa-cards" >
-
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">
     </footer>
     <script th:inline="javascript"> var contextRoot = /*[[@{/}]]*/ '';</script>
-    <script th:src="@{/javascript/testi.js}" defer></script>
+    <script th:src="@{/js/domain-access.js}" defer></script>
 </body>
 
 </html>

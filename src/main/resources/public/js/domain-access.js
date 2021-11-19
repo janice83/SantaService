@@ -1,4 +1,4 @@
-let url = contextRoot + "customers";
+let url = contextRoot + "santas";
 
 async function loadSantas() {
     const response = await fetch(url, {
