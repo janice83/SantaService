@@ -23,10 +23,7 @@ public class SantaAccountService {
     /* Save account */
     @Transactional
     public void save(SantaAccount santaAccount) {
-        Optional<SantaAccount> getByMail = santaAccountRepository.findByEmailEquals(santaAccount.getEmail());
-        if (getByMail.isPresent()) {
-            throw new IllegalArgumentException("Email taken!");
-        }
+        santaAccount.setUserRole("ROLE_SANTA");
         santaAccountRepository.save(santaAccount);
 
     }

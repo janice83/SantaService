@@ -29,12 +29,7 @@ public class SantaRegisterController {
 
     @PostMapping("")
     public String addSantaProfile(@ModelAttribute SantaAccount santaAccount) {
-        try {
-            santaService.save(santaAccount);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
+        santaService.save(santaAccount);
         return "redirect:/santa-register";
     }
 

@@ -71,7 +71,7 @@
 </form>
 
 <!-- Form for santa registration: -->
-<form th:action="@{/santa-register}" method="post" th:fragment="register-santa(heading)" th:object="${santaAccount}" class="customer-form">
+<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${santaAccount}" class="customer-form">
     <table>
         <thead>
             <th>

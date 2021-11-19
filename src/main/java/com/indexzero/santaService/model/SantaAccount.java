@@ -17,8 +17,9 @@ public class SantaAccount extends AbstractPersistable<Long> {
     private String lastName;
     private String email;
     private String password;
-
+    private String presentation;
     private String phoneNumber;
+    private String userRole;
     /* private String postalCode; */
     
     

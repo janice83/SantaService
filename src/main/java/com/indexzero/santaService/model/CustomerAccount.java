@@ -21,4 +21,6 @@ public class CustomerAccount extends AbstractPersistable<Long>{
 
     private String address;
 
+    private String userRole;
+
 }
