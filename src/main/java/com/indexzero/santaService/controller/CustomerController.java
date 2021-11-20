@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@RequestMapping("/customer")
 @Controller
 public class CustomerController {
 
     @Autowired
     private SantaAccountService santaService;
 
-    @GetMapping("/customer")
+    @GetMapping("")
     public String getCustomerPage() {
         return "customer";
     }

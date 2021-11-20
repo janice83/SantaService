@@ -10,7 +10,7 @@
 	
 </head>
 
-<body>
+<body sec:authorize="hasAuthority('ROLE_CUSTOMER')">
     <nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
     <main>
         <h1>Asiakasprofiilisivu</h1>

@@ -18,8 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Configuration
-    @Order(1)
+    /* @Configuration
+    @Order(80)
     public static class SantaAccountSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         @Autowired
@@ -58,18 +58,18 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
         @Autowired
         public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+            auth.userDetailsService(userDetailsService).passwordEncoder(devSantaPasswordEncoder());
         }
 
         @Bean
-        public PasswordEncoder passwordEncoder() {
+        public PasswordEncoder devSantaPasswordEncoder() {
             return new BCryptPasswordEncoder();
         }
 
     }
 
     @Configuration
-    @Order(2)
+    @Order(81)
     public static class CustomerAccountSecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         @Autowired
@@ -94,13 +94,13 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
         @Autowired
         public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(customerPasswordEncoder());
+            auth.userDetailsService(userDetailsService).passwordEncoder(devCustomerPasswordEncoder());
         }
 
         @Bean
-        public PasswordEncoder customerPasswordEncoder() {
+        public PasswordEncoder devCustomerPasswordEncoder() {
             return new BCryptPasswordEncoder();
         }
-    }
+    } */
 
 }

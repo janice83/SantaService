@@ -7,7 +7,6 @@ import com.indexzero.santaService.model.SantaAccount;
 import com.indexzero.santaService.repositories.SantaAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

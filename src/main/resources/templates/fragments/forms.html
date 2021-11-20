@@ -1,5 +1,5 @@
 <!-- Form for login to Santa-profile: -->
-<form th:action="@{/santa/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
+<form th:action="@{/santa-login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -28,7 +28,7 @@
     </table>
 </form>
 <!-- Form login for Customer-profile: -->
-<form th:action="@{/customer/login}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
+<form th:action="@{/customer-login}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
     <table>
         <thead>
             <th>
