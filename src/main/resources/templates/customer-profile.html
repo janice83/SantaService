@@ -5,8 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+	<link rel="stylesheet" th:href="@{css/generic-styles.css}">
+	
 </head>
+
 <body>
-    <h1>Asiakasprofiilisivu</h1>
+    <nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
+    <main>
+        <h1>Asiakasprofiilisivu</h1>
+        <h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
+    </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>

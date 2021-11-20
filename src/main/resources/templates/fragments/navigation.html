@@ -7,8 +7,11 @@
 
     </ul>
     <ul sec:authorize="isAuthenticated()">
-        <li>Logged in as:
-            <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/profile}"></a>
+        <li sec:authorize="hasRole('SANTA')">Logged in as:
+            <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/santa-profile}"></a>
+        </li>
+        <li sec:authorize="hasRole('CUSTOMER')">Logged in as:
+            <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/customer-profile}"></a>
         </li>
         <li>
             <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">

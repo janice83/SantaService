@@ -17,6 +17,7 @@ public class CustomerAccount extends AbstractPersistable<Long>{
     private String lastName;
     
     private String email;
+    private String username;
     private String password;
 
     private String address;

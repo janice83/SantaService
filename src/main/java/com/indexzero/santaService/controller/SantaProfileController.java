@@ -6,18 +6,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SantaProfileController {
 
-    @GetMapping("/login")
-    public String getSantaProfilePage() {
-        return "santa-claus";
-    }
 
     /* Show actual profile page with contextual content per user: */
     @Secured("ROLE_SANTA")
-    @GetMapping("/profile")
+    @GetMapping("/santa-profile")
     public String santaProfileView(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println();

@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerAccountRepository extends JpaRepository<CustomerAccount, Long> {
     Optional<CustomerAccount> findByEmailEquals(String email);
+
+    Optional<CustomerAccount> findByUsername(String username);
 }
