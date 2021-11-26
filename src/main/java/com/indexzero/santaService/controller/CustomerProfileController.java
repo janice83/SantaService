@@ -15,12 +15,5 @@ public class CustomerProfileController {
         System.out.println("Tuli asiakassivulle!");
         return "customer-profile";
     }
-
-    /* @PostMapping("/customer-log")
-    public String redirectOnLogin() {
-
-        return "redirect:/customer-profile";
-    } */
-
     
 }

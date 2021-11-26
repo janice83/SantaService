@@ -13,8 +13,16 @@
 }
 
 .content {
-    margin: 0 2rem 2rem 2rem;
+    margin: 0 6rem 2rem 6rem;
+    
 }
+
+.runo {
+  font-style: italic;
+    margin: 2rem;
+    font-size: 3rem;
+}
+
 
 @media only screen and (max-width: 769px) {
     .otsikko {
