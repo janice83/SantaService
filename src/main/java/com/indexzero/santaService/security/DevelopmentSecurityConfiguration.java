@@ -21,9 +21,9 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
     @Autowired
     private SantaAccountUserDetailsService userDetailsService;
 
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] whitelistGet = new String[] { "/", "/index", "/customer", "/customer-register", "/santa-register",
+        String[] whitelistGet = new String[] {
+             "/", "/index", "/customer", "/customer-register", "/santa-register",
                 "/santas", "/santa" };
 
         http.csrf().disable();
@@ -31,20 +31,18 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
         http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();
 
-        /* http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers(HttpMethod.GET, whitelistGet).permitAll()
-                .antMatchers(HttpMethod.POST, "/santa-register", "/customer-register").permitAll()
-                .antMatchers(HttpMethod.POST, "/santa-profile", "/customer-profile").permitAll()
-                .antMatchers(HttpMethod.GET, "/santa-profile").hasRole("SANTA")
-                .antMatchers(HttpMethod.GET, "/customer-profile").hasRole("CUSTOMER").anyRequest().authenticated()
-                .and()
-                .formLogin()
-                    .loginPage("/santa/login")
-                    .defaultSuccessUrl("/santa-profile", true).permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/").clearAuthentication(true)
-                .logoutUrl("/logout").permitAll(); */
+        http.authorizeRequests()
+            .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+            .antMatchers(whitelistGet).permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+                .loginPage("/login-page")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/success", true)
+                .permitAll();
+            
+        
     }
 
     @Autowired
