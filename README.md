@@ -1,4 +1,8 @@
 # SantaService
 School project BCH Collaboration
 
-Testi
+## About
+
+## Dependencies
+
+## Releases
