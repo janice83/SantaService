@@ -1,6 +1,7 @@
 package com.indexzero.santaService.controller;
 
 import com.indexzero.santaService.model.SantaAccount;
+import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.services.SantaAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class SantaRegisterController {
     private SantaAccountService santaService;
 
     @ModelAttribute
-    public SantaAccount getSantaAccount() {
-        return new SantaAccount();
+    public UserAccount getUserAccount() {
+        return new UserAccount();
     }
 
     @GetMapping("")
@@ -28,7 +29,7 @@ public class SantaRegisterController {
     }
 
     @PostMapping("")
-    public String addSantaProfile(@ModelAttribute SantaAccount santaAccount) {
+    public String addSantaProfile(@ModelAttribute UserAccount santaAccount) {
         System.out.println();
         System.out.println("Luodaan tiliä");
         System.out.println(santaAccount);

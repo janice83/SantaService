@@ -1,5 +1,5 @@
 <!-- Form for login to Santa-profile: -->
-<form th:action="@{/santa-login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
+<form th:action="@{/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -59,7 +59,7 @@
  -->
 
  <!-- Form for  customer registration-->
-<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${customerAccount}" class="customer-form">
+<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${userAccount}" class="customer-form">
     <table>
         <thead>
             <th>
@@ -101,7 +101,7 @@
 </form>
 
 <!-- Form for santa registration: -->
-<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${santaAccount}" class="customer-form">
+<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${userAccount}" class="customer-form">
     <table>
         <thead>
             <th>
@@ -128,8 +128,8 @@
                 <td><input type="password" th:field="*{password}"></td>
             </tr>
             <tr>
-                <td><label for="address">Puhelinnumero: </label></td>
-                <td><input type="text" th:field="*{phoneNumber}"></td>
+                <td><label for="address">Osoite: </label></td>
+                <td><input type="text" th:field="*{address}"></td>
             </tr>
         </tbody>
         <tfoot>

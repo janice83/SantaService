@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class SantaAccount extends AbstractPersistable<Long> {
+public class UserAccount extends AbstractPersistable<Long> {
+
     private String username;
     private String password;
     private String userRole;
@@ -24,8 +25,5 @@ public class SantaAccount extends AbstractPersistable<Long> {
     private String presentation;
     private String phoneNumber;
     private String postalCode;
-    
-    /* private String postalCode; */
-    
     
 }

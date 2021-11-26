@@ -3,7 +3,9 @@ package com.indexzero.santaService.services;
 import java.util.Optional;
 
 import com.indexzero.santaService.model.CustomerAccount;
+import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.CustomerAccountRepository;
+import com.indexzero.santaService.repositories.UserAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,17 +17,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomerAccountService {
 
     @Autowired
-    private CustomerAccountRepository cAccountRepository;
+    private UserAccountRepository userAccountRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void createCustomerAccount(CustomerAccount customerAccount) {
+    public void createCustomerAccount(UserAccount customerAccount) {
         customerAccount.setPassword(passwordEncoder.encode(customerAccount.getPassword()));
         customerAccount.setUsername(customerAccount.getFirstName());
         customerAccount.setUserRole("ROLE_CUSTOMER");
-        cAccountRepository.save(customerAccount);
+        userAccountRepository.save(customerAccount);
     }
     
 }

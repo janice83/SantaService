@@ -13,15 +13,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class CustomerAccount extends AbstractPersistable<Long>{
-    private String firstName;
-    private String lastName;
-    
-    private String email;
     private String username;
     private String password;
-
-    private String address;
-
     private String userRole;
+    
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String address;
+    
 
 }
