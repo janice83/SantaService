@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+
+<head th:replace="fragments/head :: head_fragment('santa-profile')">
+
+</head>
+<!-- <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +13,8 @@
 	<link rel="stylesheet" th:href="@{css/reset.css}">
 	<link rel="stylesheet" th:href="@{css/generic-styles.css}">
 	<link rel="stylesheet" th:href="@{css/santa-profile.css}">
-</head>
+
+</head> -->
 
 <body sec:authorize="hasAuthority('ROLE_SANTA')">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
@@ -42,8 +47,8 @@
 
 		</section>
 	</main>
-	<footer>
-
+	<footer th:replace="fragments/footer :: footer-fragment">
+		
 	</footer>
 	<script>
 		var hours = []
