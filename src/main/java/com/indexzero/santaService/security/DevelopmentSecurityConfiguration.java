@@ -18,89 +18,43 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Configuration
-    @Order(1)
-    public static class SantaAccountSecurityConfiguration extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private SantaAccountUserDetailsService userDetailsService;
 
-        @Autowired
-        private SantaAccountUserDetailsService userDetailsService;
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        String[] whitelistGet = new String[] { "/", "/index", "/customer", "/customer-register", "/santa-register",
+                "/santas", "/santa" };
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            String[] whitelistGet = new String[] { 
-                "/", "/index", "/customer", "/customer-register", "/santa-register",
-                    "/santas", "/santa" };
+        http.csrf().disable();
+        http.headers().frameOptions().sameOrigin();
 
-            http.csrf().disable();
-            http.headers().frameOptions().sameOrigin();
+        http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();
 
-            http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();
-
-            http.authorizeRequests()
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+        http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .antMatchers(HttpMethod.GET, whitelistGet).permitAll()
                 .antMatchers(HttpMethod.POST, "/santa-register", "/customer-register").permitAll()
                 .antMatchers(HttpMethod.POST, "/santa-profile", "/customer-profile").permitAll()
                 .antMatchers(HttpMethod.GET, "/santa-profile").hasRole("SANTA")
-                .antMatchers(HttpMethod.GET, "/customer-profile").hasRole("CUSTOMER")
-                .anyRequest().fullyAuthenticated()
+                .antMatchers(HttpMethod.GET, "/customer-profile").hasRole("CUSTOMER").anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/santa/login")
                     .defaultSuccessUrl("/santa-profile", true).permitAll()
-                    //.failureUrl("/santa-login?error")
                 .and()
                 .logout()
-                    .logoutSuccessUrl("/santa")
-                    .clearAuthentication(true)
-                    .logoutUrl("/logout").permitAll();
-        }
-
-        @Autowired
-        public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-        }
-
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-            return new BCryptPasswordEncoder();
-        }
-
+                .logoutSuccessUrl("/").clearAuthentication(true)
+                .logoutUrl("/logout").permitAll();
     }
 
-    @Configuration
-    @Order(2)
-    public static class CustomerAccountSecurityConfiguration extends WebSecurityConfigurerAdapter {
-        
-        @Autowired
-        private CustomerAccountUserDetailsService userDetailsService;
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http
-                .authorizeRequests()
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers("/customer","/customer/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/customer-profile").authenticated()
-                .antMatchers(HttpMethod.POST, "/customer-login").permitAll()
-                .anyRequest().hasRole("CUSTOMER")
-                .and()
-                .formLogin()
-                    .loginPage("/customer/login")
-                    .defaultSuccessUrl("/customer-profile", true).permitAll();
-                    //.failureUrl("/customer/login?error");
-                
-        }
-
-        @Autowired
-        public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(customerPasswordEncoder());
-        }
-
-        @Bean
-        public PasswordEncoder customerPasswordEncoder() {
-            return new BCryptPasswordEncoder();
-        }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 }

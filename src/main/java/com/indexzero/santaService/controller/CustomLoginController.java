@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CustomLoginController {
 
-    @GetMapping("/custom-login")
+    @GetMapping("/login-page")
     public String redirectLogin() {
         System.out.println();
         System.out.println("Joo");
         System.out.println();
-        return "redirect:/santa-profile";
+        return "custom-login-page";
     }
     
 }
