@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private SantaAccountUserDetailsService userDetailsService;
+    private CustomUserAccountUserDetailsService userDetailsService;
 
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
