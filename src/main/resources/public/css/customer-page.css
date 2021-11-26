@@ -8,6 +8,10 @@ h1, h2,  p {
 
 .customer-form {
     font-size: 1.8rem;
+    line-height: 2.5rem;
+    margin-right: 6rem;
+    margin-left: 6rem;
+    
 }
 
 .customer-form-btn {
@@ -32,12 +36,6 @@ h1, h2,  p {
 #santa-cards *> {
     flex-basis: 20%;
     
-}
-
-
-
-.input-space {
-    margin-bottom: 0.5rem;
 }
 
 
