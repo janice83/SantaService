@@ -2,10 +2,8 @@ package com.indexzero.santaService.controller;
 
 import java.util.List;
 
-import com.indexzero.santaService.model.SantaAccount;
 import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.UserAccountRepository;
-import com.indexzero.santaService.services.SantaAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class CustomerController {
 
-    @Autowired
-    private SantaAccountService santaService;
 
     @Autowired
     private UserAccountRepository userAccountRepository;

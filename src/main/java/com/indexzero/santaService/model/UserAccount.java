@@ -1,6 +1,10 @@
 package com.indexzero.santaService.model;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -25,5 +29,10 @@ public class UserAccount extends AbstractPersistable<Long> {
     private String presentation;
     private String phoneNumber;
     private String postalCode;
+
+    @ManyToOne
+    private SantaProfile santaProfile;
+    @ManyToOne
+    private CustomerProfile customerProfile;
     
 }

@@ -30,20 +30,16 @@ public class UserAccountController {
     }
 
     /* Read */
-    /* get all links */
 
-
-    /* Get all santas: */
+    /* Include only what needed, santa roles */
     @ResponseBody
     @RequestMapping(
         value = "santa-users",
         method = RequestMethod.GET,
         produces = "application/json"
     )
-    public List<UserAccount> getAllSantaUsers() {
-        return userAccountRepository.findAll().stream()
-            .filter(user -> user.getUserRole().equals("ROLE_SANTA"))
-            .collect(Collectors.toList());
+    public List<UserAccount> getNewSantas() {
+        return userAccountService.getNewSantas();
     }
 
     /* Update */
