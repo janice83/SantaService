@@ -16,22 +16,19 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
 public class SantaAccountService {
 
-    @Autowired
-    private SantaAccountRepository santaAccountRepository;
 
     @Autowired
     private UserAccountRepository userAccountRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    /* @Autowired
+    private PasswordEncoder passwordEncoder; */
 
     /* Save account */
     @Transactional
     public void save(UserAccount userAccount) {
-        userAccount.setPassword(passwordEncoder.encode(userAccount.getPassword()));
+        //userAccount.setPassword(passwordEncoder.encode(userAccount.getPassword()));
         userAccount.setUsername(userAccount.getFirstName());
         userAccount.setUserRole("ROLE_SANTA");
         userAccountRepository.save(userAccount);
@@ -40,15 +37,16 @@ public class SantaAccountService {
 
     /* Get all santas: */
     public List<UserAccount> getAllSantas() {
-        return userAccountRepository.findAll().stream()
+        /* return userAccountRepository.findAll().stream()
             .filter(a -> a.getUserRole().equals("ROLE_SANTA"))
-            .collect(Collectors.toList());
+            .collect(Collectors.toList()); */
+            return userAccountRepository.findAll();
     }
 
     /* Include only what needed */
     public List<UserAccount> getNewSantas() {
         return userAccountRepository.findAll().stream()
-            .filter(user -> user.getUserRole().equals("ROLE_SANTA"))
+            //.filter(user -> user.getUserRole().equals("ROLE_SANTA"))
             .map(account -> {
             UserAccount newAccount = new UserAccount();
             newAccount.setFirstName(account.getFirstName());

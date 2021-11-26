@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.indexzero.santaService.model.SantaAccount;
 import com.indexzero.santaService.model.UserAccount;
+import com.indexzero.santaService.repositories.UserAccountRepository;
 import com.indexzero.santaService.services.SantaAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class CustomerController {
     @Autowired
     private SantaAccountService santaService;
 
+    @Autowired
+    private UserAccountRepository userAccountRepository;
+
     @GetMapping("")
     public String getCustomerPage() {
         return "customer";
@@ -31,7 +35,7 @@ public class CustomerController {
         method = RequestMethod.GET, 
         produces = "application/json")
     public List<UserAccount> getSantas() {
-        return santaService.getNewSantas();
+        return userAccountRepository.findAll();
+        
     }
-
 }

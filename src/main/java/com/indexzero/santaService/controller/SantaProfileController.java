@@ -32,19 +32,7 @@ public class SantaProfileController {
         return "santa-profile";
     }
 
-    /* @PostMapping("/santa-login")
-    public String redirectSantaProfile() {
-        if (isAuthenticated()) {
-            System.out.println();
-            System.out.println("Kirjautuminen onnistui");
-            System.out.println();
-            return "redirect:/santa-profile";
-        }
-        System.out.println();
-        System.out.println("Kirjautuminen epäonnistui");
-        System.out.println();
-        return "santa";
-    } */
+   
 
     private boolean isAuthenticated() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
