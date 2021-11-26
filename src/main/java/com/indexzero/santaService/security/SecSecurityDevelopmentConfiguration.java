@@ -33,14 +33,17 @@ public class SecSecurityDevelopmentConfiguration {
             String[] whitelistGet = new String[] { 
                 "/", "/index", "/customer", "/customer-register", "/santa-register",
                     "/santas"};
+            http.csrf().disable();
+            http.headers().frameOptions().sameOrigin();
+        
+            http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();
                     
             http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, whitelistGet).permitAll()
+                .antMatchers(whitelistGet).permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
             
             http.antMatcher("/santa*")
             .authorizeRequests()
-            .antMatchers(HttpMethod.GET, whitelistGet).permitAll()
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
             .antMatchers("/santa*").hasRole("SANTA")
             .and()
@@ -48,11 +51,11 @@ public class SecSecurityDevelopmentConfiguration {
                 .loginPage("/santa").permitAll()
                 .loginProcessingUrl("/santa-login")
                 .defaultSuccessUrl("/santa-profile", true)
-            /* .and()
-            .logout().permitAll() */
-                /* .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .and()
+            .logout().permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/santa").deleteCookies("JSESSIONID")
-.               invalidateHttpSession(true)  */
+               .invalidateHttpSession(true) 
             .and()
                 .exceptionHandling().accessDeniedPage("/403");
             
@@ -84,22 +87,22 @@ public class SecSecurityDevelopmentConfiguration {
                 "/", "/index", "/customer", "/customer-register", "/santa-register",
                     "/santas"};
             http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, whitelistGet).permitAll()
+                .antMatchers(whitelistGet).permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
+
             http.antMatcher("/customer*")
             .authorizeRequests()
-            
             .antMatchers("/customer*").hasRole("CUSTOMER")
             .and()
             .formLogin()
                 .loginPage("/customer").permitAll()
                 .loginProcessingUrl("/customer-login")
                 .defaultSuccessUrl("/customer-profile", true)
-            /* .and()
-            .logout().permitAll() */
-                /* .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .and()
+            .logout().permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/customer").deleteCookies("JSESSIONID")
-.               invalidateHttpSession(true)  */
+                .invalidateHttpSession(true) 
             .and()
                 .exceptionHandling().accessDeniedPage("/403");
                 

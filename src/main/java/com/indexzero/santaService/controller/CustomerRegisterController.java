@@ -28,6 +28,10 @@ public class CustomerRegisterController {
     }
     @PostMapping("")
     public String register(@ModelAttribute CustomerAccount cAccount) {
+        System.out.println();
+        System.out.println("Luodaan tiliä");
+        System.out.println(cAccount);
+        System.out.println();
         customerAccountService.createCustomerAccount(cAccount);
         return "redirect:/customer-register";
     }
