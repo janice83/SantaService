@@ -106,6 +106,14 @@ footer {
     color: white;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+input {
+    margin-left: 1rem;
+}
+
 /* Tablettinäkymä */
 
 @media only screen and (max-width: 769px) {
@@ -157,4 +165,6 @@ footer {
         top: 23%;
         left: 4%;
     }
+
+   
 }

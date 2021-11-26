@@ -1,4 +1,6 @@
-.customer-page-section {}
+.customer-page-section {
+    margin: 0 6rem 2rem 6rem;
+}
 
 h1, h2,  p {
     margin-bottom: 2rem;
@@ -9,7 +11,13 @@ h1, h2,  p {
 }
 
 .customer-form-btn {
-    background-color: green;
+    background-color:rgb(163, 87, 32);
+    color: white;
+    padding: 0.7rem;
+    margin-top: 1rem;
+    border: solid white;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem grey;
 }
 
 .customer-h1 {}
@@ -18,6 +26,7 @@ h1, h2,  p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0 6rem 2rem 6rem;
 }
 
 #santa-cards *> {
@@ -26,6 +35,10 @@ h1, h2,  p {
 }
 
 
+
+.input-space {
+    margin-bottom: 0.5rem;
+}
 
 
 figure img {
@@ -51,4 +64,15 @@ figure img {
     min-width: 8rem;
     min-height: 8rem;
     margin-bottom: 1.5rem;
+}
+
+@media only screen and (max-width: 426px) {
+    .customer-page-section {
+        margin: 2rem;
+    }
+
+    .customer-h1 {
+        line-height: 4rem;
+    }
+   
 }
