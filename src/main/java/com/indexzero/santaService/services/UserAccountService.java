@@ -38,9 +38,9 @@ public class UserAccountService {
         santaAccount.setUsername(santaAccount.getFirstName());
         santaAccount.setUserRole("ROLE_SANTA");
         SantaProfile santaProfile = new SantaProfile();
-        
-        santaProfileRepository.save(santaProfile);
         santaAccount.setSantaProfile(santaProfile);
+
+        santaProfileRepository.saveAndFlush(santaProfile);
         userAccountRepository.saveAndFlush(santaAccount);
 
     }
@@ -50,13 +50,15 @@ public class UserAccountService {
         customerAccount.setUsername(customerAccount.getFirstName());
         customerAccount.setUserRole("ROLE_CUSTOMER");
         CustomerProfile customerProfile = new CustomerProfile();
-
-        customerProfileRepository.save(customerProfile);
         customerAccount.setCustomerProfile(customerProfile);
+        customerProfileRepository.save(customerProfile);
         userAccountRepository.saveAndFlush(customerAccount);
     }
 
     /* Read */
+    public List<UserAccount> getAllUsers() {
+        return userAccountRepository.findAll();
+    }
     /* Get Santas by role, and include only what needed */
     public List<UserAccount> getNewSantas() {
         return userAccountRepository.findAll().stream()

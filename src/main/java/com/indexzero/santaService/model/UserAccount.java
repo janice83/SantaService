@@ -1,10 +1,7 @@
 package com.indexzero.santaService.model;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -17,19 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class UserAccount extends AbstractPersistable<Long> {
-
+    /* Security  */
     private String username;
     private String password;
     private String userRole;
 
+    /* Basic contact information */
     private String firstName;
     private String lastName;
     private String email;
-    private String address;
-    private String presentation;
     private String phoneNumber;
     private String postalCode;
 
+    /* Profile */
     @ManyToOne
     private SantaProfile santaProfile;
     @ManyToOne

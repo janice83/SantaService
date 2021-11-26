@@ -4,10 +4,15 @@
 <head th:replace="fragments/head :: head_fragment('Perheille')">
 </head>
 
-<body onload="loadSantas()">
+<body onload="loadSantas('santas/available')">
+
     <header th:replace="fragments/header :: header-fragment">
     </header>
     <main>
+        <!-- tämä on testi:
+        <ul th:each="test : ${testi}">
+            <li th:text="${test.users.id}"></li>
+        </ul> -->
         <section class="customer-page-section">
             <h1 class="customer-h1">Tilaa Joulupukki aatoksi!</h1>
             <p>Sivuiltamme voit varata joulupukin suoraan kotiisi haluamanasi ajankohtana. Pääset selailemaan palvelustamme löytyviä joulupukkeja <a href="">alta</a>.</p>

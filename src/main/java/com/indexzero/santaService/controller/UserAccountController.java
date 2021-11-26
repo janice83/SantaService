@@ -1,10 +1,9 @@
 package com.indexzero.santaService.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+import com.indexzero.santaService.model.SantaProfile;
 import com.indexzero.santaService.model.UserAccount;
-import com.indexzero.santaService.repositories.UserAccountRepository;
 import com.indexzero.santaService.services.UserAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,31 +18,21 @@ public class UserAccountController {
     @Autowired
     private UserAccountService userAccountService;
 
-    @Autowired
-    private UserAccountRepository userAccountRepository;
-
     /* Create */
-
-    public String registerUser() {
-
-        return "redirect:/";
-    }
 
     /* Read */
 
     /* Include only what needed, santa roles */
     @ResponseBody
-    @RequestMapping(
-        value = "santa-users",
-        method = RequestMethod.GET,
-        produces = "application/json"
-    )
+    @RequestMapping(value = "santa-users", 
+    method = RequestMethod.GET, 
+    produces = "application/json")
     public List<UserAccount> getNewSantas() {
-        return userAccountService.getNewSantas();
+        return  userAccountService.getNewSantas();
     }
 
     /* Update */
 
     /* Delete */
-    
+
 }

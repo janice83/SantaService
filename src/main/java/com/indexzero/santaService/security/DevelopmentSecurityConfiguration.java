@@ -3,10 +3,7 @@ package com.indexzero.santaService.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,7 +20,8 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
-             "/", "/index", "/customer", "/customer-register", "/santa-register", "/santa", "/santa-users"};
+             "/", "/index", "/customer", "/customer-register", 
+             "/santa-register", "/santa", "/santa-users", "/santas/available"};
 
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();

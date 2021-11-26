@@ -1,12 +1,10 @@
 
-/* body {
-    background-color: var(--nav-footer-color);
-} */
-
-/* h1 {
-    color: black;
-    margin: 2rem 0 2rem 2rem;
-} */
+#santa-main {
+    background-image: url("../images/santa-reading.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
 
 p {
     margin-left: 2rem;
