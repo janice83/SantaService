@@ -1,15 +1,15 @@
-let url = contextRoot + "santas";
+let url = contextRoot;
 
 async function loadSantas() {
     console.log(url);
-    const response = await fetch(url, {
+    const response = await fetch(url+"santa-users", {
         headers: {
             "Accept":"application/json"
         }
     });
     const santas = await response.json();
-    console.log(santas);
-    /* addToElement(santas); */
+    /* console.log(santas); */
+    addToElement(santas);
 };
 
 const addToElement = data => {

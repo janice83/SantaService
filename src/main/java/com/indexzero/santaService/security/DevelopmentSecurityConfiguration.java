@@ -23,8 +23,7 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
-             "/", "/index", "/customer", "/customer-register", "/santa-register",
-                "/santas", "/santa"};
+             "/", "/index", "/customer", "/customer-register", "/santa-register", "/santa", "/santa-users"};
 
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
@@ -33,7 +32,6 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
         http.authorizeRequests()
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-            .antMatchers(HttpMethod.GET, "/santas**", "/santa").permitAll()
             .antMatchers(whitelistGet).permitAll()     
             .anyRequest().authenticated()
             .and()
