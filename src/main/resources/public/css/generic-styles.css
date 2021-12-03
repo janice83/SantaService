@@ -10,13 +10,10 @@ html {
     font-size: 62.5%;
 }
 
-
-
 body, a {
     color: var(--main-font-color);
 
 }
-
 
 h1 {
     font-size: 4.2rem;
@@ -61,7 +58,6 @@ figure h1 {
 
 nav {
     background: linear-gradient(356deg, rgb(51 7 7), rgb(166 24 24), #d69090);
-    display: flex;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -125,7 +121,6 @@ input {
 }
 
 /* Tablettinäkymä */
-
 @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
@@ -143,7 +138,6 @@ input {
 }
 
 /* Desktop näkymä */
-
 @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
@@ -157,7 +151,6 @@ input {
 }
 
 /* Iso laptop-näkymä */
-
 @media only screen and (min-width: 1440px) {
     figure h1 {
         position: absolute;
@@ -168,7 +161,6 @@ input {
 }
 
 /* Mobiilinäkymä */
-
 @media only screen and (max-width: 426px) {
     nav {
         margin-top: -12rem;
