@@ -1,7 +1,7 @@
 let url = contextRoot;
 
 async function loadSantas(path) {
-    /* console.log(url+"santa-users"); */
+    console.log(url+path);
     let response = await fetch(url+path, {
         headers: {
             "Accept":"application/json"

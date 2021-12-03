@@ -16,7 +16,8 @@ public class SantaProfileService {
     private SantaProfileRepository santaProfileRepository;
 
     public List<SantaProfile> getSantas() {
-        return santaProfileRepository.findAll();
+        /* return santaProfileRepository.findAll(); */
+        return convertDataFromList(santaProfileRepository.findAll());
     }
     /* Get available santas: */
     public List<SantaProfile> getAvailableSantas() {
