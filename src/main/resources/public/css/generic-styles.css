@@ -46,7 +46,9 @@ nav a:hover {
     background-color: rgb(100, 30, 30);
 }
 
-header {}
+header {
+    width: 100%;
+}
 
 figure h1 {
     font-size: 5rem;
@@ -63,6 +65,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     padding: 2rem;
+    width: 100%;
 }
 
 nav ul {
@@ -76,8 +79,8 @@ nav li {
 
 .main-image {
     background-image: url("../images/header-photo.png");
-    /* width: 100%;
-    height: auto; */
+    width: 100%;
+    /* height: auto; */
     min-height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
@@ -88,7 +91,7 @@ main {
     /* background-color: rgb(11, 11, 75); */
     padding: 5rem 2rem 7rem 2rem;
     width: 100%;
-    min-height: 40rem;
+    /* min-height: 40rem; */
     background: linear-gradient(#453986, #050a42);
 
 }
@@ -98,6 +101,7 @@ footer {
     /* min-height: 5rem; */
     padding: 2rem;
     text-align: center;
+    width: 100%;
 }
 
 .some {

@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.8;
+    width: 100%;
+    min-height: 40rem;
 }
 
 p {
@@ -16,4 +18,8 @@ p {
 
 .update-profile label {
     font-size: 2rem;
+}
+
+button {
+    font-size: 2.4rem;
 }
