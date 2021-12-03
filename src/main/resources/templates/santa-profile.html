@@ -19,26 +19,16 @@
 <body sec:authorize="hasAuthority('ROLE_SANTA')">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
 	<main class="santa-main" id="santa-main">
-		<section>
-			<form class="profile-info" action="">
-				<ul class="update-profile">
-					<li><label class="info" for="info">Kirjoita jotain itsestäsi:</label></li>
-					<li><textarea name="info" cols="30" rows="10"></textarea></li>
-					<li><label class="profile-img">Lataa profiilikuva:</label>
-						<input id="profile-image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-					</li>
-				</ul>
-				<label>Oletko käytettävissä?</label>
-				<input type="radio" id="available">
-				<label for="available">Olen käytettävissä</label>
-		
-				<input type="radio" id="not-available">
-				<label for="not-available">En ole käytettävissä</label>
-		
-				<input type="submit" value="Tallenna tiedot">
-				<input type="submit" value="Peruuta">
-			</form>
-
+		<section class="tab">
+			<button class="tablinks" onclick="openTab(event, 'tab-basic-info')">
+				<p>Links</p>
+			</button>
+			<button class="tablinks" onclick="openTab(event, 'tab-santa-info')">
+				<p>Add link</p>
+			</button>
+			<button class="tablinks" onclick="openTab(event, 'tab-jobs-info')">
+				<p>Settings</p>
+			</button>
 		</section>
 		<!-- Content for tab: -->
 		<section class="content">
