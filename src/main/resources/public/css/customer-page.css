@@ -70,11 +70,23 @@ figure img {
 
 @media only screen and (max-width: 426px) {
     .customer-page-section {
-        margin: 2rem;
+        margin: 1rem;
     }
 
     .customer-h1 {
         line-height: 4rem;
     }
+
+    .customer-form {
+        margin-left: 0rem;
+    }
+
+    .ei-sisennys {
+        margin-left: 0rem;
+    }
+
+    
+
+    
 
 }
