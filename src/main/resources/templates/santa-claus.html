@@ -2,19 +2,19 @@
 <html lang="en">
     <head th:replace="fragments/head :: head_fragment('Pukeille')">
     </head>
-<body>
+<body class="main-content">
     <header th:replace="fragments/header :: header-fragment">
     </header>
     <main>
-        <section class="content">
+        <section >
             <h1>Aatto joulupukkina?</h1>
             <p class="ei-sisennys">Jouluaatto lähestyy! Haluatko jakaa jouluiloa muillekin kuin omalle perheellesi? Palvelumme kautta voit ilmoittautua joulupukiksi aattopäivälle. </p>
         </section>
-        <section class="content">
+        <section>
             <h2>Uusille joulupukeille</h2>
             <p class="ei-sisennys">Etkö ole aikaisemmin käyttänyt sivujamme? Rekisteröidy ensin palveluumme ja kirjoita kuvaus itsestäsi. Voit lisätä järjestelmäämme alueen jolla toimit joulupukkina ja ajankohdan, milloin olet käytettävissä. Lisää myös kuva itsestäsi joulupukkina!</p>
         </section>
-        <section class="content">
+        <section>
             <!-- <div th:replace="fragments/forms :: santa-login-fragment('Kirjaudu pukkisivustolle')"></div> -->
             <div th:replace="fragments/forms :: register-santa('Rekisteröidy Joulupukiksi')"></div>
         </section>

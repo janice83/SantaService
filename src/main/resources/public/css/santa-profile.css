@@ -1,15 +1,14 @@
-
 #santa-main {
     background-image: url("../images/santa-reading.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     width: 100%;
     min-height: 40rem;
 }
 
-p {
-    margin-left: 2rem;
+.testi {
+    min-height: 50rem;
 }
 
 .update-profile {

@@ -5,9 +5,9 @@
 <head th:replace="fragments/head :: head_fragment('santa-profile')">
 </head>
 
-<body sec:authorize="hasAuthority('ROLE_SANTA')">
+<body sec:authorize="hasAuthority('ROLE_SANTA')" id="santa-main">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
-	<main class="santa-main" id="santa-main">
+	<main class="testi">
 		<section>
 			<h1 th:text="${basicInfo.username}"></h1>
 		</section>
@@ -23,9 +23,8 @@
 			</button>
 		</section>
 		<!-- Content for tab: -->
-		<section class="content">
+		<section>
 			<article id="tab-basic-info" class="tabContent">
-				
 				<div class="basicInfo">
 					<h1>Basic info</h1>
 					<h3>Username: <span th:text="${basicInfo.username}"></span></h3>

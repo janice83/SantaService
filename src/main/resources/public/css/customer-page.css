@@ -1,31 +1,27 @@
 .customer-page-section {
-    margin: 0 6rem 2rem 6rem;
-}
-
-h1, h2, p {
-    margin-bottom: 2rem;
+    /* margin: 0 6rem 2rem 6rem; */
 }
 
 .customer-form {
     font-size: 1.8rem;
     line-height: 2.5rem;
-    margin-right: 6rem;
-    margin-left: 6rem;
+    /* margin-right: 6rem;
+    margin-left: 6rem; */
 
 }
 
 .customer-form-btn {
     background-color: rgb(163, 87, 32);
     color: bisque;
-    padding: 0.7rem;
-    margin-top: 1rem;
+    /* padding: 0.7rem;
+    margin-top: 1rem; */
     border: 0.1rem solid rgb(163, 87, 32);
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 0.5rem grey;
 }
 
 .customer-form-btn:hover {
-    border: 0.3rem solid rgb(189, 127, 83);
+    /* border: 0.3rem solid rgb(189, 127, 83); */
 }
 
 .customer-h1 {}
@@ -34,7 +30,7 @@ h1, h2, p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 6rem 2rem 6rem;
+    
 }
 
 #santa-cards *> {
@@ -42,10 +38,6 @@ h1, h2, p {
 
 }
 
-figure img {
-    max-width: 80px;
-    max-height: 100px;
-}
 
 /* Kopioin kortin säännöt id-saannöksi */
 #card {
@@ -68,7 +60,7 @@ figure img {
     margin-bottom: 1.5rem;
 }
 
-@media only screen and (max-width: 426px) {
+/* @media only screen and (max-width: 426px) {
     .customer-page-section {
         margin: 1rem;
     }
@@ -85,8 +77,4 @@ figure img {
         margin-left: 0rem;
     }
 
-    
-
-    
-
-}
+} */
