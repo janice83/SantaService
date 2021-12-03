@@ -27,7 +27,7 @@ h3 {
     font-size: 2.4rem;
 }
 
-p, a, li {
+p, a, li, label {
     font-size: 1.8rem;
 }
 
@@ -53,7 +53,7 @@ header {
 figure h1 {
     font-size: 5rem;
     color: whitesmoke;
-    position: absolute;
+    position: relative;
     top: 29%;
     left: 2rem;
 }
@@ -80,18 +80,17 @@ nav li {
 .main-image {
     background-image: url("../images/header-photo.png");
     width: 100%;
-    /* height: auto; */
     min-height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 76% 50%;
+    background-position: 50% 20%;
 }
 
 main {
     /* background-color: rgb(11, 11, 75); */
-    padding: 5rem 2rem 7rem 2rem;
+    /* padding: 5rem 2rem 7rem 2rem; */
     width: 100%;
-    /* min-height: 40rem; */
+    min-height: 40rem;
     background: linear-gradient(#453986, #050a42);
 
 }
@@ -125,7 +124,7 @@ input {
 }
 
 /* Tablettinäkymä */
-@media only screen and (max-width: 769px) {
+/* @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
     }
@@ -139,10 +138,10 @@ input {
         top: 30%;
         left: 3%;
     }
-}
+} */
 
 /* Desktop näkymä */
-@media only screen and (min-width: 770px) {
+/* @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
@@ -152,20 +151,20 @@ input {
         top: 38%;
         left: 2%;
     }
-}
+} */
 
 /* Iso laptop-näkymä */
-@media only screen and (min-width: 1440px) {
+/* @media only screen and (min-width: 1440px) {
     figure h1 {
         position: absolute;
         top: 25%;
         left: 2%;
         font-size: 6rem;
     }
-}
+} */
 
 /* Mobiilinäkymä */
-@media only screen and (max-width: 426px) {
+/* @media only screen and (max-width: 426px) {
     nav {
         margin-top: -12rem;
     }
@@ -177,4 +176,4 @@ input {
     }
 
 
-}
+} */

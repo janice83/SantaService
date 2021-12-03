@@ -1,6 +1,7 @@
 package com.indexzero.santaService.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -53,6 +54,12 @@ public class UserAccountService {
         customerAccount.setCustomerProfile(customerProfile);
         customerProfileRepository.save(customerProfile);
         userAccountRepository.saveAndFlush(customerAccount);
+    }
+    public Optional<UserAccount> findUserAccountById(Long id) {
+        return userAccountRepository.findById(id);
+    }
+    public Optional<UserAccount> findUserAccountByUsername(String username) {
+        return userAccountRepository.findByUsername(username);
     }
 
     /* Read */

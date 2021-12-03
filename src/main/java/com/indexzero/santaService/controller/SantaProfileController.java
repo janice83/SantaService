@@ -1,6 +1,7 @@
 package com.indexzero.santaService.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.indexzero.santaService.model.SantaProfile;
 import com.indexzero.santaService.model.UserAccount;
@@ -43,17 +44,20 @@ public class SantaProfileController {
             System.out.println(auth.getName());
             System.out.println(auth.getPrincipal());
             System.out.println();
-
+            Optional<UserAccount> user = userAccountService.findUserAccountByUsername(auth.getName());
+            if (user.isPresent()) {
+                model.addAttribute("basicInfo", user.get());
+                model.addAttribute("profileInfo", user.get().getSantaProfile());
+            }
+            return "santa-profile";
         }
-        return "santa-profile";
+        return "login-page";
+        
     }
+
     /* av santas */
     @ResponseBody
-    @RequestMapping(
-        value = "santas/available",
-        method = RequestMethod.GET,
-        produces = "application/json"
-    )
+    @RequestMapping(value = "santas/available", method = RequestMethod.GET, produces = "application/json")
     public List<SantaProfile> getAllAvailableSantas() {
         return santaProfileService.getSantas();
     }
@@ -63,6 +67,5 @@ public class SantaProfileController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.isAuthenticated();
     }
-    
 
 }
