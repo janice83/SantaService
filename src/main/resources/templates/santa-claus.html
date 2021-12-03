@@ -13,10 +13,10 @@
         <section class="content">
             <h2>Uusille joulupukeille</h2>
             <p>Etkö ole aikaisemmin käyttänyt sivujamme? Rekisteröidy ensin palveluumme ja kirjoita kuvaus itsestäsi. Voit lisätä järjestelmäämme alueen jolla toimit joulupukkina ja ajankohdan, milloin olet käytettävissä. Lisää myös kuva itsestäsi joulupukkina!</p>
-            <p>Rekisteröidy joulupukiksi <span class="underline"><a th:href="@{santa-register}">TÄÄLLÄ</a></span></p>
         </section>
         <section class="content">
-            <div th:replace="fragments/forms :: santa-login-fragment('Kirjaudu pukkisivustolle')"></div>
+            <!-- <div th:replace="fragments/forms :: santa-login-fragment('Kirjaudu pukkisivustolle')"></div> -->
+            <div th:replace="fragments/forms :: register-santa('Rekisteröidy Joulupukiksi')"></div>
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">

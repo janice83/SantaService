@@ -19,14 +19,13 @@
         </section>
         <section class="customer-page-section">
             <h2>Uusille käyttäjille</h2>
-            <p>Etkö ole aikaisemmin tilannut pukkia kauttamme? Aloita rekisteröitymällä
-                asiakkaaksemme <span class="underline"><a th:href="@{customer-register}">TÄÄLLÄ</a></span>!</p>
+            <p>Etkö ole aikaisemmin tilannut pukkia kauttamme?</p>
         </section>
         <section class="customer-page-section">
             <p></p>
             <!-- Kirjautuminen siirretty yhteiselle sivulle -->
             <!-- <div th:replace="fragments/forms :: customer-login-fragment('Kirjaudu asiakastilille')"></div> -->
-            <div th:replace="fragments/forms :: register-customer('Rekisteröidy')"></div>
+            <div th:replace="fragments/forms :: register-customer('Rekisteröidy perheeksi')"></div>
         </section>
         <!-- Tähän oli asetettu inlinena tyyliksi 100%(poistettu), antaa css tiedoston hoitaa tyylittely -->
         <section class="cards">
