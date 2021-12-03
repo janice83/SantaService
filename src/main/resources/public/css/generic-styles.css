@@ -146,18 +146,19 @@ input {
         background-position: 75% 23%;
     }
 
-    figure h1 {
+    /* figure h1 {
         position: absolute;
         top: 38%;
         left: 2%;
     }
 } */
+    
 
 /* Iso laptop-näkymä */
 /* @media only screen and (min-width: 1440px) {
     figure h1 {
-        position: absolute;
-        top: 25%;
+        position: relative;
+        top: 20rem;
         left: 2%;
         font-size: 6rem;
     }
@@ -174,6 +175,12 @@ input {
         top: 23%;
         left: 4%;
     }
+
+    .ei-sisennys {
+        margin-left: 0rem;
+    }
+
+
 
 
 } */
