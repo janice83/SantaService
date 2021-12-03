@@ -55,7 +55,7 @@ public class SantaProfileController {
         produces = "application/json"
     )
     public List<SantaProfile> getAllAvailableSantas() {
-        return santaProfileService.getAvailableSantas();
+        return santaProfileService.getSantas();
     }
     /* get santas b/postal code */
 
