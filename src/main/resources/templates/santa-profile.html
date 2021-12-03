@@ -19,12 +19,6 @@
 <body sec:authorize="hasAuthority('ROLE_SANTA')">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
 	<main class="santa-main" id="santa-main">
-		<h1>Tervetuloa joukkoon!</h1>
-		<!-- Tähän voisi käyttää jotain muutakin, kuten modelia: -->
-		<h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
-		<p>Tämä on oma sivusi, missä voit päivittää profiiliasi ja päättää mitä perheet näkevät kun he selailevat
-			Joulupukkeja. Voit lisätä profiiliisi esittelytekstin, kuvan ja kellonajat jolloin otat vastaan
-			Joulupukki-keikkoja.</p>
 		<section>
 			<form class="profile-info" action="">
 				<ul class="update-profile">
@@ -46,18 +40,23 @@
 			</form>
 
 		</section>
+		<!-- Content for tab: -->
+		<section class="content">
+			<article id="tab-basic-info" class="tabContent">
+				<h1>Basic info</h1>
+			</article>
+			<article id="tab-santa-info" class="tabContent">
+				<h1>Santa profile info</h1>
+			</article>
+			<article id="tab-jobs-info" class="tabContent">
+				<h1>Available jobs</h1>
+			</article>
+		</section>
+			
+		
 	</main>
 	<footer th:replace="fragments/footer :: footer-fragment">
-		
 	</footer>
-	<script>
-		var hours = []
-		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-		for (var i = 0; i < checkboxes.length; i++) {
-			hours.push(checkboxes[i].value)
-		}
-	</script>
 </body>
 
 </html>
