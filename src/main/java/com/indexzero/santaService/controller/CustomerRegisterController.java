@@ -1,7 +1,7 @@
 package com.indexzero.santaService.controller;
 
-import com.indexzero.santaService.model.CustomerAccount;
-import com.indexzero.santaService.services.CustomerAccountService;
+import com.indexzero.santaService.model.UserAccount;
+import com.indexzero.santaService.services.UserAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/customer-register")
 public class CustomerRegisterController {
 
+    
     @Autowired
-    private CustomerAccountService customerAccountService;
+    private UserAccountService userAccountService;
 
     @ModelAttribute
-    private CustomerAccount getCustomer() {
-        return new CustomerAccount();
+    private UserAccount getCustomer() {
+        return new UserAccount();
     }
 
     @GetMapping("")
@@ -27,8 +28,12 @@ public class CustomerRegisterController {
         return "customer-registration";
     }
     @PostMapping("")
-    public String register(@ModelAttribute CustomerAccount cAccount) {
-        customerAccountService.createCustomerAccount(cAccount);
+    public String register(@ModelAttribute UserAccount customerAccount) {
+        System.out.println();
+        System.out.println("Luodaan tiliä");
+        System.out.println(customerAccount);
+        System.out.println();
+        userAccountService.createCustomerAccount(customerAccount);
         return "redirect:/customer-register";
     }
     

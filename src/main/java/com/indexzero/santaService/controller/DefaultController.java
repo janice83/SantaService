@@ -10,9 +10,10 @@ public class DefaultController {
     public String home() {
         return "redirect:/index";
     }
+
     @GetMapping("/index")
     public String index() {
         return "index";
     }
-    
+
 }

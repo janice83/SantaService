@@ -11,17 +11,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Profile("dev")
+@Profile("sec")
 @EnableWebSecurity
-public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private CustomUserAccountUserDetailsService userDetailsService;
 
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
-             "/", "/index", "/customer", "/customer-register", 
-             "/santa-register", "/santa", "/santa-users", "/santas/available"};
+             "/", "/index", "/customer", "/customer-register", "/santa-register",
+                "/santas", "/santa" };
 
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
@@ -30,16 +31,16 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
 
         http.authorizeRequests()
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-            .antMatchers(whitelistGet).permitAll()     
+            .antMatchers(whitelistGet).permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
                 .loginPage("/login-page")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/success", true)
-                .permitAll()
-                ;
+                .permitAll();
             
+
         
     }
 
@@ -52,5 +53,5 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+    
 }

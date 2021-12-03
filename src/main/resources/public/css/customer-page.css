@@ -2,7 +2,7 @@
     margin: 0 6rem 2rem 6rem;
 }
 
-h1, h2,  p {
+h1, h2, p {
     margin-bottom: 2rem;
 }
 
@@ -11,17 +11,21 @@ h1, h2,  p {
     line-height: 2.5rem;
     margin-right: 6rem;
     margin-left: 6rem;
-    
+
 }
 
 .customer-form-btn {
-    background-color:rgb(163, 87, 32);
-    color: white;
+    background-color: rgb(163, 87, 32);
+    color: bisque;
     padding: 0.7rem;
     margin-top: 1rem;
-    border: solid white;
+    border: 0.1rem solid rgb(163, 87, 32);
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 0.5rem grey;
+}
+
+.customer-form-btn:hover {
+    border: 0.3rem solid rgb(189, 127, 83);
 }
 
 .customer-h1 {}
@@ -35,9 +39,8 @@ h1, h2,  p {
 
 #santa-cards *> {
     flex-basis: 20%;
-    
-}
 
+}
 
 figure img {
     max-width: 80px;
@@ -54,6 +57,7 @@ figure img {
     border-radius: 1rem;
     box-shadow: 4px 8px 0 rgba(100, 90, 90, 0.2), 0 6px 20px 0 rgba(100, 90, 90, 0.2);
 }
+
 /* Lisään myöhemmin toiminnallisuuden kuvan lisäämisen profiilisivun kautta */
 #card-figure {
     background-image: url("https://source.unsplash.com/80x60/?santa-claus");
@@ -72,5 +76,5 @@ figure img {
     .customer-h1 {
         line-height: 4rem;
     }
-   
+
 }

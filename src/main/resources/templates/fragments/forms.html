@@ -1,5 +1,5 @@
 <!-- Form for login to Santa-profile: -->
-<form th:action="@{/santa/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
+<form th:action="@{/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -28,7 +28,7 @@
     </table>
 </form>
 <!-- Form login for Customer-profile: -->
-<form th:action="@{/customer/login}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
+<form th:action="@{/customer-login}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -59,7 +59,7 @@
  -->
 
  <!-- Form for  customer registration-->
-<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${customerAccount}" class="customer-form">
+<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${userAccount}" class="customer-form">
     <table>
         <thead>
             <th>
@@ -85,10 +85,10 @@
                 <td><label for="password">Salasana: </label></td>
                 <td><input type="password" th:field="*{password}"></td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td><label for="address">Osoite: </label></td>
                 <td><input type="text" th:field="*{address}"></td>
-            </tr>
+            </tr> -->
         </tbody>
         <tfoot>
             <tr>
@@ -101,7 +101,7 @@
 </form>
 
 <!-- Form for santa registration: -->
-<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${santaAccount}" class="customer-form">
+<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${userAccount}" class="customer-form">
     <table>
         <thead>
             <th>
@@ -127,10 +127,10 @@
                 <td><label for="password">Salasana: </label></td>
                 <td><input type="password" th:field="*{password}"></td>
             </tr>
-            <tr>
-                <td><label for="address">Puhelinnumero: </label></td>
-                <td><input type="text" th:field="*{phoneNumber}"></td>
-            </tr>
+            <!-- <tr>
+                <td><label for="address">Osoite: </label></td>
+                <td><input type="text" th:field="*{address}"></td>
+            </tr> -->
         </tbody>
         <tfoot>
             <tr>

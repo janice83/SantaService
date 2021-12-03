@@ -18,7 +18,7 @@
 
 <body sec:authorize="hasAuthority('ROLE_SANTA')">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
-	<main>
+	<main class="santa-main" id="santa-main">
 		<h1>Tervetuloa joukkoon!</h1>
 		<!-- Tähän voisi käyttää jotain muutakin, kuten modelia: -->
 		<h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
