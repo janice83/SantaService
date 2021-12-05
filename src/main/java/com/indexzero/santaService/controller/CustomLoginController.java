@@ -44,6 +44,11 @@ public class CustomLoginController {
         System.out.println();
         return "redirect:/";
     }
+    @GetMapping("/logout")
+    public String userLogout() {
+
+        return "redirect:/login-page";
+    }
 
     private Authentication getAuthentication() {
         return SecurityContextHolder.getContext().getAuthentication();

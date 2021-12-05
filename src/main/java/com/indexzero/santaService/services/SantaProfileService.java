@@ -27,6 +27,9 @@ public class SantaProfileService {
     public void saveSantaProfile(SantaProfile santaProfile) {
         santaProfileRepository.saveAndFlush(santaProfile);
     }
+    public Optional<SantaProfile> getProfileByid(Long id) {
+        return santaProfileRepository.findById(id);
+    }
 
     public List<SantaProfile> getSantas() {
         /* return santaProfileRepository.findAll(); */

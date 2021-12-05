@@ -42,6 +42,8 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .defaultSuccessUrl("/success", true).permitAll()
                 .and()
                 .logout()
+                .logoutUrl("/logout")
+                //.logoutSuccessUrl("/")
                 .clearAuthentication(true)
                 .permitAll();
 

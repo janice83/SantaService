@@ -20,8 +20,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserAccountService {
 
-    /* @Autowired
-    private SantaProfileRepository santaProfileRepository; */
+    /*
+     * @Autowired
+     * private SantaProfileRepository santaProfileRepository;
+     */
     @Autowired
     private SantaProfileService santaProfileService;
 
@@ -95,29 +97,10 @@ public class UserAccountService {
     public boolean updateAccountInfo(Optional<UserAccount> oldAccount, UserAccount newAccount) {
         if (oldAccount.isPresent()) {
             /* Check if any value is blank */
-            /* System.out.println(newAccount.); */
-            /* System.out.println();
-            System.out.println("Tyhjiä arvoja: "+newAccount.anyValueBlank());
-            System.out.println();
-            if (!newAccount.getFirstName().isBlank()) {
-                oldAccount.get().setFirstName(newAccount.getFirstName());
-            }
-            if (!newAccount.getLastName().isBlank()) {
-                oldAccount.get().setLastName(newAccount.getLastName());
-            }
-            if (!newAccount.getEmail().isBlank()) {
-                oldAccount.get().setEmail(newAccount.getEmail());
-            }
-            if (!newAccount.getPhoneNumber().isBlank()) {
-                oldAccount.get().setPhoneNumber(newAccount.getPhoneNumber());
-            }
-            if (!newAccount.getPostalCode().isBlank()) {
-                oldAccount.get().setPostalCode(newAccount.getPostalCode());
-            }
-            return true; */
             if (newAccount.anyValueBlank()) {
                 return false;
             }
+            /* Else assign new values to old */
             oldAccount.get().setFirstName(newAccount.getFirstName());
             oldAccount.get().setLastName(newAccount.getLastName());
             oldAccount.get().setEmail(newAccount.getEmail());
@@ -126,29 +109,45 @@ public class UserAccountService {
             return true;
         }
         return false;
-        
+
     }
+
     /* Update username */
     @Transactional
     public void updateUsername(Optional<UserAccount> account, String username) {
         if (account.isPresent()) {
             account.get().setUsername(username);
-            /* userAccountRepository.save(account.get()); */
         }
     }
+
     @Transactional
-    public boolean deleteAccount(Optional<UserAccount> account) {
+    public boolean deleteAccount(Optional<UserAccount> account) throws NullPointerException {
         if (account.isPresent()) {
-            SantaProfile santaProfile = account.get().getSantaProfile();
             userAccountRepository.delete(account.get());
-            santaProfileService.deleteSantaprofile(santaProfile);
-            return true;
+            /* If account has certain role */
+            if (account.get().getUserRole().equals("ROLE_SANTA")) {
+                Optional<SantaProfile> santaProfileToDelete = santaProfileService
+                        .getProfileByid(account.get()
+                                .getSantaProfile().getId());
+                if (santaProfileToDelete.isPresent()) {
+                    santaProfileService.deleteSantaprofile(santaProfileToDelete.get());
+                }
+                return true;
+            }
+            if (account.get().getUserRole().equals("ROLE_CUSTOMER")) {
+                Optional<CustomerProfile> customerProfileToDelete = customerProfileRepository
+                        .findById(account.get()
+                                .getCustomerProfile().getId());
+
+                if (customerProfileToDelete.isPresent()) {
+                    customerProfileRepository.delete(customerProfileToDelete.get());
+                }
+                return true;
+            }
+
+            
         }
         return false;
     }
-    /* public boolean checkNull() throws IllegalAccessException {
 
-    } */
-
-    
 }

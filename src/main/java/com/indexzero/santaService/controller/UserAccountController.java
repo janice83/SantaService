@@ -133,7 +133,12 @@ public class UserAccountController {
         Optional<UserAccount> account = userAccountService
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
         if (checkIfAuthenticated(password, account.get().getPassword())) {
-            deleted = userAccountService.deleteAccount(account);
+            try {
+                deleted = userAccountService.deleteAccount(account);
+            } catch (Exception e) {
+                System.out.println("Tiliä ei löytynyt: "+e.getMessage());
+            }
+            
             
         }
         return deleted ? "redirect:/logout":"redirect:/";
