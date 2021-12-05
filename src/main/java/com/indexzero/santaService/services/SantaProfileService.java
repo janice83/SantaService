@@ -1,10 +1,15 @@
 package com.indexzero.santaService.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import com.indexzero.santaService.model.SantaProfile;
+import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.SantaProfileRepository;
+import com.indexzero.santaService.repositories.UserAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +19,14 @@ public class SantaProfileService {
 
     @Autowired
     private SantaProfileRepository santaProfileRepository;
+
+    @Autowired
+    private UserAccountService userAccountService;
+
+    @Transactional
+    public void saveSantaProfile(SantaProfile santaProfile) {
+        santaProfileRepository.saveAndFlush(santaProfile);
+    }
 
     public List<SantaProfile> getSantas() {
         /* return santaProfileRepository.findAll(); */
@@ -28,6 +41,26 @@ public class SantaProfileService {
         return convertDataFromList(santaProfileRepository.customFindAllAvailableSantasByPostalCode(postalCode));
     }
     /* Update profile */
+    @Transactional
+    public void updateSantaProfileInfo(
+        UserAccount userAccount, 
+        SantaProfile existingSantaProfile,
+        SantaProfile updatedSantaProfile) {
+
+        /*Santaprofile should not be empty:  */
+        if (!updatedSantaProfile.getSantaProfileName().isBlank()) {
+            existingSantaProfile.setSantaProfileName(updatedSantaProfile.getSantaProfileName());
+        }
+        existingSantaProfile.setInfo(updatedSantaProfile.getInfo());
+        existingSantaProfile.setPrice(updatedSantaProfile.getPrice());
+        /* santaProfileRepository.save(existingSantaProfile); */
+        
+
+    }
+    /* Delete Santaprofile */
+    public void deleteSantaprofile(SantaProfile santaprofile) {
+        santaProfileRepository.delete(santaprofile);
+    }
 
     /* converts data only needed info*/
     private List<SantaProfile> convertDataFromList(List<SantaProfile> list) {
@@ -38,5 +71,6 @@ public class SantaProfileService {
                 return santaProfile;
             }).collect(Collectors.toList());
     }
+    
     
 }

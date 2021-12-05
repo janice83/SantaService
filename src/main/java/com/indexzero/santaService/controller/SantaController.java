@@ -20,11 +20,11 @@ public class SantaController {
     public UserAccount getUserAccount() {
         return new UserAccount();
     }
-
     @GetMapping("/santa")
     public String getSantaPage() {
         return "santa-claus";
     }
+    /* Create new santa account */
     @PostMapping("/santa-register")
     public String addSantaProfile(@ModelAttribute UserAccount santaAccount) {
         System.out.println();
@@ -32,6 +32,8 @@ public class SantaController {
         System.out.println(santaAccount);
         System.out.println();
         userAccountService.saveSantaAccount(santaAccount);
-        return "redirect:/santa-register";
+
+        return "redirect:/login-page";
     }
+    
 }

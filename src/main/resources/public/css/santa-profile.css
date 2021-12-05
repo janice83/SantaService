@@ -1,18 +1,23 @@
+.santa-profile-header {
+    text-align: center;
+}
+
+
 #santa-main {
     background-image: url("../images/santa-reading.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /* opacity: 0.8; */
     width: 100%;
-    min-height: 40rem;
+    /* min-height: 40rem; */
 }
 
-.testi {
-    min-height: 50rem;
+.santa-profile-main {
+    min-height: 66rem;
 }
 
 .update-profile {
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
 }
 
 .update-profile label {
@@ -26,5 +31,15 @@ button {
 .basicInfo {
     margin: 2rem;
     background-color: rgba(92, 18, 18, 0.8);
+    line-height: 3rem;
     padding: 2rem;
+    width: 40rem;
+}
+
+.santa-profile-info {
+    margin: 2rem;
+    background-color: rgba(92, 18, 18, 0.8);
+    line-height: 3rem;
+    padding: 2rem;
+    width: 40rem;
 }

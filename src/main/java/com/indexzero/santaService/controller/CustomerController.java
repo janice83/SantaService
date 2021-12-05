@@ -33,7 +33,8 @@ public class CustomerController {
         System.out.println(customerAccount);
         System.out.println();
         userAccountService.createCustomerAccount(customerAccount);
-        return "redirect:/customer-register";
+        
+        return "redirect:/login-page";
     }
 
 }

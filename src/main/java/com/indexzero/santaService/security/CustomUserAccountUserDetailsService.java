@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Profile("dev")
 @Service
-public class CustomUserAccountUserDetailsService implements UserDetailsService{
+public class CustomUserAccountUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserAccountRepository userAccountRepository;
@@ -26,18 +26,16 @@ public class CustomUserAccountUserDetailsService implements UserDetailsService{
         Optional<UserAccount> customerAccount = userAccountRepository.findByUsername(username);
         if (customerAccount.isPresent()) {
             return new org.springframework.security.core.userdetails.User(
-                customerAccount.get().getUsername(),
-                customerAccount.get().getPassword(),
-                true,
-                true,
-                true,
-                true,
-                Arrays.asList(
-                    new SimpleGrantedAuthority(customerAccount.get().getUserRole())
-                )
-            );
+                    customerAccount.get().getUsername(),
+                    customerAccount.get().getPassword(),
+                    true,
+                    true,
+                    true,
+                    true,
+                    Arrays.asList(
+                            new SimpleGrantedAuthority(customerAccount.get().getUserRole())));
         }
-        throw new UsernameNotFoundException("No such email: "+username);
+        throw new UsernameNotFoundException("No such email: " + username);
     }
 
 }

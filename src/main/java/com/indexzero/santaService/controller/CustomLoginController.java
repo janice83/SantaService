@@ -27,15 +27,21 @@ public class CustomLoginController {
     @GetMapping("/success")
     public String redirectAfterSuccess() {
         System.out.println();
-        System.out.println("After login!");
+        System.out.println("After success!");
         System.out.println();
         Optional<UserAccount> userAccount = userAccountRepository.findByUsername(getAuthentication().getName());
         if (userAccount.isPresent()) {
+            System.out.println();
+            System.out.println("Käyttäjätili löytyi!");
+            System.out.println();
             return userAccount.get().getUserRole().equals("ROLE_SANTA") ?
                 "redirect:/santa-profile" :
                 userAccount.get().getUserRole().equals("ROLE_CUSTOMER") ? "redirect:/customer-profile":
                 "redirect:/";
         } 
+        System.out.println();
+        System.out.println("Ei löytänyt autentikointia!");
+        System.out.println();
         return "redirect:/";
     }
 

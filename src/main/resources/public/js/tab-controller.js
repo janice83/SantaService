@@ -10,6 +10,6 @@ function openTab(event, elementId) {
     for (i = 0; i < tabLinks.length; i++) {
         tabLinks[i].className = tabLinks[i].className.replace(" active", "");
       }
-    document.getElementById(elementId).style.display = "block";
+    document.getElementById(elementId).style.display = "flex";
     event.currentTarget.className += " active";
 }
