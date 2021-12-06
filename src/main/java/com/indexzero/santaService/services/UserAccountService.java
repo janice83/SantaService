@@ -114,40 +114,38 @@ public class UserAccountService {
 
     /* Update username */
     @Transactional
-    public void updateUsername(Optional<UserAccount> account, String username) {
+    public boolean updateUsername(Optional<UserAccount> account, String username) {
         if (account.isPresent()) {
             account.get().setUsername(username);
-        }
-    }
-
-    @Transactional
-    public boolean deleteAccount(Optional<UserAccount> account) throws NullPointerException {
-        if (account.isPresent()) {
-            userAccountRepository.delete(account.get());
-            /* If account has certain role */
-            if (account.get().getUserRole().equals("ROLE_SANTA")) {
-                Optional<SantaProfile> santaProfileToDelete = santaProfileService
-                        .getProfileByid(account.get()
-                                .getSantaProfile().getId());
-                if (santaProfileToDelete.isPresent()) {
-                    santaProfileService.deleteSantaprofile(santaProfileToDelete.get());
-                }
-                return true;
-            }
-            if (account.get().getUserRole().equals("ROLE_CUSTOMER")) {
-                Optional<CustomerProfile> customerProfileToDelete = customerProfileRepository
-                        .findById(account.get()
-                                .getCustomerProfile().getId());
-
-                if (customerProfileToDelete.isPresent()) {
-                    customerProfileRepository.delete(customerProfileToDelete.get());
-                }
-                return true;
-            }
-
-            
+            return true;
         }
         return false;
+    }
+    /* Delete useraccount and attachded profile */
+    @Transactional
+    public boolean deleteAccount(UserAccount userAccount) throws NullPointerException {
+        userAccountRepository.delete(userAccount);
+        /* If account has certain role */
+        if (userAccount.getUserRole().equals("ROLE_SANTA")) {
+            Optional<SantaProfile> santaProfileToDelete = santaProfileService
+                    .getProfileByid(userAccount
+                            .getSantaProfile().getId());
+            if (santaProfileToDelete.isPresent()) {
+                santaProfileService.deleteSantaprofile(santaProfileToDelete.get());
+            }
+            
+        }
+        if (userAccount.getUserRole().equals("ROLE_CUSTOMER")) {
+            Optional<CustomerProfile> customerProfileToDelete = customerProfileRepository
+                    .findById(userAccount
+                            .getCustomerProfile().getId());
+            if (customerProfileToDelete.isPresent()) {
+                customerProfileRepository.delete(customerProfileToDelete.get());
+            }
+            
+        }
+
+        return true;
     }
 
 }
