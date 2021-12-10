@@ -52,7 +52,7 @@ figure h1 {
     left: 2rem;
 }
 
-nav {
+/* nav {
     background-color: var(--nav-footer-color);
     display: flex;
     flex-direction: row;
@@ -60,12 +60,12 @@ nav {
     align-items: center;
     padding: 2rem;
 }
-
-nav ul {
+ */
+/* nav ul {
     display: flex;
     justify-content: space-evenly;
 }
-
+ */
 nav li {
     margin: 1rem;
 }
@@ -106,7 +106,34 @@ footer {
     color: white;
 }
 
-/* Tablettinäkymä */
+  /* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
+  .topnav {
+    overflow: hidden;
+    background-color: var(--nav-footer-color);   
+    position: relative;
+    padding: 14px;
+    display: block;
+
+  }
+  .topnav #myLinks {
+    display: contents;
+  }
+
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+    /* Style the hamburger menu */
+    .topnav a.icon {
+        display: none;
+      }
+
+
+
+        /* TABLETTI ********************************************************** */
 
 @media only screen and (max-width: 769px) {
     .main-image {
@@ -116,37 +143,54 @@ footer {
         margin-top: -5rem;
     }
     figure h1 {
-        position: absolute;
+        position: relative;
         top: 30%;
         left: 3%;
     }
+    nav {
+    background-color: var(--nav-footer-color);
+    display: block;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+    /* nav ul {
+    display: flex;
+    justify-content: space-evenly;
+} */
 }
 
-/* Desktop näkymä */
+
+
+        /* DESKTOP ********************************************************** */
 
 @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
     figure h1 {
-        position: absolute;
+        position: relative;
         top: 38%;
         left: 2%;
     }
 }
 
-/* Iso laptop-näkymä */
+
+
+        /* ISO NÄYTTÖ ********************************************************** */
 
 @media only screen and (min-width: 1440px) {
     figure h1 {
-        position: absolute;
+        position: relative;
         top: 25%;
         left: 2%;
         font-size: 6rem;
     }
 }
 
-/* Mobiilinäkymä */
+
+
+        /* MOBIILI ********************************************************** */
 
 @media only screen and (max-width: 426px) {
     nav {
@@ -157,4 +201,51 @@ footer {
         top: 23%;
         left: 4%;
     }
+
+/* Alla Mikan Hessburger-lisäykset */
+  /* Style the navigation menu */
+  .topnav {
+    overflow: hidden;
+    background-color: var(--nav-footer-color);
+/*     background-color: #333;
+ */    
+    position: relative;
+    padding: 0;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background: black;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+/*   .active {
+    background-color: #04AA6D;
+    color: white;
+  }
+ */
 }
