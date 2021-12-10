@@ -2,7 +2,11 @@ package com.indexzero.santaService.model;
 
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -21,6 +25,11 @@ public class SantaProfile extends AbstractPersistable<Long> {
     private String info;
     private int price;
     private boolean available;
+
+    @Lob
+    @Basic(fetch = FetchType.EAGER)
+    @Column(name = "profile_image")
+    private byte[] profileImage;
 
     @OneToMany(mappedBy = "santaProfile")
     private List<UserAccount> users;

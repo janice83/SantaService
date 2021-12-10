@@ -177,16 +177,27 @@
 					<h3>Käytettävissä: <span th:text="${profileInfo.Available}"></span></h3>
 				</div>
 				<div class="santa-profile-info">
-					<form th:action="@{/update/santa-account}" method="post">
+					<form th:action="@{/update/santa-account}" method="post" enctype="multipart/form-data">
 						<table>
 							<thead>
 								<tr>
-									<th>
+									<th colspan="2">
 										<h2 class="santa-profile-h2">Muokkaa tietojasi</h2>
+									</th>
+								</tr>
+								<tr>
+									<th colspan="2">
+										<figure>
+											<img th:src="@{/santa/image/{id}(id=${profileInfo.id})}" alt="" class="santaProfile-img">
+										</figure>
 									</th>
 								</tr>
 							</thead>
 							<tbody>
+								<tr>
+									<td><label for="profileImage">Lisää profiilikuva: </label></td>
+									<td><input type="file" th:name="image"></td>
+								</tr>
 								<tr>
 									<td><label for="profilename">Profiilinimi: </label></td>
 									<td><input type="text" th:name="profilename"

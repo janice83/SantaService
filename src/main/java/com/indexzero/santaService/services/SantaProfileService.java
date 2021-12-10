@@ -10,7 +10,6 @@ import com.indexzero.santaService.model.SantaProfile;
 import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.SantaProfileRepository;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +26,7 @@ public class SantaProfileService {
     public void saveSantaProfile(SantaProfile santaProfile) {
         santaProfileRepository.saveAndFlush(santaProfile);
     }
+
     public Optional<SantaProfile> getProfileByid(Long id) {
         return santaProfileRepository.findById(id);
     }
@@ -35,48 +35,55 @@ public class SantaProfileService {
         /* return santaProfileRepository.findAll(); */
         return convertDataFromList(santaProfileRepository.findAll());
     }
+
     /* Get available santas: */
     public List<SantaProfile> getAvailableSantas() {
         return convertDataFromList(santaProfileRepository.customFindAllAvailableSantas());
     }
+
     /* Availabel santas by postalcode */
     public List<SantaProfile> getAvailableSantasByPostalCode(String postalCode) {
         return convertDataFromList(santaProfileRepository.customFindAllAvailableSantasByPostalCode(postalCode));
     }
+
+    /* Get authenticated profile image */
+    public byte[] getSantaprofileImage(Long id) {
+        return santaProfileRepository.findById(id).get().getProfileImage();
+    }
+
     /* Update profile */
     @Transactional
     public void updateSantaProfileInfo(
-        UserAccount userAccount, 
-        SantaProfile existingSantaProfile,
-        SantaProfile updatedSantaProfile) {
+            UserAccount userAccount,
+            SantaProfile existingSantaProfile,
+            SantaProfile updatedSantaProfile) {
 
-        /*Santaprofile should not be empty:  */
+        /* Santaprofile should not be empty: */
         if (!updatedSantaProfile.getSantaProfileName().isBlank()) {
             existingSantaProfile.setSantaProfileName(updatedSantaProfile.getSantaProfileName());
         }
+        existingSantaProfile.setProfileImage(updatedSantaProfile.getProfileImage());
         existingSantaProfile.setInfo(updatedSantaProfile.getInfo());
         existingSantaProfile.setPrice(updatedSantaProfile.getPrice());
         existingSantaProfile.setAvailable(updatedSantaProfile.isAvailable());
-        /* santaProfileRepository.save(existingSantaProfile); */
-        
 
     }
+
     /* Delete Santaprofile */
     public void deleteSantaprofile(SantaProfile santaprofile) {
         santaProfileRepository.delete(santaprofile);
     }
 
-    /* converts data only needed info*/
+    /* converts data only needed info */
     private List<SantaProfile> convertDataFromList(List<SantaProfile> list) {
         return list.stream()
-            .map(santa -> {
-                SantaProfile santaProfile = new SantaProfile();
-                santaProfile.setSantaProfileName(santa.getSantaProfileName());
-                santaProfile.setInfo(santa.getInfo());
-                santaProfile.setPrice(santa.getPrice());
-                return santaProfile;
-            }).collect(Collectors.toList());
+                .map(santa -> {
+                    SantaProfile santaProfile = new SantaProfile();
+                    santaProfile.setSantaProfileName(santa.getSantaProfileName());
+                    santaProfile.setInfo(santa.getInfo());
+                    santaProfile.setPrice(santa.getPrice());
+                    return santaProfile;
+                }).collect(Collectors.toList());
     }
-    
-    
+
 }
