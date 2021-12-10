@@ -6,15 +6,15 @@
         <li><a th:href="@{/login-page}">Kirjaudu palveluun</a></li>
     </ul>
     <ul sec:authorize="isAuthenticated()">
-        <li sec:authorize="hasRole('SANTA')">Logged in as:
+        <li sec:authorize="hasRole('SANTA')">Kirjautunut käyttäjä:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/santa-profile}"></a>
         </li>
-        <li sec:authorize="hasRole('CUSTOMER')">Logged in as:
+        <li sec:authorize="hasRole('CUSTOMER')">Kirjautunut käyttäjä:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/customer-profile}"></a>
         </li>
         <li>
             <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
-                <input type="submit" value="logout">
+                <input class="santa-button" type="submit" value="Kirjaudu ulos">
             </form>
         </li>
     </ul>

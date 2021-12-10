@@ -50,3 +50,12 @@ button {
 .santa-profile-h2 {
     padding-bottom: 1rem;
 }
+
+.santa-button {
+    background-color: rgb(5, 90, 5);
+    color: bisque;
+    border: 0.3rem solid rgb(8, 61, 8);
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem grey;
+    padding: 0.5rem;
+}
