@@ -23,7 +23,7 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
                 "/", "/index", "/customer", "/register/customer", "/register/**",
-                 "/santa", "/santa-users", "/santas/available" };
+                 "/santa", "/santa-users", "/santas/available", "/santa/image/*" };
 
         http.csrf().disable();
         http.headers().frameOptions().sameOrigin();

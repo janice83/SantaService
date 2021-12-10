@@ -31,14 +31,13 @@ public class SantaProfileService {
         return santaProfileRepository.findById(id);
     }
 
-    public List<SantaProfile> getSantas() {
-        /* return santaProfileRepository.findAll(); */
-        return convertDataFromList(santaProfileRepository.findAll());
+    public List<SantaProfile> getAllSantas() {
+        return santaProfileRepository.findAll();
     }
 
     /* Get available santas: */
     public List<SantaProfile> getAvailableSantas() {
-        return convertDataFromList(santaProfileRepository.customFindAllAvailableSantas());
+        return santaProfileRepository.customFindAllAvailableSantas();
     }
 
     /* Availabel santas by postalcode */
@@ -46,8 +45,10 @@ public class SantaProfileService {
         return convertDataFromList(santaProfileRepository.customFindAllAvailableSantasByPostalCode(postalCode));
     }
 
-    /* Get authenticated profile image */
+    /* Get profile image by useraccount id*/
     public byte[] getSantaprofileImage(Long id) {
+        /* UserAccount userAccount = userAccountService.findUserAccountById(id).get();
+        return userAccount.getSantaProfile().getProfileImage(); */
         return santaProfileRepository.findById(id).get().getProfileImage();
     }
 
@@ -59,10 +60,14 @@ public class SantaProfileService {
             SantaProfile updatedSantaProfile) {
 
         /* Santaprofile should not be empty: */
+        
         if (!updatedSantaProfile.getSantaProfileName().isBlank()) {
             existingSantaProfile.setSantaProfileName(updatedSantaProfile.getSantaProfileName());
         }
-        existingSantaProfile.setProfileImage(updatedSantaProfile.getProfileImage());
+        /* add new image only if exists */
+        if (updatedSantaProfile.getProfileImage() != null) {
+            existingSantaProfile.setProfileImage(updatedSantaProfile.getProfileImage());
+        }
         existingSantaProfile.setInfo(updatedSantaProfile.getInfo());
         existingSantaProfile.setPrice(updatedSantaProfile.getPrice());
         existingSantaProfile.setAvailable(updatedSantaProfile.isAvailable());
@@ -80,10 +85,17 @@ public class SantaProfileService {
                 .map(santa -> {
                     SantaProfile santaProfile = new SantaProfile();
                     santaProfile.setSantaProfileName(santa.getSantaProfileName());
+                    santaProfile.setProfileImage(santa.getProfileImage());
                     santaProfile.setInfo(santa.getInfo());
                     santaProfile.setPrice(santa.getPrice());
                     return santaProfile;
                 }).collect(Collectors.toList());
+    }
+    /* filters available santas: */
+    private List<SantaProfile> convertDataByAvailable(List<SantaProfile> list) {
+        return list.stream()
+                .filter(santa -> santa.isAvailable())
+                .collect(Collectors.toList());
     }
 
 }

@@ -26,12 +26,16 @@
 
 /* Lisään myöhemmin toiminnallisuuden kuvan lisäämisen profiilisivun kautta */
 #card-figure {
-    background-image: url("https://source.unsplash.com/80x60/?santa-claus");
+    /* background-image: url("https://source.unsplash.com/80x60/?santa-claus"); */
     background-repeat: no-repeat;
     background-size: cover;
     min-width: 8rem;
     min-height: 8rem;
     margin-bottom: 1.5rem;
+}
+
+#card-figure img {
+    width: 100%;
 }
 
 /* @media only screen and (max-width: 426px) {

@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import lombok.AllArgsConstructor;
@@ -46,8 +48,11 @@ public class UserAccount extends AbstractPersistable<Long> {
     private String postalCode;
 
     /* Profile */
+    @JsonBackReference
     @ManyToOne
     private SantaProfile santaProfile;
+    
+    @JsonBackReference
     @ManyToOne
     private CustomerProfile customerProfile;
 

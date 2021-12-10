@@ -8,13 +8,22 @@ async function loadSantas(path) {
         }
     });
     let santas = await response.json();
-    /* console.log(santas); */
     addToElement(santas);
+};
+
+async function loadImageById(id) {
+    console.log(url+"santa/image/"+id);
+    const response = await fetch(url+"santa/image/"+id, {
+        method: "get"
+    });
+    const image = await response.blob();
+    const imageObjectURL = URL.createObjectURL(image);//create local url for image
+    return imageObjectURL;
 };
 
 const addToElement = data => {
     data.forEach(santa => {
-        //console.log(santa.firstName);//hakee tällä hetkellä ainoastaan etunimen
+        console.log(santa);
         const divElement = document.createElement("div");
         divElement.id = "card";
         const headerElement = document.createElement("h3");
@@ -27,7 +36,13 @@ const addToElement = data => {
 
         const figureElement = document.createElement("figure");
         figureElement.id = "card-figure";
-
+        const imageElement = document.createElement("img");
+        console.log("/santa/image/"+santa.id);
+        
+        imageElement.src = "/santa/image/"+santa.id;
+        figureElement.appendChild(imageElement);
+        
+        
         divElement.appendChild(figureElement);
         divElement.appendChild(headerElement);
         divElement.appendChild(infoPara);

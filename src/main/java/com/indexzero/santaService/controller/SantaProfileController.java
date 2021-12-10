@@ -69,7 +69,7 @@ public class SantaProfileController {
     @ResponseBody
     @RequestMapping(value = "santas/available", method = RequestMethod.GET, produces = "application/json")
     public List<SantaProfile> getAllAvailableSantas() {
-        return santaProfileService.getSantas();
+        return santaProfileService.getAvailableSantas();
     }
 
     /* update santa profile */
@@ -80,10 +80,6 @@ public class SantaProfileController {
             @RequestParam String info,
             @RequestParam int price,
             @RequestParam int available) throws IOException{
-        System.out.println();
-        System.out.println("Profiilinimi:" + profilename);
-        System.out.println("Käytettävissä: " + available);
-        System.out.println();
         /* get useraccount */
         Optional<UserAccount> userAccount = userAccountService
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
@@ -91,9 +87,6 @@ public class SantaProfileController {
         SantaProfile existingSantaProfile = userAccount.get().getSantaProfile();
         /* Updated info */
         SantaProfile updatedSantaProfile = new SantaProfile();
-        System.out.println();
-        System.out.println(file.getContentType());
-        System.out.println();
         if (file.getContentType().equals("image/png") || file.getContentType().equals("image/jpeg")) {
             updatedSantaProfile.setProfileImage(file.getBytes());
         }
