@@ -2,38 +2,15 @@
     /* margin: 0 6rem 2rem 6rem; */
 }
 
-/* Muuta nimi geneerisemmäksi ja siirrä yleisiin: */
-.customer-form {
-    font-size: 1.8rem;
-    line-height: 3rem;
-}
-
-.customer-form-btn {
-    background-color: rgb(163, 87, 32);
-    color: bisque;
-    border: 0.3rem solid rgb(163, 87, 32);
-    border-radius: 0.5rem;
-    box-shadow: 0.3rem 0.3rem 0.5rem grey;
-}
-
-.customer-form-btn:hover {
-    border: 0.3rem solid rgb(189, 127, 83);
-}
-
-.customer-h1 {}
-
 #santa-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
 
 #santa-cards *> {
     flex-basis: 20%;
-
 }
-
 
 /* Kopioin kortin säännöt id-saannöksi */
 #card {

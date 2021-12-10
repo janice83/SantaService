@@ -1,5 +1,5 @@
 <!-- Form for login to Santa-profile: -->
-<form th:action="@{/login}" th:method="post" class="customer-form" th:fragment="santa-login-fragment(heading)">
+<form th:action="@{/login}" th:method="post" class="registration-form" th:fragment="santa-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -21,14 +21,14 @@
         <tfoot>
             <tr>
                 <td>
-                    <input type="submit" value="Kirjaudu" class="customer-form-btn">
+                    <input type="submit" value="Kirjaudu" class="registration-form-btn">
                 </td>
             </tr>
         </tfoot>
     </table>
 </form>
 <!-- Form login for Customer-profile: -->
-<form th:action="@{/customer-login}" th:method="post" class="customer-form" th:fragment="customer-login-fragment(heading)">
+<form th:action="@{/customer-login}" th:method="post" class="registration-form" th:fragment="customer-login-fragment(heading)">
     <table>
         <thead>
             <th>
@@ -50,7 +50,7 @@
         <tfoot>
             <tr>
                 <td>
-                    <input type="submit" value="Kirjaudu" class="customer-form-btn">
+                    <input type="submit" value="Kirjaudu" class="registration-form-btn">
                 </td>
             </tr>
         </tfoot>
@@ -59,7 +59,7 @@
  -->
 
  <!-- Form for  customer registration-->
-<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${userAccount}" class="customer-form">
+<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${userAccount}" class="registration-form">
     <table>
         <thead>
             <th>
@@ -69,6 +69,16 @@
             </th>
         </thead>
         <tbody>
+            <tr>
+                <td><label for="username">Käyttäjätunnus: </label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Salasana: </label></td>
+                <td><input type="password" th:field="*{password}"></td>
+            </tr>
+            <tr class="table-line">
+            </tr>
             <tr>
                 <td><label for="firstname">Etunimi: </label></td>
                 <td><input type="text" th:field="*{firstName}"></td>
@@ -82,15 +92,15 @@
                 <td><input type="email" th:field="*{email}"></td>
             </tr>
             <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" th:field="*{password}"></td>
+                <td><label for="adress">Osoite: </label></td>
+                <td><input type="text"></td>
             </tr>
             
         </tbody>
         <tfoot>
             <tr>
                 <td>
-                    <input type="submit" value="Rekisteröidy" class="customer-form-btn">
+                    <input type="submit" value="Rekisteröidy" class="registration-form-btn">
                 </td>
             </tr>
         </tfoot>
@@ -98,7 +108,7 @@
 </form>
 
 <!-- Form for santa registration: -->
-<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${userAccount}" class="customer-form">
+<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${userAccount}" class="registration-form">
     <table>
         <thead>
             <th>
@@ -108,6 +118,16 @@
             </th>
         </thead>
         <tbody>
+            <tr>
+                <td><label for="username">Käyttäjätunnus: </label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Salasana: </label></td>
+                <td><input type="password" th:field="*{password}"></td>
+            </tr>
+            <tr class="table-line">
+            </tr>
             <tr>
                 <td><label for="firstname">Etunimi: </label></td>
                 <td><input type="text" th:field="*{firstName}"></td>
@@ -121,9 +141,11 @@
                 <td><input type="email" th:field="*{email}"></td>
             </tr>
             <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" th:field="*{password}"></td>
+                <td><label for="adress">Osoite: </label></td>
+                <td><input type="text"></td>
             </tr>
+            
+            
             <!-- <tr>
                 <td><label for="address">Osoite: </label></td>
                 <td><input type="text" th:field="*{address}"></td>
@@ -132,7 +154,7 @@
         <tfoot>
             <tr>
                 <td>
-                    <input type="submit" value="Rekisteröidy" class="customer-form-btn">
+                    <input type="submit" value="Rekisteröidy" class="registration-form-btn">
                 </td>
             </tr>
         </tfoot>
