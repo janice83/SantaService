@@ -7,15 +7,19 @@
 
 <body sec:authorize="hasAuthority('ROLE_SANTA')" id="santa-main">
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
-	<main class="santa-profile-main">
+	<main class="santa-profile-main" >
 		<section class="santa-profile-header">
 			<h1 th:text="${basicInfo.username}"></h1>
 			<p>Tällä sivulla voit hallinnoida Joulupukki-tilisi asetuksia</p>
-				<!-- On success! -->
-			<div th:if="${basicInfoUpdated}" class="alert alert-success"><span><p th:text="${basicInfoUpdated}"></p></span>
+			<!-- On success! -->
+			<div th:if="${basicInfoUpdated}" class="alert alert-success"><span>
+					<p th:text="${basicInfoUpdated}"></p>
+				</span>
 				<button type="button" class="btn-close" onclick="closeElement()">X</button>
 			</div>
-			<div th:if="${basicInfoNotUpdated}" class="alert alert-error"><span><p th:text="${basicInfoNotUpdated}"></p></span>
+			<div th:if="${basicInfoNotUpdated}" class="alert alert-error"><span>
+					<p th:text="${basicInfoNotUpdated}"></p>
+				</span>
 				<button type="button" class="btn-close" onclick="closeElement()">X</button>
 			</div>
 		</section>
@@ -58,7 +62,8 @@
 							<tbody>
 								<tr>
 									<td><label for="firstName">Etunimi: </label></td>
-									<td><input type="text" th:name="firstName" th:value="${basicInfo.firstName}"></td>
+									<td><input type="text" th:name="firstName" th:value="${basicInfo.firstName}">
+									</td>
 								</tr>
 								<tr>
 									<td><label for="lastName">Sukunimi: </label></td>
@@ -70,11 +75,13 @@
 								</tr>
 								<tr>
 									<td><label for="phonenumber">Puhelinnumero: </label></td>
-									<td><input type="text" th:name="phonenumber" th:value="${basicInfo.phoneNumber}"></td>
+									<td><input type="text" th:name="phonenumber" th:value="${basicInfo.phoneNumber}">
+									</td>
 								</tr>
 								<tr>
 									<td><label for="postalCode">Postinumero: </label></td>
-									<td><input type="text" th:name="postalCode" th:value="${basicInfo.postalCode}"></td>
+									<td><input type="text" th:name="postalCode" th:value="${basicInfo.postalCode}">
+									</td>
 								</tr>
 								<tr>
 									<th>
@@ -181,7 +188,8 @@
 							<tbody>
 								<tr>
 									<td><label for="profilename">Profiilinimi: </label></td>
-									<td><input type="text" th:name="profilename" th:value="${profileInfo.santaProfileName}"></td>
+									<td><input type="text" th:name="profilename"
+											th:value="${profileInfo.santaProfileName}"></td>
 								</tr>
 								<tr>
 									<td><label for="info">Lisätiedot: </label></td>
@@ -191,7 +199,8 @@
 								</tr>
 								<tr>
 									<td><label for="price">Hinta: </label></td>
-									<td><input type="number" th:name="price" th:value="${profileInfo.price}" id="price" min="1" max="100">
+									<td><input type="number" th:name="price" th:value="${profileInfo.price}" id="price"
+											min="1" max="100">
 									</td>
 								</tr>
 								<tr>
@@ -202,7 +211,7 @@
 										<input type="radio" th:name="available" id="yes" th:value="1">Kyllä
 									</td>
 									<td>
-										<input type="radio" th:name="available" id="no" th:value="0" >Ei
+										<input type="radio" th:name="available" id="no" th:value="0">Ei
 									</td>
 								</tr>
 							</tbody>
@@ -221,8 +230,6 @@
 				<div></div>
 			</article>
 		</section>
-
-
 	</main>
 	<footer th:replace="fragments/footer :: footer-fragment">
 	</footer>

@@ -8,12 +8,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* opacity: 0.8; */
-    width: 100%;
-    /* min-height: 40rem; */
+    
+    
+    
 }
 
 .santa-profile-main {
-    min-height: 66rem;
+    width: 100%;
+    min-height: 50rem;
 }
 
 .update-profile {
@@ -58,3 +60,7 @@
     background-color: rgb(21, 75, 21);
     border: 0.3rem solid rgb(20, 65, 20);;
 }
+
+/* .testi {
+    margin: 2rem;
+} */

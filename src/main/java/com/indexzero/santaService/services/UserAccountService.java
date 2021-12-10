@@ -39,8 +39,9 @@ public class UserAccountService {
     /* Create */
     @Transactional
     public void saveSantaAccount(UserAccount santaAccount) {
+        /* santaAccount.setUsername(santaAccount.getFirstName()); */
         santaAccount.setPassword(passwordEncoder.encode(santaAccount.getPassword()));
-        santaAccount.setUsername(santaAccount.getFirstName());
+        
         santaAccount.setUserRole("ROLE_SANTA");
         SantaProfile santaProfile = new SantaProfile();
         santaAccount.setSantaProfile(santaProfile);

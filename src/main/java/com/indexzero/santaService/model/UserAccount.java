@@ -3,6 +3,7 @@ package com.indexzero.santaService.model;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserAccount extends AbstractPersistable<Long> {
     /* Security */
+    @Column(unique = true)
     private String username;
     private String password;
     private String userRole;
@@ -27,6 +29,7 @@ public class UserAccount extends AbstractPersistable<Long> {
     private String lastName;
     private String email;
     private String phoneNumber;
+    private String address;
     private String postalCode;
 
     /* Profile */

@@ -122,7 +122,8 @@
         <tbody>
             <tr>
                 <td><label for="username">Käyttäjätunnus: </label></td>
-                <td><input type="text"></td>
+                <td><input type="text" th:field="*{username}"></td>
+                <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></td>
             </tr>
             <tr>
                 <td><label for="password">Salasana: </label></td>
@@ -147,14 +148,12 @@
             </tr>
             <tr>
                 <td><label for="adress">Osoite: </label></td>
-                <td><input type="text"></td>
-            </tr>
-            
-            
-            <!-- <tr>
-                <td><label for="address">Osoite: </label></td>
                 <td><input type="text" th:field="*{address}"></td>
-            </tr> -->
+            </tr>
+            <tr>
+                <td><label for="postalcode">Postinumero: </label></td>
+                <td><input type="text" name="postalcode" th:field="*{postalCode}"></td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>

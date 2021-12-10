@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 public class CustomerProfile extends AbstractPersistable<Long>{
     
     private String customerProfileName;
-    private String address;
 
     @OneToMany(mappedBy = "customerProfile")
     private List<UserAccount> users;

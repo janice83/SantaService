@@ -1,10 +1,13 @@
 package com.indexzero.santaService.controller;
 
+import javax.validation.Valid;
+
 import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.services.UserAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +29,12 @@ public class SantaController {
     }
     /* Create new santa account */
     @PostMapping("/santa-register")
-    public String addSantaProfile(@ModelAttribute UserAccount santaAccount) {
+    public String addSantaProfile(@Valid @ModelAttribute UserAccount santaAccount, 
+        BindingResult result) {
+        
+        if (result.hasErrors()) {
+            return "login-page";
+        }
         System.out.println();
         System.out.println("Luodaan tiliä");
         System.out.println(santaAccount);
