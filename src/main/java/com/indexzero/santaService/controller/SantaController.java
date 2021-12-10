@@ -7,6 +7,7 @@ import com.indexzero.santaService.services.UserAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,25 +24,32 @@ public class SantaController {
     public UserAccount getUserAccount() {
         return new UserAccount();
     }
+
     @GetMapping("/santa")
     public String getSantaPage() {
         return "santa-claus";
     }
+
     /* Create new santa account */
-    @PostMapping("/santa-register")
-    public String addSantaProfile(@Valid @ModelAttribute UserAccount santaAccount, 
-        BindingResult result) {
-        
+    @PostMapping("/register/santa")
+    public String addSantaProfile(
+        @Valid @ModelAttribute UserAccount santaAccount,
+        BindingResult result, 
+        Model model) {
+
         if (result.hasErrors()) {
-            return "login-page";
+            return "santa-claus";
         }
-        System.out.println();
-        System.out.println("Luodaan tiliä");
-        System.out.println(santaAccount);
-        System.out.println();
-        userAccountService.saveSantaAccount(santaAccount);
+        try {
+            /* Check if username in use */
+            userAccountService.saveSantaAccount(santaAccount);
+            
+        } catch (Exception e) {
+            model.addAttribute("usernameError", e.getMessage());
+            return "santa-claus";
+        }
 
         return "redirect:/login-page";
     }
-    
+
 }

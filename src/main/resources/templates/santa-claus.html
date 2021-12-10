@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head th:replace="fragments/head :: head_fragment('Pukeille')">
-    </head>
+
+<head th:replace="fragments/head :: head_fragment('Pukeille')">
+</head>
+
 <body class="main-content">
     <header th:replace="fragments/header :: header-fragment">
     </header>
     <main>
-        <section >
+        <section>
             <h1>Aatto joulupukkina?</h1>
-            <p class="ei-sisennys">Jouluaatto lähestyy! Haluatko jakaa jouluiloa muillekin kuin omalle perheellesi? Palvelumme kautta voit ilmoittautua joulupukiksi aattopäivälle. </p>
+            <p class="ei-sisennys">Jouluaatto lähestyy! Haluatko jakaa jouluiloa muillekin kuin omalle perheellesi?
+                Palvelumme kautta voit ilmoittautua joulupukiksi aattopäivälle. </p>
         </section>
         <section>
             <h2>Uusille joulupukeille</h2>
-            <p class="ei-sisennys">Etkö ole aikaisemmin käyttänyt sivujamme? Rekisteröidy ensin palveluumme ja kirjoita kuvaus itsestäsi. Voit lisätä järjestelmäämme alueen jolla toimit joulupukkina ja ajankohdan, milloin olet käytettävissä. Lisää myös kuva itsestäsi joulupukkina!</p>
+            <p class="ei-sisennys">Etkö ole aikaisemmin käyttänyt sivujamme? Rekisteröidy ensin palveluumme ja kirjoita
+                kuvaus itsestäsi. Voit lisätä järjestelmäämme alueen jolla toimit joulupukkina ja ajankohdan, milloin
+                olet käytettävissä. Lisää myös kuva itsestäsi joulupukkina!</p>
         </section>
+        <div th:if="${usernameError}" class="alert alert-error"><span>
+                <p th:text="${usernameError}"></p>
+            </span>
+            <button type="button" class="btn-close" onclick="closeElement()">X</button>
+        </div>
         <section>
-            <!-- <div th:replace="fragments/forms :: santa-login-fragment('Kirjaudu pukkisivustolle')"></div> -->
-            <div th:replace="fragments/forms :: register-santa('Rekisteröidy Joulupukiksi')"></div>
+            <div th:replace="fragments/forms :: register-account(heading='Rekisteröidy Joulupukiksi', type='santa')"></div>
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">
     </footer>
 </body>
+
 </html>

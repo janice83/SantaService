@@ -38,10 +38,15 @@ public class UserAccountService {
 
     /* Create */
     @Transactional
-    public void saveSantaAccount(UserAccount santaAccount) {
-        /* santaAccount.setUsername(santaAccount.getFirstName()); */
+    public void saveSantaAccount(UserAccount santaAccount) throws Exception {
+        /* Check if username exists */
+        boolean usernameExists = usernameExists(santaAccount.getUsername());
+        if (usernameExists) {
+            throw new Exception("Tämä käyttäjätunnus on jo olemassa!");
+
+        }
+
         santaAccount.setPassword(passwordEncoder.encode(santaAccount.getPassword()));
-        
         santaAccount.setUserRole("ROLE_SANTA");
         SantaProfile santaProfile = new SantaProfile();
         santaAccount.setSantaProfile(santaProfile);
@@ -52,9 +57,13 @@ public class UserAccountService {
     }
 
     @Transactional
-    public void createCustomerAccount(UserAccount customerAccount) {
+    public void createCustomerAccount(UserAccount customerAccount) throws Exception {
+        boolean usernameExists = usernameExists(customerAccount.getUsername());
+        if (usernameExists) {
+            throw new Exception("Tämä käyttäjätunnus on jo olemassa!");
+
+        }
         customerAccount.setPassword(passwordEncoder.encode(customerAccount.getPassword()));
-        customerAccount.setUsername(customerAccount.getFirstName());
         customerAccount.setUserRole("ROLE_CUSTOMER");
         CustomerProfile customerProfile = new CustomerProfile();
         customerAccount.setCustomerProfile(customerProfile);
@@ -122,6 +131,7 @@ public class UserAccountService {
         }
         return false;
     }
+
     /* Delete useraccount and attachded profile */
     @Transactional
     public boolean deleteAccount(UserAccount userAccount) throws NullPointerException {
@@ -134,7 +144,7 @@ public class UserAccountService {
             if (santaProfileToDelete.isPresent()) {
                 santaProfileService.deleteSantaprofile(santaProfileToDelete.get());
             }
-            
+
         }
         if (userAccount.getUserRole().equals("ROLE_CUSTOMER")) {
             Optional<CustomerProfile> customerProfileToDelete = customerProfileRepository
@@ -143,10 +153,14 @@ public class UserAccountService {
             if (customerProfileToDelete.isPresent()) {
                 customerProfileRepository.delete(customerProfileToDelete.get());
             }
-            
+
         }
 
         return true;
+    }
+
+    private boolean usernameExists(String username) {
+        return userAccountRepository.findByUsername(username).isPresent();
     }
 
 }

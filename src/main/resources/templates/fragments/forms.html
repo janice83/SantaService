@@ -1,166 +1,97 @@
-<!-- Form for login to Santa-profile: -->
-<form th:action="@{/login}" th:method="post" class="registration-form" th:fragment="santa-login-fragment(heading)">
-    <table>
-        <thead>
-            <th>
-                <tr>
-                    <h2 th:text="${heading}"></h2>
-                </tr>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="username">Tunnus: </label></td>
-                <td><input type="text" name="username" id=""></td>
-            </tr>
-            <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" name="password" id="password"></td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="submit" value="Kirjaudu" class="registration-form-btn">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-</form>
-<!-- Form login for Customer-profile: -->
-<form th:action="@{/customer-login}" th:method="post" class="registration-form" th:fragment="customer-login-fragment(heading)">
-    <table>
-        <thead>
-            <th>
-                <tr>
-                    <h2 th:text="${heading}"></h2>
-                </tr>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="name">Tunnus: </label></td>
-                <td><input type="text" name="username" id=""></td>
-            </tr>
-            <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" name="password" id="password"></td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="submit" value="Kirjaudu" class="registration-form-btn">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-</form>
- -->
-
- <!-- Form for  customer registration-->
-<form th:action="@{/customer-register}" method="post" th:fragment="register-customer(heading)" th:object="${userAccount}" class="registration-form">
-    <table>
-        <thead>
-            <th>
-                <tr>
-                    <h2 th:text="${heading}"></h2>
-                </tr>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="username">Käyttäjätunnus: </label></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" th:field="*{password}"></td>
-            <tr>
-                <th>
-                    <hr>
-                </th>
-            </tr>
-            <tr>
-                <td><label for="firstname">Etunimi: </label></td>
-                <td><input type="text" th:field="*{firstName}"></td>
-            </tr>
-            <tr>
-                <td><label for="lastname">Sukunimi: </label></td>
-                <td><input type="text" th:field="*{lastName}"></td>
-            </tr>
-            <tr>
-                <td><label for="email">Sähköposti: </label></td>
-                <td><input type="email" th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td><label for="adress">Osoite: </label></td>
-                <td><input type="text"></td>
-            </tr>
-            
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="submit" value="Rekisteröidy" class="registration-form-btn">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+<!-- Custom login form to service: -->
+<form th:action="@{/login}" th:method="post" class="registration-form" th:fragment="custom-login-fragment(heading)">
+	<table>
+		<thead>
+			<th>
+				<tr>
+					<h2 th:text="${heading}"></h2>
+				</tr>
+			</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label for="username">Tunnus: </label></td>
+				<td><input type="text" name="username" id=""></td>
+			</tr>
+			<tr>
+				<td><label for="password">Salasana: </label></td>
+				<td><input type="password" name="password" id="password"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<input type="submit" value="Kirjaudu" class="registration-form-btn">
+				</td>
+			</tr>
+		</tfoot>
+	</table>
 </form>
 
-<!-- Form for santa registration: -->
-<form th:action="@{/santa-register}" th:method="post" th:fragment="register-santa(heading)" th:object="${userAccount}" class="registration-form">
-    <table>
-        <thead>
-            <th>
-                <tr>
-                    <h2 th:text="${heading}"></h2>
-                </tr>
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="username">Käyttäjätunnus: </label></td>
-                <td><input type="text" th:field="*{username}"></td>
-                <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></td>
-            </tr>
-            <tr>
-                <td><label for="password">Salasana: </label></td>
-                <td><input type="password" th:field="*{password}"></td>
-            </tr>
-            <tr>
-                <th>
-                    <hr>
-                </th>
-            </tr>
-            <tr>
-                <td><label for="firstname">Etunimi: </label></td>
-                <td><input type="text" th:field="*{firstName}"></td>
-            </tr>
-            <tr>
-                <td><label for="lastname">Sukunimi: </label></td>
-                <td><input type="text" th:field="*{lastName}"></td>
-            </tr>
-            <tr>
-                <td><label for="email">Sähköposti: </label></td>
-                <td><input type="email" th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td><label for="adress">Osoite: </label></td>
-                <td><input type="text" th:field="*{address}"></td>
-            </tr>
-            <tr>
-                <td><label for="postalcode">Postinumero: </label></td>
-                <td><input type="text" name="postalcode" th:field="*{postalCode}"></td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="submit" value="Rekisteröidy" class="registration-form-btn">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+<!-- Form for registration: -->
+<form th:action="@{/register/{path}(path=${type})}" th:method="post" th:fragment="register-account"
+	th:object="${userAccount}" class="registration-form">
+	<table>
+		<thead>
+			<th>
+				<tr>
+					<h2 th:text="${heading}"></h2>
+				</tr>
+			</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label for="username">Käyttäjätunnus: </label></td>
+				<td><input type="text" th:field="*{username}"></td>
+				<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="password">Salasana: </label></td>
+				<td><input type="password" th:field="*{password}"></td>
+				<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></td>
+			</tr>
+			<tr>
+				<th>
+					<hr>
+				</th>
+			</tr>
+			<tr>
+				<td><label for="firstname">Etunimi: </label></td>
+				<td><input type="text" th:field="*{firstName}"></td>
+				<td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="lastname">Sukunimi: </label></td>
+				<td><input type="text" th:field="*{lastName}"></td>
+				<td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="email">Sähköposti: </label></td>
+				<td><input type="email" th:field="*{email}"></td>
+				<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="adress">Puhelinnumero: </label></td>
+				<td><input type="text" th:field="*{phoneNumber}"></td>
+				<td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="adress">Osoite: </label></td>
+				<td><input type="text" th:field="*{address}"></td>
+				<td th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error-message"></td>
+			</tr>
+			<tr>
+				<td><label for="postalcode">Postinumero: </label></td>
+				<td><input type="text" th:field="*{postalCode}"></td>
+				<td th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="error-message"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>
+					<input type="submit" value="Rekisteröidy" class="registration-form-btn">
+				</td>
+			</tr>
+		</tfoot>
+	</table>
 </form>

@@ -178,7 +178,10 @@ footer {
 /* .topNav a.icon {
     display: contents;
 } */
-
+.error-message {
+    
+    color: red;
+}
 
 .alert {
     border: 0.1rem solid brown;
@@ -189,6 +192,8 @@ footer {
 }
 
 .alert-error {
+    text-align: center;
+    padding: 2rem;
     background-color: rgba(211, 27, 27, 0.8);
 }
 
