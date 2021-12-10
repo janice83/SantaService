@@ -35,7 +35,7 @@
 			<!-- Output for basic info -->
 			<article id="tab-basic-info" class="tabContent">
 				<div class="basicInfo">
-					<h2>Perustiedot</h2>
+					<h2 class="santa-profile-h2">Perustiedot</h2>
 					<h3>Käyttäjätunnus: <span th:text="${basicInfo.username}"></span></h3>
 					<h3>Etunimi: <span th:text="${basicInfo.firstName}"></span></h3>
 					<h3>Sukunimi: <span th:text="${basicInfo.lastName}"></span></h3>
@@ -51,7 +51,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Päivitä tietoja</h2>
+										<h2 class="santa-profile-h2">Päivitä tietoja</h2>
 									</th>
 								</tr>
 							</thead>
@@ -100,7 +100,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Vaihda käyttäjätunnus</h2>
+										<h2 class="santa-profile-h2">Vaihda käyttäjätunnus</h2>
 									</th>
 								</tr>
 							</thead>
@@ -133,7 +133,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Poista Joulupukki-tili</h2>
+										<h2 class="santa-profile-h2">Poista Joulupukki-tili</h2>
 									</th>
 								</tr>
 							</thead>
@@ -161,7 +161,7 @@
 			</article>
 			<article id="tab-santa-info" class="tabContent">
 				<div class="santa-profile-info">
-					<h2>Santa profile info</h2>
+					<h2 class="santa-profile-h2">Joulupukki-profiilin tiedot</h2>
 					<h3>Profiilinimi: <span th:text="${profileInfo.santaProfileName}"></span></h3>
 					<h3>Lisätiedot: <p th:text="${profileInfo.info}"></p>
 					</h3>
@@ -174,7 +174,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Muokkaa tietojasi</h2>
+										<h2 class="santa-profile-h2">Muokkaa tietojasi</h2>
 									</th>
 								</tr>
 							</thead>
