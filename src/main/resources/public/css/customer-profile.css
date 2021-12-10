@@ -1,0 +1,16 @@
+.customer-profile-header {
+    text-align: center;
+}
+
+#customer-main-image {
+    background-image: url("../images/joulukuusi-ja-lapset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 50rem;
+    
+}
+
+.customer-profile-main {
+    
+}

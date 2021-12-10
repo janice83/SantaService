@@ -40,7 +40,7 @@ p, a, li, label {
 }
 
 section {
-    margin: 2rem;
+    padding: 2rem;
     line-height: 4rem;
 }
 
@@ -83,19 +83,36 @@ nav {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-
+    /* padding-top: 2rem;
+    padding-bottom: 2rem; */
+    /* flex-wrap: wrap; */
+    padding: 2rem;
 
 }
+
+/* nav>* {
+    flex-basis: 100%;
+} */
 
 nav ul {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
 }
 
-nav li {
+nav ul>* {
+    /* flex-basis: 100%; */
+}
+
+nav ul li {
     margin: 1rem;
+    /* padding: 1rem; */
+}
+
+.secured-info {
+    margin-top: 1.8rem;
 }
 
 .registration-form {
@@ -106,7 +123,7 @@ nav li {
 .registration-form-btn {
     background-color: rgb(129, 67, 22);
     color: bisque;
-    border: 0.3rem solid  rgb(129, 67, 22);
+    border: 0.3rem solid rgb(129, 67, 22);
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 0.5rem grey;
 }
@@ -127,9 +144,7 @@ footer {
     background: linear-gradient(rgb(53 5 9), var(--main-nav-and-footer-color), #903417);
     text-align: center;
     padding: 2rem;
-    /* width: 100%;
-    height: 100%; */
-    width: 100%;
+    
 }
 
 .some {
@@ -149,7 +164,8 @@ footer {
     border-top: solid 1px var(--main-font-color);
     border-bottom: solid 20px rgba(0, 0, 0, 0);
 }
-  /* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
+
+/* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
 
 /* Burger menu:  */
 /* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
@@ -157,8 +173,6 @@ footer {
     overflow: hidden;
     background-color: var(--nav-footer-color);
     position: relative;
-    /* padding: 14px;
-    display: flex; */
 
 }
 
@@ -179,7 +193,7 @@ footer {
     display: contents;
 } */
 .error-message {
-    
+
     color: red;
 }
 
@@ -205,11 +219,19 @@ footer {
 @media only screen and (min-width: 768px) {
     .topNav #navLinks {
         display: flex;
-        flex-direction: row;
+
     }
+
     .topNav a.icon {
         display: none;
 
+    }
+
+    nav {
+        flex-direction: row;
+    }
+    nav ul {
+        flex-direction: row;
     }
 }
 

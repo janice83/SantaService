@@ -1,15 +1,16 @@
 <nav th:fragment="main-nav-fragment" class="topNav">
+    <a class="icon" onclick="toggleMobileMenu()"><i class="fa fa-bars"></i></a> 
     <ul id="navLinks">
         <li><a th:href="@{/}">Etusivulle</a></li>
         <li><a th:href="@{/customer}">Perheille</a></li>
         <li><a th:href="@{/santa}">Joulupukeille</a></li>
         <li><a th:href="@{/login-page}">Kirjaudu palveluun</a></li>
     </ul>
-    <ul sec:authorize="isAuthenticated()">
-        <li sec:authorize="hasRole('SANTA')">Kirjautunut käyttäjä:
+    <ul sec:authorize="isAuthenticated()" >
+        <li sec:authorize="hasRole('SANTA')" class="secured-info">Kirjautunut käyttäjä:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/santa-profile}"></a>
         </li>
-        <li sec:authorize="hasRole('CUSTOMER')">Kirjautunut käyttäjä:
+        <li sec:authorize="hasRole('CUSTOMER')" class="secured-info">Kirjautunut käyttäjä:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/customer-profile}"></a>
         </li>
         <li>
@@ -18,5 +19,5 @@
             </form>
         </li>
     </ul>
-    <a class="icon" onclick="toggleMobileMenu()"><i class="fa fa-bars"></i></a> 
+    
 </nav>

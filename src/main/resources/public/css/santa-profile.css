@@ -3,13 +3,11 @@
 }
 
 
-#santa-main {
+#santa-main-image {
     background-image: url("../images/santa-reading.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     /* opacity: 0.8; */
-    
-    
     
 }
 

@@ -3,14 +3,17 @@
 <head th:replace="fragments/head :: head_fragment('santa-profile')">
 </head>
 
-<body sec:authorize="hasAuthority('ROLE_CUSTOMER')">
+<body sec:authorize="hasAuthority('ROLE_CUSTOMER')" >
     <nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
-    <main>
-        <h1>Asiakasprofiilisivu</h1>
+    <main class="customer-profile-main" id="customer-main-image">
+        <section>
+            <h1>Asiakasprofiilisivu</h1>
         <h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
-    </main>
-    <footer>
+        </section>
         
-    </footer>
+
+    </main>
+    <footer th:replace="fragments/footer :: footer-fragment">
+	</footer>
 </body>
 </html>

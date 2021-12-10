@@ -5,9 +5,9 @@
 <head th:replace="fragments/head :: head_fragment('santa-profile')">
 </head>
 
-<body sec:authorize="hasAuthority('ROLE_SANTA')" id="santa-main">
+<body sec:authorize="hasAuthority('ROLE_SANTA')" >
 	<nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
-	<main class="santa-profile-main" >
+	<main class="santa-profile-main" id="santa-main-image">
 		<section class="santa-profile-header">
 			<h1 th:text="${basicInfo.username}"></h1>
 			<p>Tällä sivulla voit hallinnoida Joulupukki-tilisi asetuksia</p>
