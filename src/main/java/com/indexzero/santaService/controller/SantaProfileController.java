@@ -73,9 +73,11 @@ public class SantaProfileController {
     public String updateSantaProfile(
         @RequestParam String profilename,
         @RequestParam String info,
-        @RequestParam int price) {
+        @RequestParam int price,
+        @RequestParam int available) {
         System.out.println();
-        System.out.println(profilename);
+        System.out.println("Profiilinimi:"+profilename);
+        System.out.println("Käytettävissä: "+available);
         System.out.println();
         /* get useraccount  */
         Optional<UserAccount> userAccount = userAccountService
@@ -87,6 +89,12 @@ public class SantaProfileController {
         updatedSantaProfile.setSantaProfileName(profilename);
         updatedSantaProfile.setInfo(info);
         updatedSantaProfile.setPrice(price);
+        if (available == 0) {
+            updatedSantaProfile.setAvailable(false);
+        } else if (available == 1) {
+            updatedSantaProfile.setAvailable(true);
+        }
+
         santaProfileService.updateSantaProfileInfo(
             userAccount.get(), existingSantaProfile, updatedSantaProfile);
             

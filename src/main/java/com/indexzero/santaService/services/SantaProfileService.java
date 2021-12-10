@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import com.indexzero.santaService.model.SantaProfile;
 import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.SantaProfileRepository;
-import com.indexzero.santaService.repositories.UserAccountRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,6 +56,7 @@ public class SantaProfileService {
         }
         existingSantaProfile.setInfo(updatedSantaProfile.getInfo());
         existingSantaProfile.setPrice(updatedSantaProfile.getPrice());
+        existingSantaProfile.setAvailable(updatedSantaProfile.isAvailable());
         /* santaProfileRepository.save(existingSantaProfile); */
         
 
