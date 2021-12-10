@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Kalam&display=swap');
 
 
 .otsikko {
-  font-family: 'Ceviche One', cursive;
+  /* font-family: 'Ceviche One', cursive; */
   font-size: 9rem;
   margin-left: 2rem;
   text-align: center;
-
+  padding-top: 2rem;
 }
 
 .content {
@@ -17,6 +16,7 @@
 .runo {
   font-style: italic;
   font-size: 3rem;
+  font-family: 'Kalam', cursive;
 }
 
 

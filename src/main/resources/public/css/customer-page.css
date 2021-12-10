@@ -1,5 +1,6 @@
-.customer-page-section {
+.customer-page-section >* {
     /* margin: 0 6rem 2rem 6rem; */
+    
 }
 
 #santa-cards {
