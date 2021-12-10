@@ -71,7 +71,9 @@ public class SantaProfileService {
         return list.stream()
             .map(santa -> {
                 SantaProfile santaProfile = new SantaProfile();
-                santaProfile.setSantaProfileName("Testi: "+santa.getSantaProfileName());
+                santaProfile.setSantaProfileName(santa.getSantaProfileName());
+                santaProfile.setInfo(santa.getInfo());
+                santaProfile.setPrice(santa.getPrice());
                 return santaProfile;
             }).collect(Collectors.toList());
     }

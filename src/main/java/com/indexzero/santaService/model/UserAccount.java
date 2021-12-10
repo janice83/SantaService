@@ -35,15 +35,6 @@ public class UserAccount extends AbstractPersistable<Long> {
     @ManyToOne
     private CustomerProfile customerProfile;
 
-    /* public boolean checkIfNull() {
-        return Stream.of(
-                firstName,
-                lastName,
-                email,
-                phoneNumber,
-                postalCode)
-                .allMatch(Objects::isNull);
-    } */
     public Boolean anyValueBlank() {
         if (this.firstName.isBlank()) return true;
         if (this.lastName.isBlank()) return true;

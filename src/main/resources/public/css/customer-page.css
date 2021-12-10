@@ -2,11 +2,10 @@
     /* margin: 0 6rem 2rem 6rem; */
 }
 
+/* Muuta nimi geneerisemmäksi ja siirrä yleisiin: */
 .customer-form {
     font-size: 1.8rem;
     line-height: 3rem;
-
-
 }
 
 .customer-form-btn {
@@ -27,7 +26,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
+
 }
 
 #santa-cards *> {

@@ -19,12 +19,19 @@ const addToElement = data => {
         divElement.id = "card";
         const headerElement = document.createElement("h3");
         headerElement.innerText = santa.santaProfileName;//hakee santa-profilen kautta profiilin nimen
+        const infoPara = document.createElement("p");
+        infoPara.innerText = santa.info;
+
+        const pricePara = document.createElement("p");
+        pricePara.innerText = "Hinta: "+santa.price;
 
         const figureElement = document.createElement("figure");
         figureElement.id = "card-figure";
 
         divElement.appendChild(figureElement);
         divElement.appendChild(headerElement);
+        divElement.appendChild(infoPara);
+        divElement.appendChild(pricePara);
 
         document.getElementById("santa-cards").appendChild(divElement);
         
