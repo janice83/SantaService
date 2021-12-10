@@ -144,37 +144,32 @@ footer {
 
 /* Burger menu:  */
 /* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
-.topnav {
+.topNav {
     overflow: hidden;
     background-color: var(--nav-footer-color);
     position: relative;
-    padding: 14px;
-    display: block;
+    /* padding: 14px;
+    display: flex; */
 
 }
 
-.topnav #myLinks {
-    display: contents;
+.topNav #navLinks {
+    display: none;
 }
 
 /* Style navigation menu links */
-.topnav a {
+/* .topNav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-}
+} */
 
 /* Style the hamburger menu */
-.topnav a.icon {
-    display: none;
-}
+/* .topNav a.icon {
+    display: contents;
+} */
 
-
-
-input {
-    /* margin-left: 1rem; */
-}
 
 .alert {
     border: 0.1rem solid brown;
@@ -191,6 +186,16 @@ input {
 .btn-close {
     background-color: inherit;
     font-size: 1.8rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .topNav #navLinks {
+        display: flex;
+    }
+    .topNav a.icon {
+        display: none;
+
+    }
 }
 
 /* Tablettinäkymä */

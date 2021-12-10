@@ -1,5 +1,5 @@
-function changeBurgerMenu() {
-    let navLinks = document.getElementById("myLinks");
+function toggleMobileMenu() {
+    let navLinks = document.getElementById("navLinks");
     if (navLinks.style.display === "block") {
         navLinks.style.display = "none";
     } else {
