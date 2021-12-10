@@ -1,35 +1,40 @@
 package com.indexzero.santaService.controller;
 
-import java.util.List;
-
-import com.indexzero.santaService.model.SantaAccount;
-import com.indexzero.santaService.services.SantaAccountService;
+import com.indexzero.santaService.model.UserAccount;
+import com.indexzero.santaService.services.UserAccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class CustomerController {
 
     @Autowired
-    private SantaAccountService santaService;
+    private UserAccountService userAccountService;
+
+    @ModelAttribute
+    private UserAccount getCustomer() {
+        return new UserAccount();
+    }
 
     @GetMapping("/customer")
     public String getCustomerPage() {
         return "customer";
     }
-    
-    @ResponseBody
-    @RequestMapping(
-        value = "santas",
-        method = RequestMethod.GET, 
-        produces = "application/json")
-    public List<SantaAccount> getSantas() {
-        return santaService.getNewSantas();
+    @PostMapping("/customer-register")
+    public String register(@ModelAttribute UserAccount customerAccount) {
+        System.out.println();
+        System.out.println("Luodaan tiliä");
+        System.out.println(customerAccount);
+        System.out.println();
+        userAccountService.createCustomerAccount(customerAccount);
+        
+        return "redirect:/login-page";
     }
 
 }

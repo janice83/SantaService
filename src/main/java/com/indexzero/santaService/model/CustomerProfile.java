@@ -1,6 +1,9 @@
 package com.indexzero.santaService.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -12,16 +15,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CustomerAccount extends AbstractPersistable<Long>{
-    private String firstName;
-    private String lastName;
+public class CustomerProfile extends AbstractPersistable<Long>{
     
-    private String email;
-    private String username;
-    private String password;
-
+    private String customerProfileName;
     private String address;
 
-    private String userRole;
+    @OneToMany(mappedBy = "customerProfile")
+    private List<UserAccount> users;
+    
 
 }

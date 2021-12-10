@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<head th:replace="fragments/head :: head_fragment('Pukeille')">
 </head>
-<body>
-    <h1>Kijaudu palveluun</h1>
-    <section>
-        <div th:replace="fragments/forms :: santa-login-fragment('Loginpage')"></div>
-    </section>
+<body class="main-content">
+    <header th:replace="fragments/header :: header-fragment">
+    </header>
+    <main>
+        <section>
+            <h1>Kirjaudu palveluun</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam fuga vero architecto officia, consequuntur at beatae veniam hic odit quae tempora sapiente. Aliquam similique voluptate sunt porro vero facilis quidem.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In id voluptatem, laborum architecto fugit, minima nam vel blanditiis eos quam ex at reprehenderit aliquid quisquam quasi maxime autem exercitationem itaque?</p>
+            <section>
+                <div th:replace="fragments/forms :: santa-login-fragment('Loginpage')"></div>
+            </section>
+        </section>
+    </main>
+    <footer th:replace="fragments/footer :: footer-fragment">
+    </footer>
 </body>
 </html>

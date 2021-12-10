@@ -1,8 +1,9 @@
 /* Esimerkki yleisistä säännöistä, mitä noudatetaan sivustolla */
 /* css variable, yleiset värit - muuttaminen vaikuttaa kaikkiin, missä käytössä */
 :root {
-    --main-font-color: bisque;
-    --nav-footer-color: brown;
+    --main-font-color: rgb(245, 214, 176);
+    --main-nav-and-footer-color: rgb(180, 40, 40);
+
 }
 
 html {
@@ -11,8 +12,8 @@ html {
 
 body, a {
     color: var(--main-font-color);
-}
 
+}
 
 h1 {
     font-size: 4.2rem;
@@ -26,84 +27,98 @@ h3 {
     font-size: 2.4rem;
 }
 
-p, a, li {
+p, a, li, label {
     font-size: 1.8rem;
 }
 
 section {
-    line-height: 2.5rem;
+    margin: 2rem;
+    line-height: 4rem;
 }
 
 a {
+    padding: 1rem;
     text-decoration: none;
+    border-radius: 0.5rem;
 }
 
-a:hover {
-    text-decoration: underline;
+nav a:hover {
+    /* text-decoration: underline; */
+    background-color: rgb(100, 30, 30);
 }
 
-header {}
+header {
+    /* width: 100%; */
+}
 
 figure h1 {
     font-size: 5rem;
     color: whitesmoke;
-    position: absolute;
+    position: relative;
     top: 29%;
     left: 2rem;
-}
-
-/* nav {
-    background-color: var(--nav-footer-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem;
-}
- */
-/* nav ul {
-    display: flex;
-    justify-content: space-evenly;
-}
- */
-nav li {
-    margin: 1rem;
+    width: 35%;
 }
 
 .main-image {
     background-image: url("../images/header-photo.png");
-    /* width: 100%;
-    height: auto; */
-    min-height: 30rem;
+    width: 100%;
+    height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 76% 50%;
+    background-position: 50% 20%;
 }
 
-main {
+nav {
+    background: linear-gradient(356deg, rgb(51 7 7), rgb(166 24 24), #d69090);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    
+    
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav li {
+    margin: 1rem;
+}
+
+
+
+.main-content {
     /* background-color: rgb(11, 11, 75); */
-    padding: 2rem;
-    min-height: 20rem;
+    width: 100%;
+    /* min-height: 40rem; */
     background: linear-gradient(#453986, #050a42);
+
 }
 
 footer {
-    background-color: var(--nav-footer-color);
-    min-height: 5rem;
-    padding: 2rem;
+    background: linear-gradient(rgb(53 5 9), var(--main-nav-and-footer-color), #903417);
     text-align: center;
+    padding: 2rem;
+    /* width: 100%;
+    height: 100%; */
 }
 
 .some {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
 }
 
-.some > * {
+.some>* {
     padding: 0.5rem;
-    font-size: 4rem;
     color: white;
+    font-size: 4rem;
 }
 
   /* Style the navigation menu, kaikki muut paitsi mobiilinäkymä */
@@ -135,67 +150,70 @@ footer {
 
         /* TABLETTI ********************************************************** */
 
-@media only screen and (max-width: 769px) {
+input {
+    /* margin-left: 1rem; */
+}
+
+.alert {
+    border: 0.1rem solid brown;
+}
+.alert-success {
+    background-color: rgba(84, 132, 33, 0.8);
+}
+.alert-error {
+    background-color: rgba(211, 27, 27, 0.8);
+}
+.btn-close {
+    background-color: inherit;
+    font-size: 1.8rem;
+}
+/* Tablettinäkymä */
+/* @media only screen and (max-width: 769px) {
     .main-image {
         background-position: 75% 23%;
     }
+
     nav {
         margin-top: -5rem;
     }
+
     figure h1 {
         position: relative;
         top: 30%;
         left: 3%;
     }
-    nav {
-    background-color: var(--nav-footer-color);
-    display: block;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-    /* nav ul {
-    display: flex;
-    justify-content: space-evenly;
 } */
-}
 
-
-
-        /* DESKTOP ********************************************************** */
-
-@media only screen and (min-width: 770px) {
+/* Desktop näkymä */
+/* @media only screen and (min-width: 770px) {
     .main-image {
         background-position: 75% 23%;
     }
-    figure h1 {
-        position: relative;
+
+    /* figure h1 {
+        position: absolute;
         top: 38%;
         left: 2%;
     }
-}
+} */
+    
 
-
-
-        /* ISO NÄYTTÖ ********************************************************** */
-
-@media only screen and (min-width: 1440px) {
+/* Iso laptop-näkymä */
+/* @media only screen and (min-width: 1440px) {
     figure h1 {
         position: relative;
-        top: 25%;
+        top: 20rem;
         left: 2%;
         font-size: 6rem;
     }
-}
+} */
 
-
-
-        /* MOBIILI ********************************************************** */
-
-@media only screen and (max-width: 426px) {
+/* Mobiilinäkymä */
+/* @media only screen and (max-width: 426px) {
     nav {
         margin-top: -12rem;
     }
+
     figure h1 {
         font-size: 2.5rem;
         top: 23%;
@@ -204,48 +222,47 @@ footer {
 
 /* Alla Mikan Hessburger-lisäykset */
   /* Style the navigation menu */
-  .topnav {
+/*   .topnav {
     overflow: hidden;
     background-color: var(--nav-footer-color);
-/*     background-color: #333;
+ *//*     background-color: #333;
  */    
-    position: relative;
+/*     position: relative;
     padding: 0;
   }
-  
+ */  
   /* Hide the links inside the navigation menu (except for logo/home) */
-  .topnav #myLinks {
+/*   .topnav #myLinks {
     display: none;
   }
-
+ */
   /* Style navigation menu links */
-  .topnav a {
+/*   .topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
     display: block;
   }
-  
+ */  
   /* Style the hamburger menu */
-  .topnav a.icon {
+/*   .topnav a.icon {
     background: black;
     display: block;
     position: absolute;
     right: 0;
     top: 0;
   }
-  
+ */  
   /* Add a grey background color on mouse-over */
-  .topnav a:hover {
+/*   .topnav a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+ */  
   /* Style the active link (or home/logo) */
 /*   .active {
     background-color: #04AA6D;
     color: white;
   }
  */
-}

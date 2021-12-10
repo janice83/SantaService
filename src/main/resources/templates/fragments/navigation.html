@@ -1,16 +1,20 @@
 <nav th:fragment="main-nav-fragment">
-<!-- //Tätä ei ilmeisesti tarvita, koska FA-stylesheet on jo aiemmin määritelty.
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- -->
-    <div class="topnav">   
+
+<!--     <div class="topnav">   
         <a th:href="@{/}" class="active">Etusivulle</a>
         <div id="myLinks">
-<!--        <li><a th:href="@{/}">Etusivulle</a></li>  // ul/li muutettu diviksi-->
+       <li><a th:href="@{/}">Etusivulle</a></li>  // ul/li muutettu diviksi
             <a th:href="@{/customer}">Perheille</a>
             <a th:href="@{/santa}">Joulupukeille</a>   
         </div>
     </div>
-
+ -->
+    <ul>
+        <li><a th:href="@{/}">Etusivulle</a></li>
+        <li><a th:href="@{/customer}">Perheille</a></li>
+        <li><a th:href="@{/santa}">Joulupukeille</a></li>
+        <li><a th:href="@{/login-page}">Kirjaudu palveluun</a></li>
+    </ul>
     <ul sec:authorize="isAuthenticated()">
         <li sec:authorize="hasRole('SANTA')">Logged in as:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/santa-profile}"></a>

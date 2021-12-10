@@ -1,30 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap');
 
 
-.index-main {
-    text-align: center;
-
-}
 
 .otsikko {
-    font-family: 'Ceviche One', cursive;
-    font-size: 9rem;
-    margin-bottom: 2rem;
+  font-family: 'Ceviche One', cursive;
+  font-size: 9rem;
+  margin-left: 2rem;
+  text-align: center;
+
 }
 
 .content {
-    margin: 0 6rem 2rem 6rem;
-    
+  text-align: center;
 }
 
 .runo {
   font-style: italic;
-    margin: 2rem;
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 
-@media only screen and (max-width: 769px) {
+/* @media only screen and (max-width: 769px) {
     .otsikko {
       font-size: 7rem;
     }
@@ -43,5 +39,4 @@
         margin: 0 2rem 2rem 2rem;
     }
 
-  }
-
+  } */

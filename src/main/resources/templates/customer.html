@@ -4,36 +4,37 @@
 <head th:replace="fragments/head :: head_fragment('Perheille')">
 </head>
 
-<body onload="loadSantas()">
+<body onload="loadSantas('santas/available')" class="main-content">
+
     <header th:replace="fragments/header :: header-fragment">
     </header>
-    <main>
+    <main >
         <section class="customer-page-section">
             <h1 class="customer-h1">Tilaa Joulupukki aatoksi!</h1>
-            <p>Sivuiltamme voit varata joulupukin suoraan kotiisi haluamanasi ajankohtana. Pääset selailemaan palvelustamme löytyviä joulupukkeja <a href="">alta</a>.</p>
+            <p class="ei-sisennys">Sivuiltamme voit varata joulupukin suoraan kotiisi haluamanasi ajankohtana. Pääset selailemaan palvelustamme löytyviä joulupukkeja alta.</p>
         </section>
         <section class="customer-page-section">
             <h2>Uusille käyttäjille</h2>
-            <p>Etkö ole aikaisemmin tilannut pukkia kauttamme? Aloita rekisteröitymällä
-             asiakkaaksemme <span><a th:href="@{customer-register}">täällä</a></span>!</p>
+            <p class="ei-sisennys">Etkö ole aikaisemmin tilannut pukkia kauttamme?</p>
         </section>
         <section class="customer-page-section">
             <p></p>
-            <div th:replace="fragments/forms :: customer-login-fragment('Kirjaudu asiakastilille')"></div>
+            <!-- Kirjautuminen siirretty yhteiselle sivulle -->
+            <!-- <div th:replace="fragments/forms :: customer-login-fragment('Kirjaudu asiakastilille')"></div> -->
+            <div th:replace="fragments/forms :: register-customer('Rekisteröidy perheeksi')"></div>
         </section>
         <!-- Tähän oli asetettu inlinena tyyliksi 100%(poistettu), antaa css tiedoston hoitaa tyylittely -->
         <section class="cards">
-           
+
         </section>
         <!-- Tähän haetaan kannasta, js hoitaa elementin muodostamisen -->
-        <section id="santa-cards" >
-            
+        <section id="santa-cards">
+
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">
     </footer>
-    <script th:inline="javascript"> var contextRoot = /*[[@{/}]]*/ '';</script>
-    <script th:src="@{/js/domain-access.js}" defer></script>
+
 </body>
 
 </html>

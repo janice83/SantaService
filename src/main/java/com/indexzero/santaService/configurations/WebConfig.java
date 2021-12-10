@@ -1,7 +1,6 @@
 package com.indexzero.santaService.configurations;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.PriorityOrdered;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

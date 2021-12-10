@@ -1,0 +1,40 @@
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    margin: 2rem;
+    text-align: center;
+    border-bottom: 0.3rem solid rgb(30, 97, 13);
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    color: whitesmoke;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 0.2rem;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    box-shadow: 0 0 1rem 1rem rgba(167, 179, 150, 0.2);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    box-shadow: 0 0 1rem 1rem rgba(195, 201, 186, 0.664);
+}
+
+/* Style the tab content */
+.tabContent {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
