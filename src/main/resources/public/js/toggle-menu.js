@@ -1,8 +1,8 @@
 function toggleMobileMenu() {
     let navLinks = document.getElementById("navLinks");
-    if (navLinks.style.display === "block") {
+    if (navLinks.style.display === "flex") {
         navLinks.style.display = "none";
     } else {
-        navLinks.style.display = "block";
+        navLinks.style.display = "flex";
     }
 }

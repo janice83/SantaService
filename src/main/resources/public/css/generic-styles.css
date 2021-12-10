@@ -72,7 +72,7 @@ figure h1 {
 nav {
     background: linear-gradient(356deg, rgb(51 7 7), rgb(166 24 24), #d69090);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding-top: 2rem;
@@ -191,6 +191,7 @@ footer {
 @media only screen and (min-width: 768px) {
     .topNav #navLinks {
         display: flex;
+        flex-direction: row;
     }
     .topNav a.icon {
         display: none;
