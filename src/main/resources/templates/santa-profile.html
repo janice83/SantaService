@@ -10,8 +10,7 @@
 	<main class="santa-profile-main">
 		<section class="santa-profile-header">
 			<h1 th:text="${basicInfo.username}"></h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempore iste vitae ex, ad sapiente nostrum. Aut
-				sed at voluptates blanditiis aspernatur culpa enim! Expedita repellendus mollitia officia at reiciendis!</p>
+			<p>Tällä sivulla voit hallinnoida Joulupukki-tilisi asetuksia</p>
 				<!-- On success! -->
 			<div th:if="${basicInfoUpdated}" class="alert alert-success"><span><p th:text="${basicInfoUpdated}"></p></span>
 				<button type="button" class="btn-close" onclick="closeElement()">X</button>
@@ -22,13 +21,13 @@
 		</section>
 		<section class="tab">
 			<button class="tabLinks" onclick="openTab(event, 'tab-basic-info')">
-				<p>Basic info</p>
+				<p>Perustiedot</p>
 			</button>
 			<button class="tabLinks" onclick="openTab(event, 'tab-santa-info')">
-				<p>Profile info</p>
+				<p>Profiilitiedot</p>
 			</button>
 			<button class="tabLinks" onclick="openTab(event, 'tab-jobs-info')">
-				<p>Available jobs</p>
+				<p>Vapaana olevat keikat</p>
 			</button>
 		</section>
 		<!-- Content for tab: -->
@@ -36,13 +35,13 @@
 			<!-- Output for basic info -->
 			<article id="tab-basic-info" class="tabContent">
 				<div class="basicInfo">
-					<h2>Basic info</h2>
-					<h3>Username: <span th:text="${basicInfo.username}"></span></h3>
-					<h3>First name: <span th:text="${basicInfo.firstName}"></span></h3>
-					<h3>Last name: <span th:text="${basicInfo.lastName}"></span></h3>
-					<h3>Email: <span th:text="${basicInfo.email}"></span></h3>
-					<h3>Phonenumber: <span th:text="${basicInfo.phoneNumber}"></span></h3>
-					<h3>Postalcode: <span th:text="${basicInfo.postalCode}"></span></h3>
+					<h2>Perustiedot</h2>
+					<h3>Käyttäjätunnus: <span th:text="${basicInfo.username}"></span></h3>
+					<h3>Etunimi: <span th:text="${basicInfo.firstName}"></span></h3>
+					<h3>Sukunimi: <span th:text="${basicInfo.lastName}"></span></h3>
+					<h3>Sähköposti: <span th:text="${basicInfo.email}"></span></h3>
+					<h3>Puhelinnumero: <span th:text="${basicInfo.phoneNumber}"></span></h3>
+					<h3>Postinumero: <span th:text="${basicInfo.postalCode}"></span></h3>
 				</div>
 
 				<div class="basicInfo">
@@ -52,7 +51,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Update info</h2>
+										<h2>Päivitä tietoja</h2>
 									</th>
 								</tr>
 							</thead>
@@ -89,7 +88,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<td><input type="submit" value="Submit"></td>
+									<td><input type="submit" value="Päivitä"></td>
 								</tr>
 							</tfoot>
 						</table>
@@ -101,7 +100,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Change username</h2>
+										<h2>Vaihda käyttäjätunnus</h2>
 									</th>
 								</tr>
 							</thead>
@@ -134,7 +133,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Delete user</h2>
+										<h2>Poista Joulupukki-tili</h2>
 									</th>
 								</tr>
 							</thead>
@@ -175,7 +174,7 @@
 							<thead>
 								<tr>
 									<th>
-										<h2>Muokkaa</h2>
+										<h2>Muokkaa tietojasi</h2>
 									</th>
 								</tr>
 							</thead>
@@ -217,7 +216,7 @@
 				</div>
 			</article>
 			<article id="tab-jobs-info" class="tabContent">
-				<h1>Available jobs</h1>
+				<h1>Vapaana olevat Joulupukkikeikat</h1>
 				<div></div>
 				<div></div>
 			</article>
