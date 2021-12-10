@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="fragments/head :: head_fragment('santa-profile')">
 </head>
 
-<body sec:authorize="hasAuthority('ROLE_CUSTOMER')" >
+<body sec:authorize="hasAuthority('ROLE_CUSTOMER')">
     <nav th:replace="fragments/navigation :: main-nav-fragment"></nav>
     <main class="customer-profile-main" id="customer-main-image">
-        <section>
+        <section class="customer-profile-header">
             <h1>Asiakasprofiilisivu</h1>
-        <h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
+            <h2>Nimi: <span th:text="${#authentication.getPrincipal().getUsername()}"></span></h2>
         </section>
-        
+        <!-- Tab: -->
+        <section class="tab">
+			<button class="tabLinks" onclick="openTab(event, 'tab-basic-info')">
+				<p>Perustiedot</p>
+			</button>
+			<button class="tabLinks" onclick="openTab(event, 'tab-customer-info')">
+				<p>Profiilitiedot</p>
+			</button>
+			<button class="tabLinks" onclick="openTab(event, 'tab-available-santas')">
+				<p>Vapaat pukit</p>
+			</button>
+		</section>
+        <!-- Tab content: -->
+        <section>
+            <article id="tab-basic-info" class="tabContent">
+                <h1>Account info</h1>
+            </article>
+            <article id="tab-customer-info" class="tabContent">
+                <h1>Profiilitiedot</h1>
+            </article>
+            <article id="tab-available-santas" class="tabContent">
+                <h1>Vapaat pukit</h1>
+                <div>
+                    
+                </div>
+            </article>
+        </section>
+
 
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">
-	</footer>
+    </footer>
 </body>
+
 </html>

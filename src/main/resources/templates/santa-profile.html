@@ -23,6 +23,7 @@
 				<button type="button" class="btn-close" onclick="closeElement()">X</button>
 			</div>
 		</section>
+		<!-- Tab -->
 		<section class="tab">
 			<button class="tabLinks" onclick="openTab(event, 'tab-basic-info')">
 				<p>Perustiedot</p>
@@ -208,10 +209,10 @@
 								</tr>
 								<tr>
 									<td>
-										<input type="radio" th:name="available" id="yes" th:value="1">Kyllä
+										<input type="radio" th:name="available" th:value="1" th:checked="${checkedYes}">Kyllä
 									</td>
 									<td>
-										<input type="radio" th:name="available" id="no" th:value="0">Ei
+										<input type="radio" th:name="available" th:value="0" th:checked="${checkedNo}">Ei
 									</td>
 								</tr>
 							</tbody>

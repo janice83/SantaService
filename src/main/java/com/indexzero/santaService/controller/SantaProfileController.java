@@ -37,29 +37,24 @@ public class SantaProfileController {
     @GetMapping("/santa-profile")
     public String santaProfileView(Model model) {
         Authentication auth = getAuthenticatedUser();
-        System.out.println();
-        System.out.println("Uudelleen ohjaus /testi");
-        System.out.println();
         if (auth.isAuthenticated()) {
-            System.out.println();
-            System.out.println("Santa profiilissa");
-            System.out.println("Detailit: "+auth.getDetails());
-            System.out.println("Käyttäjänimi: "+auth.getName());
-            System.out.println("Principal: "+auth.getPrincipal());
-            System.out.println("Is authtenticated: "+auth.isAuthenticated());
-            System.out.println();
             Optional<UserAccount> user = userAccountService.findUserAccountByUsername(auth.getName());
             if (user.isPresent()) {
                 model.addAttribute("basicInfo", user.get());
                 model.addAttribute("profileInfo", user.get().getSantaProfile());
+                if (user.get().getSantaProfile().isAvailable()) {
+                    model.addAttribute("checkedYes", "true");
+                    model.addAttribute("checkedNo", "false");
+                } else {
+                    model.addAttribute("checkedYes", "false");
+                    model.addAttribute("checkedNo", "true");
+                }
             }
             return "santa-profile";
         }
-        System.out.println();
-        System.out.println("Autentikointia ei löydy!");
-        System.out.println();
-        return "login-page";
-        
+
+        return "redirect:/login-page";
+
     }
 
     /* get santas */
@@ -68,20 +63,21 @@ public class SantaProfileController {
     public List<SantaProfile> getAllAvailableSantas() {
         return santaProfileService.getSantas();
     }
+
     /* update santa profile */
     @PostMapping("/update/santa-account")
     public String updateSantaProfile(
-        @RequestParam String profilename,
-        @RequestParam String info,
-        @RequestParam int price,
-        @RequestParam int available) {
+            @RequestParam String profilename,
+            @RequestParam String info,
+            @RequestParam int price,
+            @RequestParam int available) {
         System.out.println();
-        System.out.println("Profiilinimi:"+profilename);
-        System.out.println("Käytettävissä: "+available);
+        System.out.println("Profiilinimi:" + profilename);
+        System.out.println("Käytettävissä: " + available);
         System.out.println();
-        /* get useraccount  */
+        /* get useraccount */
         Optional<UserAccount> userAccount = userAccountService
-            .findUserAccountByUsername(getAuthenticatedUser().getName());
+                .findUserAccountByUsername(getAuthenticatedUser().getName());
         /* get accounts santaprofile */
         SantaProfile existingSantaProfile = userAccount.get().getSantaProfile();
         /* Updated info */
@@ -96,16 +92,15 @@ public class SantaProfileController {
         }
 
         santaProfileService.updateSantaProfileInfo(
-            userAccount.get(), existingSantaProfile, updatedSantaProfile);
-            
+                userAccount.get(), existingSantaProfile, updatedSantaProfile);
+
         return "redirect:/success";
     }
-    
 
     /*  */
     private Authentication getAuthenticatedUser() {
-       return SecurityContextHolder.getContext().getAuthentication();
-        
+        return SecurityContextHolder.getContext().getAuthentication();
+
     }
 
 }

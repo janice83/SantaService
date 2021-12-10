@@ -1,16 +1,17 @@
 .customer-profile-header {
     text-align: center;
+    /* background-color: rgba(92, 18, 18, 0.8); */
+    /* background-color: rgb(57 9 9 / 80%); */
 }
 
 #customer-main-image {
-    background-image: url("../images/joulukuusi-ja-lapset.jpg");
+    background-image: url("../images/tree-and-fireplace.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    min-height: 50rem;
-    
 }
 
 .customer-profile-main {
+    width: 100%;
+    min-height: 60rem;
     
 }
