@@ -7,17 +7,34 @@ section.customer-page-main  {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
     
 }
 
-/* .customer-page-main > * {
-    flex-basis: 75%;
-} */
 .customer-page-form form {
     border: 0.1rem solid black;
     border-radius: 0.5rem;
     background-color: rgba(109, 30, 30, 0.8);
     padding: 2rem;
+}
+
+.customer-page-form form tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.customer-page-form form tr >* {
+    flex-basis: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .customer-page-form form tr {
+        flex-wrap: nowrap;
+    }
+    .customer-page-form {
+        text-align: unset;
+    }
 }
 
 /* Displayin cards, should be moved */
