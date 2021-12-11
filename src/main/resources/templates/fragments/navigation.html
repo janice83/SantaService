@@ -7,10 +7,10 @@
         <li><a th:href="@{/login-page}">Kirjaudu palveluun</a></li>
     </ul>
     <ul sec:authorize="isAuthenticated()" >
-        <li sec:authorize="hasRole('SANTA')" class="secured-info">Kirjautunut käyttäjä:
+        <li sec:authorize="hasRole('SANTA')" class="secured-info">Profiili:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/santa-profile}"></a>
         </li>
-        <li sec:authorize="hasRole('CUSTOMER')" class="secured-info">Kirjautunut käyttäjä:
+        <li sec:authorize="hasRole('CUSTOMER')" class="secured-info">Profiili:
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/customer-profile}"></a>
         </li>
         <li>
