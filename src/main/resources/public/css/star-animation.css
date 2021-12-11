@@ -4,8 +4,8 @@
     position: relative;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-  
-  }
+
+}
 
 #star-one {
     color: rgba(146, 109, 109, 0.1);
@@ -14,50 +14,77 @@
     left: 90%;
     animation-duration: 2s;
     animation-name: blinkingStarOne;
-  }
-  
-  #star-two {
+}
+
+#star-two {
     color: rgba(248, 242, 242, 0.9);
     font-size: 1rem;
     top: 5rem;
     left: 30%;
     animation-duration: 2s;
     animation-name: blinkingStarTwo;
-  }
-  
-  
-  @keyframes blinkingStarOne {
+}
+
+#star-three {
+    color: rgba(100, 137, 146, 0.5);
+    font-size: 0.7rem;
+    top: 7rem;
+    left: 7%;
+    animation-duration: 2s;
+    animation-name: blinkingStarThree;
+}
+
+
+@keyframes blinkingStarOne {
     0% {
-      color: rgba(209, 187, 187, 0.8);
+        color: rgba(209, 187, 187, 0.8);
     }
-  
+
     25% {
-      color: rgba(139, 123, 123, 0.2);
+        color: rgba(139, 123, 123, 0.2);
     }
-  
+
     50% {
-      color: rgba(211, 197, 197, 0.4);
+        color: rgba(211, 197, 197, 0.4);
     }
-  
+
     100% {
-      color: rgba(219, 203, 203, 0.9);
+        color: rgba(219, 203, 203, 0.9);
     }
-  }
-  
-  @keyframes blinkingStarTwo {
+}
+
+@keyframes blinkingStarTwo {
     0% {
-      color: rgba(211, 183, 183, 0.6);
+        color: rgba(211, 183, 183, 0.6);
     }
-  
+
     25% {
-      color: rgba(146, 90, 90, 0.1);
+        color: rgba(146, 90, 90, 0.1);
     }
-  
+
     50% {
-      color: rgba(190, 142, 142, 0.9);
+        color: rgba(190, 142, 142, 0.9);
     }
-  
+
     100% {
-      color: rgba(172, 129, 129, 0.4);
+        color: rgba(172, 129, 129, 0.4);
     }
-  }
+}
+
+@keyframes blinkingStarThree {
+    0% {
+        color: rgba(119, 194, 212, 0.8);
+    }
+
+    25% {
+        color: rgba(121, 182, 197, 0.6);
+    }
+
+    50% {
+        color: rgba(101, 151, 163, 0.4);
+    }
+
+    100% {
+        color: rgba(127, 213, 235, 0.9);
+    }
+}
