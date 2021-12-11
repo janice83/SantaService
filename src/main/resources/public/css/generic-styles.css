@@ -114,13 +114,13 @@ nav ul li {
 .secured-info {
     margin-top: 1.8rem;
 }
-
-.registration-form {
+/* Form for login and registration */
+.register-login-form {
     font-size: 1.8rem;
     line-height: 3rem;
 }
 
-.registration-form-btn {
+.register-login-form-btn {
     background-color: rgb(129, 67, 22);
     color: bisque;
     border: 0.3rem solid rgb(129, 67, 22);
@@ -128,7 +128,7 @@ nav ul li {
     box-shadow: 0.3rem 0.3rem 0.5rem grey;
 }
 
-.registration-form-btn:hover {
+.register-login-form-btn:hover {
     border: 0.3rem solid rgb(189, 127, 83);
 }
 

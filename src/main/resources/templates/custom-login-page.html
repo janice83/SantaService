@@ -7,29 +7,30 @@
 <body class="main-content">
     <header th:replace="fragments/header :: header-fragment">
     </header>
-    <main class="custom-login-page-main">
-        <section>
+    <main >
+        <section class="login-page-main">
             <h1>Kirjaudu palveluun</h1>
             <p>Jos olet jo rekisteröitynyt käyttäjäksemme aikaisemmin, voit kirjautua sisään profiilisivullesi tästä</p>
-            <section>
-                <!-- alert: -->
-                <div th:if="${logoutInfo}" class="alert alert-info"><span>
-                        <p th:text="${logoutInfo}"></p>
-                    </span>
-                    <button type="button" class="btn-close" onclick="closeElement()">X</button>
-                </div>
-                <div th:if="${registerSuccess}" class="alert alert-info"><span>
-                        <p th:text="${registerSuccess}"></p>
-                    </span>
-                    <button type="button" class="btn-close" onclick="closeElement()">X</button>
-                </div>
-                <div th:if="${param.error}" class="alert alert-error">
-                    <p>Väärä tunnus tai salasana</p>
-                    <button type="button" class="btn-close" onclick="closeElement()">X</button>
-                </div>
-
-                <div th:replace="fragments/forms :: custom-login-fragment('Kirjaudu sisään')"></div>
-            </section>
+        </section>
+        <section class="login-page-main">
+            <!-- alert: -->
+            <div th:if="${logoutInfo}" class="alert alert-info"><span>
+                    <p th:text="${logoutInfo}"></p>
+                </span>
+                <button type="button" class="btn-close" onclick="closeElement()">X</button>
+            </div>
+            <div th:if="${registerSuccess}" class="alert alert-info"><span>
+                    <p th:text="${registerSuccess}"></p>
+                </span>
+                <button type="button" class="btn-close" onclick="closeElement()">X</button>
+            </div>
+            <div th:if="${param.error}" class="alert alert-error">
+                <p>Väärä tunnus tai salasana</p>
+                <button type="button" class="btn-close" onclick="closeElement()">X</button>
+            </div>  
+        </section>
+        <section class="login-page-form">
+            <div th:replace="fragments/forms :: custom-login-fragment(heading='Syötä tunnus ja salasana')"></div>
         </section>
     </main>
     <footer th:replace="fragments/footer :: footer-fragment">

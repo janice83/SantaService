@@ -1,4 +1,8 @@
-.customer-page-main {
+section.customer-page-main  {
+    text-align: center;
+}
+
+.customer-page-form {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,7 +13,12 @@
 /* .customer-page-main > * {
     flex-basis: 75%;
 } */
-
+.customer-page-form form {
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    background-color: rgba(109, 30, 30, 0.8);
+    padding: 2rem;
+}
 
 /* Displayin cards, should be moved */
 #santa-cards {

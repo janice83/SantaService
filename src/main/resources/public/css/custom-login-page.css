@@ -1,4 +1,21 @@
-.custom-login-page-main {
+section.login-page-main {
+    text-align: center;
+}
+
+.login-page-form {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.custom-login-page-main > * {
+    flex-basis: 100%;
+}
+
+.login-page-form form {
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    background-color: rgba(17, 102, 14, 0.6);
+    padding: 2rem;
 }

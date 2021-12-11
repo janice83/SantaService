@@ -7,13 +7,13 @@
 <body class="main-content">
     <header th:replace="fragments/header :: header-fragment">
     </header>
-    <main class="santa-page-main">
-        <section>
-            <h1>Aatto joulupukkina? <span>&#127877;</span></h1>
+    <main >
+        <section class="santa-page-main">
+            <h1><span>&#127877;</span>Aatto joulupukkina?<span>&#127877;</span></h1>
             <p class="ei-sisennys">Jouluaatto lähestyy! Haluatko jakaa jouluiloa muillekin kuin omalle perheellesi?
                 Palvelumme kautta voit ilmoittautua joulupukiksi aattopäivälle. </p>
         </section>
-        <section>
+        <section class="santa-page-main">
             <h2>Uusille joulupukeille</h2>
             <p class="ei-sisennys">Etkö ole aikaisemmin käyttänyt sivujamme? Rekisteröidy ensin palveluumme ja kirjoita
                 kuvaus itsestäsi. Voit lisätä järjestelmäämme alueen jolla toimit joulupukkina ja ajankohdan, milloin
@@ -24,7 +24,7 @@
             </span>
             <button type="button" class="btn-close" onclick="closeElement()">X</button>
         </div>
-        <section>
+        <section class="santa-page-form">
             <div th:replace="fragments/forms :: register-account(heading='Rekisteröidy Joulupukiksi', type='santa')"></div>
         </section>
     </main>

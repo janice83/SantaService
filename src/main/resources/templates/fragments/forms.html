@@ -1,11 +1,9 @@
 <!-- Custom login form to service: -->
-<form th:action="@{/login}" th:method="post" class="registration-form" th:fragment="custom-login-fragment(heading)">
+<form th:action="@{/login}" th:method="post" class="register-login-form" th:fragment="custom-login-fragment">
 	<table>
 		<thead>
-			<th>
-				<tr>
-					<h2 th:text="${heading}"></h2>
-				</tr>
+			<th colspan="2">
+				<h2 th:text="${heading}"></h2>
 			</th>
 		</thead>
 		<tbody>
@@ -21,7 +19,7 @@
 		<tfoot>
 			<tr>
 				<td>
-					<input type="submit" value="Kirjaudu" class="registration-form-btn">
+					<input type="submit" value="Kirjaudu" class="register-login-form-btn">
 				</td>
 			</tr>
 		</tfoot>
@@ -30,7 +28,7 @@
 
 <!-- Form for registration: -->
 <form th:action="@{/register/{path}(path=${type})}" th:method="post" th:fragment="register-account"
-	th:object="${userAccount}" class="registration-form">
+	th:object="${userAccount}" class="register-login-form">
 	<table>
 		<thead>
 			<th>
@@ -89,7 +87,7 @@
 		<tfoot>
 			<tr>
 				<td>
-					<input type="submit" value="Rekisteröidy" class="registration-form-btn">
+					<input type="submit" value="Rekisteröidy" class="register-login-form-btn">
 				</td>
 			</tr>
 		</tfoot>
