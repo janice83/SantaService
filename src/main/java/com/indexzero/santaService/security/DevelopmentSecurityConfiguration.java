@@ -25,7 +25,7 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
                 "/", "/index", "/customer", "/register/customer", "/register/**",
                 "/santa", "/santa-users", "/santas/available", "/santa/image/*" };
 
-        // http.csrf().disable();
+        http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
 
         http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();

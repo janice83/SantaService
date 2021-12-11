@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -22,6 +21,7 @@ public class CustomerProfile extends AbstractPersistable<Long>{
     
     private String customerProfileName;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "customerProfile")
     private List<UserAccount> users;
     

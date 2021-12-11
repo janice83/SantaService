@@ -10,7 +10,6 @@ import com.indexzero.santaService.model.CustomerProfile;
 import com.indexzero.santaService.model.SantaProfile;
 import com.indexzero.santaService.model.UserAccount;
 import com.indexzero.santaService.repositories.CustomerProfileRepository;
-import com.indexzero.santaService.repositories.SantaProfileRepository;
 import com.indexzero.santaService.repositories.UserAccountRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

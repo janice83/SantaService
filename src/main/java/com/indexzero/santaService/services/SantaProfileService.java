@@ -19,8 +19,6 @@ public class SantaProfileService {
     @Autowired
     private SantaProfileRepository santaProfileRepository;
 
-    @Autowired
-    private UserAccountService userAccountService;
 
     @Transactional
     public void saveSantaProfile(SantaProfile santaProfile) {

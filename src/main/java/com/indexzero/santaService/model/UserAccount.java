@@ -1,13 +1,8 @@
 package com.indexzero.santaService.model;
 
-import java.util.Objects;
-import java.util.stream.Stream;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -47,11 +42,12 @@ public class UserAccount extends AbstractPersistable<Long> {
     @NotBlank(message = "Ei saa olla tyhjä")
     private String postalCode;
 
-    /* Profile */
+    /*Santa Profile, get json back */
     @JsonBackReference
     @ManyToOne
     private SantaProfile santaProfile;
     
+    /* Customer profile, get json back */
     @JsonBackReference
     @ManyToOne
     private CustomerProfile customerProfile;
