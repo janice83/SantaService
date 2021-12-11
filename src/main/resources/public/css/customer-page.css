@@ -1,8 +1,17 @@
-.customer-page-section >* {
-    /* margin: 0 6rem 2rem 6rem; */
+.customer-page-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     
 }
 
+/* .customer-page-main > * {
+    flex-basis: 75%;
+} */
+
+
+/* Displayin cards, should be moved */
 #santa-cards {
     display: flex;
     flex-direction: row;
@@ -38,21 +47,3 @@
     width: 100%;
 }
 
-/* @media only screen and (max-width: 426px) {
-    .customer-page-section {
-        margin: 1rem;
-    }
-
-    .customer-h1 {
-        line-height: 4rem;
-    }
-
-    .customer-form {
-        margin-left: 0rem;
-    }
-
-    .ei-sisennys {
-        margin-left: 0rem;
-    }
-
-} */

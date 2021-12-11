@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class SantaController {
@@ -35,7 +36,8 @@ public class SantaController {
     public String addSantaProfile(
         @Valid @ModelAttribute UserAccount santaAccount,
         BindingResult result, 
-        Model model) {
+        Model model,
+        RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
             return "santa-claus";
@@ -48,7 +50,7 @@ public class SantaController {
             model.addAttribute("usernameError", e.getMessage());
             return "santa-claus";
         }
-
+        redirectAttributes.addFlashAttribute("registerSuccess", "Kirjautuminen onnistui, kirjaudu palveluun");
         return "redirect:/login-page";
     }
 

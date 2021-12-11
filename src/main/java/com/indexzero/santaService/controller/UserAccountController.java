@@ -111,11 +111,14 @@ public class UserAccountController {
         if (checkIfAuthenticated(password, account.get().getPassword())) {
             try {
                 deleted = userAccountService.deleteAccount(account.get());
+                /* Success atribute */
             } catch (Exception e) {
                 System.out.println("Tiliä ei löytynyt: " + e.getMessage());
+                /* Failure atribute */
             }
 
         }
+        /*  */
         return deleted ? "redirect:/logout" : "redirect:/";
 
     }
@@ -129,12 +132,11 @@ public class UserAccountController {
     private boolean checkIfAuthenticated(String inputPassword, String existingPassword) {
         return passwordEncoder.matches(inputPassword, existingPassword);
     }
-
+    /* Refresh session */
     private void refreshAuth(
             String username,
             String password,
             HttpServletRequest request) {
-        /* Attempt to manually refresh authentication */
         UsernamePasswordAuthenticationToken authReq = new UsernamePasswordAuthenticationToken(username,
                 password);
         Authentication auth = authManager.authenticate(authReq);

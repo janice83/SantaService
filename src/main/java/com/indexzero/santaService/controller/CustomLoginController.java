@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class CustomLoginController {
@@ -19,9 +20,6 @@ public class CustomLoginController {
 
     @GetMapping("/login-page")
     public String redirectLogin() {
-        System.out.println();
-        System.out.println("Kirjautumissivu!");
-        System.out.println();
         return "custom-login-page";
     }
     @GetMapping("/success")
@@ -34,6 +32,7 @@ public class CustomLoginController {
             System.out.println();
             System.out.println("Käyttäjätili löytyi!");
             System.out.println();
+            /* redirect atributes here? */
             return userAccount.get().getUserRole().equals("ROLE_SANTA") ?
                 "redirect:/santa-profile" :
                 userAccount.get().getUserRole().equals("ROLE_CUSTOMER") ? "redirect:/customer-profile":
@@ -42,11 +41,14 @@ public class CustomLoginController {
         System.out.println();
         System.out.println("Ei löytänyt autentikointia!");
         System.out.println();
+        
         return "redirect:/";
     }
+    
     @GetMapping("/logout")
-    public String userLogout() {
-
+    public String userLogout(RedirectAttributes redirectAttributes) {
+        /* Success on logout, issue here does not work */
+        redirectAttributes.addFlashAttribute("logoutInfo", "Uloskirjautuminen onnistui");
         return "redirect:/login-page";
     }
 

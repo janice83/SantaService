@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -31,8 +32,11 @@ public class CustomerController {
         return "customer";
     }
     @PostMapping("/register/customer")
-    public String register(@Valid @ModelAttribute UserAccount customerAccount, 
-        BindingResult result, Model model) {
+    public String register(
+        @Valid @ModelAttribute UserAccount customerAccount, 
+        BindingResult result, 
+        Model model,
+        RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
             return "customer";
@@ -43,7 +47,7 @@ public class CustomerController {
             model.addAttribute("usernameError", e.getMessage());
             return "customer";
         }
-        
+        redirectAttributes.addFlashAttribute("registerSuccess", "Kirjautuminen onnistui, kirjaudu palveluun");
         return "redirect:/login-page";
     }
 

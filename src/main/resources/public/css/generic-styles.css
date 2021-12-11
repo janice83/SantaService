@@ -134,7 +134,7 @@ nav ul li {
 
 .main-content {
     /* background-color: rgb(11, 11, 75); */
-    width: 100%;
+    /* width: 100%; */
     /* min-height: 40rem; */
     background: linear-gradient(#453986, #050a42);
 
@@ -180,25 +180,16 @@ footer {
     display: none;
 }
 
-/* Style navigation menu links */
-/* .topNav a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-} */
-
-/* Style the hamburger menu */
-/* .topNav a.icon {
-    display: contents;
-} */
+/* Alert messages */
 .error-message {
-
     color: red;
 }
 
 .alert {
-    border: 0.1rem solid brown;
+    border: 0.2rem solid rgb(121, 53, 53);
+    border-radius: 0.2rem;
+    /* width: 100%; */
+    margin: 2rem;
 }
 
 .alert-success {
@@ -208,12 +199,18 @@ footer {
 .alert-error {
     text-align: center;
     padding: 2rem;
-    background-color: rgba(211, 27, 27, 0.8);
+    background-color: rgba(211, 27, 27, 0.5);
 }
 
 .btn-close {
     background-color: inherit;
     font-size: 1.8rem;
+}
+
+.alert-info {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgb(143, 143, 44);
 }
 
 @media only screen and (min-width: 768px) {
