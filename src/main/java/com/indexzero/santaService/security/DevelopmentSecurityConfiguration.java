@@ -23,9 +23,9 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
     protected void configure(HttpSecurity http) throws Exception {
         String[] whitelistGet = new String[] {
                 "/", "/index", "/customer", "/register/customer", "/register/**",
-                 "/santa", "/santa-users", "/santas/available", "/santa/image/*" };
+                "/santa", "/santa-users", "/santas/available", "/santa/image/*" };
 
-        http.csrf().disable();
+        // http.csrf().disable();
         http.headers().frameOptions().sameOrigin();
 
         http.authorizeRequests().antMatchers("/h2-console", "/h2-console/**").permitAll();
@@ -41,11 +41,10 @@ public class DevelopmentSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/success", true).permitAll()
                 .and()
-                .logout()
-                .logoutUrl("/logout")
-                //.logoutSuccessUrl("/")
+                .logout().deleteCookies("remove").invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .permitAll();
+                .logoutUrl("/custom-logout").permitAll() // custom here
+                .logoutSuccessUrl("/custom-success");
 
     }
 

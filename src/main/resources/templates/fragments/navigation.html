@@ -14,7 +14,7 @@
             <a th:text="${#authentication.getPrincipal().getUsername()}" th:href="@{/customer-profile}"></a>
         </li>
         <li>
-            <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <form th:action="@{/custom-logout}" method="post" sec:authorize="isAuthenticated()">
                 <input class="santa-button" type="submit" value="Kirjaudu ulos">
             </form>
         </li>

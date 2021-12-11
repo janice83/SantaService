@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -19,9 +21,10 @@ public class CustomLoginController {
     private UserAccountRepository userAccountRepository;
 
     @GetMapping("/login-page")
-    public String redirectLogin() {
+    public String redirectLogin(Model model) {
         return "custom-login-page";
     }
+
     @GetMapping("/success")
     public String redirectAfterSuccess() {
         System.out.println();
@@ -33,21 +36,19 @@ public class CustomLoginController {
             System.out.println("Käyttäjätili löytyi!");
             System.out.println();
             /* redirect atributes here? */
-            return userAccount.get().getUserRole().equals("ROLE_SANTA") ?
-                "redirect:/santa-profile" :
-                userAccount.get().getUserRole().equals("ROLE_CUSTOMER") ? "redirect:/customer-profile":
-                "redirect:/";
-        } 
+            return userAccount.get().getUserRole().equals("ROLE_SANTA") ? "redirect:/santa-profile"
+                    : userAccount.get().getUserRole().equals("ROLE_CUSTOMER") ? "redirect:/customer-profile"
+                            : "redirect:/";
+        }
         System.out.println();
         System.out.println("Ei löytänyt autentikointia!");
         System.out.println();
-        
+
         return "redirect:/";
     }
-    
-    @GetMapping("/logout")
-    public String userLogout(RedirectAttributes redirectAttributes) {
-        /* Success on logout, issue here does not work */
+
+    @GetMapping("/custom-success")
+    public String successLogout(RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("logoutInfo", "Uloskirjautuminen onnistui");
         return "redirect:/login-page";
     }
@@ -55,5 +56,5 @@ public class CustomLoginController {
     private Authentication getAuthentication() {
         return SecurityContextHolder.getContext().getAuthentication();
     }
-    
+
 }
