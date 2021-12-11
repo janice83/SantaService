@@ -90,14 +90,20 @@ public class UserAccountController {
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
 
         if (checkIfAuthenticated(password, account.get().getPassword())) {
-            success = userAccountService.updateUsername(account, username);
-            refreshAuth(username, password, request);
+            try {
+                success = userAccountService.updateUsername(account, username);
+                refreshAuth(username, password, request);
+            } catch (Exception e) {
+                System.out.println();
+                System.out.println("Virhe: " + e.getMessage());
+                System.out.println();
+
+            }
             return redirectOnSuccess(success, redirectAttributes);
 
         }
         redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Incorrect password!");
         return redirectByUserRole();
-
 
     }
 
@@ -132,6 +138,7 @@ public class UserAccountController {
     private boolean checkIfAuthenticated(String inputPassword, String existingPassword) {
         return passwordEncoder.matches(inputPassword, existingPassword);
     }
+
     /* Refresh session */
     private void refreshAuth(
             String username,
@@ -156,6 +163,7 @@ public class UserAccountController {
         }
         return "redirect:/logout";
     }
+
     private String redirectOnSuccess(boolean success, RedirectAttributes redirectAttributes) {
         if (success) {
             redirectAttributes.addFlashAttribute("basicInfoUpdated", "updated successfully!");

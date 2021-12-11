@@ -109,6 +109,7 @@ public class UserAccountService {
             if (newAccount.anyValueBlank()) {
                 return false;
             }
+            
             /* Else assign new values to old */
             oldAccount.get().setFirstName(newAccount.getFirstName());
             oldAccount.get().setLastName(newAccount.getLastName());
@@ -123,8 +124,13 @@ public class UserAccountService {
 
     /* Update username */
     @Transactional
-    public boolean updateUsername(Optional<UserAccount> account, String username) {
+    public boolean updateUsername(Optional<UserAccount> account, String username) throws Exception {
         if (account.isPresent()) {
+            boolean usernameExists = usernameExists(username);
+            if (usernameExists) {
+                throw new Exception("Tämä käyttäjätunnus on jo olemassa!");
+
+            }
             account.get().setUsername(username);
             return true;
         }
