@@ -10,20 +10,19 @@
     </header>
     <main >
         <section class="customer-page-section">
-            <h1 class="customer-h1">Tilaa Joulupukki aatoksi!</h1>
+            <h1 class="customer-h1">Tilaa Joulupukki aatoksi!<span>&#127876;</span></h1>
             <p class="ei-sisennys">Sivuiltamme voit varata joulupukin suoraan kotiisi haluamanasi ajankohtana. Pääset selailemaan palvelustamme löytyviä joulupukkeja alta.</p>
         </section>
         <section class="customer-page-section">
             <h2>Uusille käyttäjille</h2>
+            <!-- <p style="font-size:5rem">&#127876;</p>
+            <p style="font-size:5rem">&#127877;</p> -->
             <p class="ei-sisennys">Etkö ole aikaisemmin tilannut pukkia kauttamme?</p>
         </section>
         <section class="customer-page-section">
             <p></p>
-            <!-- Kirjautuminen siirretty yhteiselle sivulle -->
-            <!-- <div th:replace="fragments/forms :: customer-login-fragment('Kirjaudu asiakastilille')"></div> -->
             <div th:replace="fragments/forms :: register-account(heading='Rekisteröidy perheeksi', type='customer')"></div>
         </section>
-        <!-- Tähän oli asetettu inlinena tyyliksi 100%(poistettu), antaa css tiedoston hoitaa tyylittely -->
         <section class="cards">
 
         </section>
