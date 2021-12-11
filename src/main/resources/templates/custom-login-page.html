@@ -14,6 +14,11 @@
         </section>
         <section class="login-page-main">
             <!-- alert: -->
+            <div th:if="${accountDeleted}" class="alert alert-info"><span>
+                <p th:text="${accountDeleted}"></p>
+            </span>
+            <button type="button" class="btn-close" onclick="closeElement()">X</button>
+        </div>
             <div th:if="${logoutInfo}" class="alert alert-info"><span>
                     <p th:text="${logoutInfo}"></p>
                 </span>

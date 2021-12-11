@@ -70,7 +70,9 @@ public class UserAccountController {
             newAccount.setPostalCode(postalCode);
             success = userAccountService.updateAccountInfo(oldAccount, newAccount);
             /* if successful add message and redirect by role */
-            return redirectOnSuccess(success, redirectAttributes);
+            return redirectOnSuccess(
+                    success, redirectAttributes, "Perustiedot päivitetty",
+                    "Jotain meni vikaan, perustietoja ei päivietty");
 
         }
         redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Incorrect password!");
@@ -90,19 +92,19 @@ public class UserAccountController {
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
 
         if (checkIfAuthenticated(password, account.get().getPassword())) {
+            String errorMessage = "";
             try {
                 success = userAccountService.updateUsername(account, username);
                 refreshAuth(username, password, request);
             } catch (Exception e) {
-                System.out.println();
-                System.out.println("Virhe: " + e.getMessage());
-                System.out.println();
-
+                errorMessage = e.getMessage();
             }
-            return redirectOnSuccess(success, redirectAttributes);
+            return redirectOnSuccess(
+                    success, redirectAttributes, "Käyttäjätunnus päivitetty",
+                    errorMessage);
 
         }
-        redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Incorrect password!");
+        redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Väärä salasana");
         return redirectByUserRole();
 
     }
@@ -110,22 +112,26 @@ public class UserAccountController {
     /* Delete useraccount */
     @PostMapping("/delete-user")
     public String deleteUserAccount(
-            @RequestParam(required = true) String password) {
-        boolean deleted = false;
+            @RequestParam(required = true) String password,
+            RedirectAttributes redirectAttributes) {
+        boolean deletedSuccessfully = false;
         Optional<UserAccount> account = userAccountService
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
         if (checkIfAuthenticated(password, account.get().getPassword())) {
+            String errorMessage = "";
             try {
-                deleted = userAccountService.deleteAccount(account.get());
-                /* Success atribute */
+                deletedSuccessfully = userAccountService.deleteAccount(account.get());
             } catch (Exception e) {
                 System.out.println("Tiliä ei löytynyt: " + e.getMessage());
-                /* Failure atribute */
+                errorMessage = e.getMessage();
             }
+            return redirectOnSuccess(
+                    deletedSuccessfully, redirectAttributes, "Poistettu!",
+                    errorMessage);
 
         }
-        /*  */
-        return deleted ? "redirect:/logout" : "redirect:/";
+        redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Väärä salasana");
+        return redirectByUserRole();
 
     }
 
@@ -154,22 +160,26 @@ public class UserAccountController {
     }
 
     private String redirectByUserRole() {
-        Optional<UserAccount> oldAccount = userAccountService
+        Optional<UserAccount> userAccount = userAccountService
                 .findUserAccountByUsername(getAuthenticatedUser().getName());
-        if (oldAccount.isPresent()) {
-            String userRole = oldAccount.get().getUserRole();
+        if (userAccount.isPresent()) {
+            String userRole = userAccount.get().getUserRole();
             return userRole.equals("ROLE_SANTA") ? "redirect:/santa-profile"
                     : userRole.equals("ROLE_CUSTOMER") ? "redirect:/customer-profile" : "redirect:/";
         }
-        return "redirect:/logout";
+        return "redirect:/custom-logout";
     }
 
-    private String redirectOnSuccess(boolean success, RedirectAttributes redirectAttributes) {
+    private String redirectOnSuccess(
+            boolean success,
+            RedirectAttributes redirectAttributes,
+            String successMessage,
+            String errorMessage) {
         if (success) {
-            redirectAttributes.addFlashAttribute("basicInfoUpdated", "updated successfully!");
+            redirectAttributes.addFlashAttribute("basicInfoUpdated", successMessage);
             return redirectByUserRole();
         }
-        redirectAttributes.addFlashAttribute("basicInfoNotUpdated", "Error, not updated!");
+        redirectAttributes.addFlashAttribute("basicInfoNotUpdated", errorMessage);
         return redirectByUserRole();
 
     }
