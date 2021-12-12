@@ -1,4 +1,4 @@
-section.customer-page-main  {
+section.customer-page-main {
     text-align: center;
 }
 
@@ -8,13 +8,14 @@ section.customer-page-main  {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    
+
 }
 
 .customer-page-form form {
     border: 0.1rem solid black;
     border-radius: 0.5rem;
-    background-color: rgba(109, 30, 30, 0.8);
+    /* background-color: rgba(109, 30, 30, 0.8); */
+    background: linear-gradient(192deg, rgb(92 50 19 / 80%), transparent);
     padding: 2rem;
 }
 
@@ -24,7 +25,7 @@ section.customer-page-main  {
     flex-wrap: wrap;
 }
 
-.customer-page-form form tr >* {
+.customer-page-form form tr>* {
     flex-basis: 100%;
 }
 
@@ -32,6 +33,7 @@ section.customer-page-main  {
     .customer-page-form form tr {
         flex-wrap: nowrap;
     }
+
     .customer-page-form {
         text-align: unset;
     }
@@ -72,4 +74,3 @@ section.customer-page-main  {
 #card-figure img {
     width: 100%;
 }
-

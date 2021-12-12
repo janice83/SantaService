@@ -6,6 +6,7 @@
 :root {
     --main-font-color: rgb(245, 214, 176);
     --main-nav-and-footer-color: rgb(180, 40, 40);
+    --main-main-color: rgb(25, 25, 128);
 
 }
 
@@ -78,7 +79,8 @@ figure h1 {
 }
 
 nav {
-    background: linear-gradient(356deg, rgb(51 7 7), rgb(166 24 24), #d69090);
+    /* background: linear-gradient(356deg, rgb(51 7 7), rgb(166 24 24), #d69090); */
+    background: linear-gradient(359deg, rgb(51 7 7), rgb(166 24 24), #863535);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -134,10 +136,7 @@ nav ul li {
 }
 
 .main-content {
-    /* background-color: rgb(11, 11, 75); */
-    /* width: 100%; */
-    /* min-height: 40rem; */
-    background: linear-gradient(#453986, #050a42);
+    background: linear-gradient(rgb(3 3 25), rgb(54 54 140), #983516);
 
 }
 
@@ -216,6 +215,9 @@ footer {
 
 /* Tabletti - ipad */
 @media only screen and (min-width: 768px) {
+    .main-image {
+        height: 40rem;
+    }
     .topNav #navLinks {
         display: flex;
 
@@ -228,6 +230,7 @@ footer {
 
     nav {
         flex-direction: row;
+        background: linear-gradient(2deg, rgb(51 7 7), rgb(166 24 24), #c6a2a2);
     }
 
     nav ul {
@@ -243,5 +246,19 @@ footer {
 @media only screen and (min-width: 1024px) {
     main {
         min-height: 90rem;
+    }
+
+    nav {
+        background: linear-gradient(1deg, rgb(51 7 7), rgb(166 24 24), #e9d4d4);
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .main-image {
+        height: 60rem;
+    }
+
+    nav {
+        background: linear-gradient(1deg, rgb(29 7 7), rgb(157 42 42), #f5f4f4);
     }
 }

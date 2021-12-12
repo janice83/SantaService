@@ -17,7 +17,8 @@ section.santa-page-main {
 .santa-page-form form {
     border: 0.1rem solid black;
     border-radius: 0.5rem;
-    background-color: rgba(109, 30, 30, 0.8);
+    /* background-color: rgba(109, 30, 30, 0.8); */
+    background: linear-gradient(192deg, rgb(92 50 19 / 80%), transparent);
     padding: 2rem;
 }
 
@@ -28,7 +29,7 @@ section.santa-page-main {
     flex-wrap: wrap;
 }
 
-.santa-page-form form tr >* {
+.santa-page-form form tr>* {
     flex-basis: 100%;
 }
 
@@ -36,6 +37,7 @@ section.santa-page-main {
     .santa-page-form form tr {
         flex-wrap: nowrap;
     }
+
     .santa-page-form {
         text-align: unset;
     }

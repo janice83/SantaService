@@ -9,13 +9,14 @@ section.login-page-main {
     flex-wrap: wrap;
 }
 
-.custom-login-page-main > * {
+.custom-login-page-main>* {
     flex-basis: 100%;
 }
 
 .login-page-form form {
     border: 0.1rem solid black;
     border-radius: 0.5rem;
-    background-color: rgba(17, 102, 14, 0.6);
+    /* background-color: rgba(17, 102, 14, 0.6); */
+    background: linear-gradient(192deg, rgb(94 152 33 / 80%), transparent);
     padding: 2rem;
 }
